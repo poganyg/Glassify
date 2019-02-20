@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/raspicam/raspicam-0.1.6
+CMAKE_SOURCE_DIR = /home/pi/Glassify/utils
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/raspicam/raspicam-0.1.6
+CMAKE_BINARY_DIR = /home/pi/Glassify/utils
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -81,24 +81,13 @@ install/fast: preinstall/fast
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\" \"main\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -124,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/raspicam/raspicam-0.1.6/CMakeFiles /home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/progress.marks
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/raspicam/raspicam-0.1.6/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/utils/CMakeFiles /home/pi/Glassify/utils/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/utils/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -141,48 +130,54 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-utils/CMakeFiles/raspicam_test.dir/rule:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/CMakeFiles/raspicam_test.dir/rule
-.PHONY : utils/CMakeFiles/raspicam_test.dir/rule
+#=============================================================================
+# Target rules for targets named raspicam_test
 
-# Convenience name for target.
-raspicam_test: utils/CMakeFiles/raspicam_test.dir/rule
-
+# Build rule for target.
+raspicam_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 raspicam_test
 .PHONY : raspicam_test
 
 # fast build rule for target.
 raspicam_test/fast:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_test.dir/build.make utils/CMakeFiles/raspicam_test.dir/build
+	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/build
 .PHONY : raspicam_test/fast
 
-# Convenience name for target.
-utils/CMakeFiles/raspicam_still_test.dir/rule:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f CMakeFiles/Makefile2 utils/CMakeFiles/raspicam_still_test.dir/rule
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/rule
+# Manual pre-install relink rule for target.
+raspicam_test/preinstall:
+	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/preinstall
+.PHONY : raspicam_test/preinstall
 
-# Convenience name for target.
-raspicam_still_test: utils/CMakeFiles/raspicam_still_test.dir/rule
+#=============================================================================
+# Target rules for targets named raspicam_still_test
 
+# Build rule for target.
+raspicam_still_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 raspicam_still_test
 .PHONY : raspicam_still_test
 
 # fast build rule for target.
 raspicam_still_test/fast:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_still_test.dir/build.make utils/CMakeFiles/raspicam_still_test.dir/build
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/build
 .PHONY : raspicam_still_test/fast
+
+# Manual pre-install relink rule for target.
+raspicam_still_test/preinstall:
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/preinstall
+.PHONY : raspicam_still_test/preinstall
 
 raspicam_still_test.o: raspicam_still_test.cpp.o
 
@@ -190,7 +185,7 @@ raspicam_still_test.o: raspicam_still_test.cpp.o
 
 # target to build an object file
 raspicam_still_test.cpp.o:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_still_test.dir/build.make utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
 .PHONY : raspicam_still_test.cpp.o
 
 raspicam_still_test.i: raspicam_still_test.cpp.i
@@ -199,7 +194,7 @@ raspicam_still_test.i: raspicam_still_test.cpp.i
 
 # target to preprocess a source file
 raspicam_still_test.cpp.i:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_still_test.dir/build.make utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i
 .PHONY : raspicam_still_test.cpp.i
 
 raspicam_still_test.s: raspicam_still_test.cpp.s
@@ -208,7 +203,7 @@ raspicam_still_test.s: raspicam_still_test.cpp.s
 
 # target to generate assembly for a file
 raspicam_still_test.cpp.s:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_still_test.dir/build.make utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s
 .PHONY : raspicam_still_test.cpp.s
 
 raspicam_test.o: raspicam_test.cpp.o
@@ -217,7 +212,7 @@ raspicam_test.o: raspicam_test.cpp.o
 
 # target to build an object file
 raspicam_test.cpp.o:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_test.dir/build.make utils/CMakeFiles/raspicam_test.dir/raspicam_test.cpp.o
+	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/raspicam_test.cpp.o
 .PHONY : raspicam_test.cpp.o
 
 raspicam_test.i: raspicam_test.cpp.i
@@ -226,7 +221,7 @@ raspicam_test.i: raspicam_test.cpp.i
 
 # target to preprocess a source file
 raspicam_test.cpp.i:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_test.dir/build.make utils/CMakeFiles/raspicam_test.dir/raspicam_test.cpp.i
+	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/raspicam_test.cpp.i
 .PHONY : raspicam_test.cpp.i
 
 raspicam_test.s: raspicam_test.cpp.s
@@ -235,7 +230,7 @@ raspicam_test.s: raspicam_test.cpp.s
 
 # target to generate assembly for a file
 raspicam_test.cpp.s:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(MAKE) -f utils/CMakeFiles/raspicam_test.dir/build.make utils/CMakeFiles/raspicam_test.dir/raspicam_test.cpp.s
+	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/raspicam_test.cpp.s
 .PHONY : raspicam_test.cpp.s
 
 # Help Target
@@ -248,7 +243,6 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... raspicam_test"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... raspicam_still_test"
@@ -269,6 +263,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -43,42 +43,42 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/raspicam/raspicam-0.1.6
+CMAKE_SOURCE_DIR = /home/pi/Glassify/utils
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/raspicam/raspicam-0.1.6
+CMAKE_BINARY_DIR = /home/pi/Glassify/utils
 
 # Include any dependencies generated for this target.
-include utils/CMakeFiles/raspicam_still_test.dir/depend.make
+include CMakeFiles/raspicam_still_test.dir/depend.make
 
 # Include the progress variables for this target.
-include utils/CMakeFiles/raspicam_still_test.dir/progress.make
+include CMakeFiles/raspicam_still_test.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include utils/CMakeFiles/raspicam_still_test.dir/flags.make
+include CMakeFiles/raspicam_still_test.dir/flags.make
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o: utils/CMakeFiles/raspicam_still_test.dir/flags.make
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o: utils/raspicam_still_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/raspicam/raspicam-0.1.6/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o"
-	cd /home/pi/raspicam/raspicam-0.1.6/utils && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o -c /home/pi/raspicam/raspicam-0.1.6/utils/raspicam_still_test.cpp
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o: CMakeFiles/raspicam_still_test.dir/flags.make
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o: raspicam_still_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Glassify/utils/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o -c /home/pi/Glassify/utils/raspicam_still_test.cpp
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i: cmake_force
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i"
-	cd /home/pi/raspicam/raspicam-0.1.6/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/raspicam/raspicam-0.1.6/utils/raspicam_still_test.cpp > CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Glassify/utils/raspicam_still_test.cpp > CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.i
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s: cmake_force
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s"
-	cd /home/pi/raspicam/raspicam-0.1.6/utils && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/raspicam/raspicam-0.1.6/utils/raspicam_still_test.cpp -o CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Glassify/utils/raspicam_still_test.cpp -o CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.s
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires:
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires:
 
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
+.PHONY : CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides: utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
-	$(MAKE) -f utils/CMakeFiles/raspicam_still_test.dir/build.make utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides.build
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides: CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
+	$(MAKE) -f CMakeFiles/raspicam_still_test.dir/build.make CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides.build
+.PHONY : CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides
 
-utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides.build: utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
+CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.provides.build: CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
 
 
 # Object files for target raspicam_still_test
@@ -88,30 +88,44 @@ raspicam_still_test_OBJECTS = \
 # External object files for target raspicam_still_test
 raspicam_still_test_EXTERNAL_OBJECTS =
 
-utils/raspicam_still_test: utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
-utils/raspicam_still_test: utils/CMakeFiles/raspicam_still_test.dir/build.make
-utils/raspicam_still_test: src/libraspicam.so.0.1.6
-utils/raspicam_still_test: /opt/vc/lib/libmmal_core.so
-utils/raspicam_still_test: /opt/vc/lib/libmmal_util.so
-utils/raspicam_still_test: /opt/vc/lib/libmmal.so
-utils/raspicam_still_test: utils/CMakeFiles/raspicam_still_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/raspicam/raspicam-0.1.6/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable raspicam_still_test"
-	cd /home/pi/raspicam/raspicam-0.1.6/utils && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raspicam_still_test.dir/link.txt --verbose=$(VERBOSE)
+raspicam_still_test: CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
+raspicam_still_test: CMakeFiles/raspicam_still_test.dir/build.make
+raspicam_still_test: CMakeFiles/raspicam_still_test.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Glassify/utils/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable raspicam_still_test"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raspicam_still_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-utils/CMakeFiles/raspicam_still_test.dir/build: utils/raspicam_still_test
+CMakeFiles/raspicam_still_test.dir/build: raspicam_still_test
 
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/build
+.PHONY : CMakeFiles/raspicam_still_test.dir/build
 
-utils/CMakeFiles/raspicam_still_test.dir/requires: utils/CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
+# Object files for target raspicam_still_test
+raspicam_still_test_OBJECTS = \
+"CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o"
 
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/requires
+# External object files for target raspicam_still_test
+raspicam_still_test_EXTERNAL_OBJECTS =
 
-utils/CMakeFiles/raspicam_still_test.dir/clean:
-	cd /home/pi/raspicam/raspicam-0.1.6/utils && $(CMAKE_COMMAND) -P CMakeFiles/raspicam_still_test.dir/cmake_clean.cmake
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/clean
+CMakeFiles/CMakeRelink.dir/raspicam_still_test: CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o
+CMakeFiles/CMakeRelink.dir/raspicam_still_test: CMakeFiles/raspicam_still_test.dir/build.make
+CMakeFiles/CMakeRelink.dir/raspicam_still_test: CMakeFiles/raspicam_still_test.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Glassify/utils/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable CMakeFiles/CMakeRelink.dir/raspicam_still_test"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raspicam_still_test.dir/relink.txt --verbose=$(VERBOSE)
 
-utils/CMakeFiles/raspicam_still_test.dir/depend:
-	cd /home/pi/raspicam/raspicam-0.1.6 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/raspicam/raspicam-0.1.6 /home/pi/raspicam/raspicam-0.1.6/utils /home/pi/raspicam/raspicam-0.1.6 /home/pi/raspicam/raspicam-0.1.6/utils /home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/raspicam_still_test.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : utils/CMakeFiles/raspicam_still_test.dir/depend
+# Rule to relink during preinstall.
+CMakeFiles/raspicam_still_test.dir/preinstall: CMakeFiles/CMakeRelink.dir/raspicam_still_test
+
+.PHONY : CMakeFiles/raspicam_still_test.dir/preinstall
+
+CMakeFiles/raspicam_still_test.dir/requires: CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o.requires
+
+.PHONY : CMakeFiles/raspicam_still_test.dir/requires
+
+CMakeFiles/raspicam_still_test.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/raspicam_still_test.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/raspicam_still_test.dir/clean
+
+CMakeFiles/raspicam_still_test.dir/depend:
+	cd /home/pi/Glassify/utils && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Glassify/utils /home/pi/Glassify/utils /home/pi/Glassify/utils /home/pi/Glassify/utils /home/pi/Glassify/utils/CMakeFiles/raspicam_still_test.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/raspicam_still_test.dir/depend
 

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/raspicam/raspicam-0.1.6/utils/raspicam_test.cpp
+/home/pi/Glassify/utils/raspicam_test.cpp
 iostream
 -
 ctime
@@ -20,19 +20,9 @@ sstream
 sys/timeb.h
 -
 raspicam.h
-/home/pi/raspicam/raspicam-0.1.6/utils/raspicam.h
+/home/pi/Glassify/utils/raspicam.h
 sys/time.h
 -
 unistd.h
 -
-
-src/raspicam.h
-cstdio
--
-string
--
-raspicamtypes.h
-src/raspicamtypes.h
-
-src/raspicamtypes.h
 

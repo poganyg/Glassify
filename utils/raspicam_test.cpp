@@ -1,3 +1,4 @@
+
 /**********************************************************
  Software developed by AVA ( Ava Group of the University of Cordoba, ava  at uco dot es)
  Main author Rafael Munoz Salinas (rmsalinas at uco dot es)
@@ -206,19 +207,19 @@ int main ( int argc,char **argv ) {
     size_t i=0;
     timer.start();
  do{
-        //Camera.grab();
-        //Camera.retrieve ( data );
+        Camera.grab();
+        Camera.retrieve ( data );
         if ( !doTestSpeedOnly ) {
 	   cout << "frame : " << i <<endl; //ADDED -- This prints the number of the current frame. The double arrows at the end of the line make it so that the terminal goes to a new line.
-            //if ( i%5==0 ) 	  cout<<"\r capturing ..."<<i<<"/"<<nFramesCaptured<<std::flush; //REMOVED
-            //if ( i%30==0 && i!=0  && nFramesCaptured>0 ) { //save image if not in inifite loop //REMOVED
-                //std::stringstream fn; //REMOVED
-                //fn<<"image"; //REMOVED
-		//if (i<10) fn<<"0"; //REMOVED
-		//fn<<i<<".jpg"; //REMOVED
-                //saveImage ( fn.str(),data,Camera ); //REMOVED
-		//cerr<<"Saving "<<fn.str()<<endl; //REMOVED
-            //} //REMOVED
+            if ( i%5==0 ) 	  cout<<"\r capturing ..."<<i<<"/"<<nFramesCaptured<<std::flush; //REMOVED
+            if ( i%30==0 && i!=0  && nFramesCaptured>0 ) { //save image if not in inifite loop //REMOVED
+                std::stringstream fn; //REMOVED
+                fn<<"image"; //REMOVED
+		if (i<10) fn<<"0"; //REMOVED
+		fn<<i<<".jpg"; //REMOVED
+                saveImage ( fn.str(),data,Camera ); //REMOVED
+		cerr<<"Saving "<<fn.str()<<endl; //REMOVED
+            } //REMOVED
         }
     }while(++i<nFramesCaptured || nFramesCaptured==0);//stops when nFrames captured or at infinity lpif nFramesCaptured<0
 

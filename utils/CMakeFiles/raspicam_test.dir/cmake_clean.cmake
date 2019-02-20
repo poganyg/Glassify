@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/raspicam_test.dir/raspicam_test.cpp.o"
   "raspicam_test.pdb"
   "raspicam_test"
+  "raspicam_test.pdb"
+  "CMakeFiles/CMakeRelink.dir/raspicam_test"
 )
 
 # Per-language clean rules from dependency scanning.

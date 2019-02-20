@@ -1,0 +1,1 @@
+/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/raspicam_still_test.dir/raspicam_still_test.cpp.o  -o CMakeFiles/CMakeRelink.dir/raspicam_still_test -rdynamic -lProject 
