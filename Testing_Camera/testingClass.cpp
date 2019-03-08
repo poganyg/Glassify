@@ -3,6 +3,5 @@ int main(){
 
 AcquiringImages Takepicnow;
 Takepicnow.captureImage();
-
 return 0;
 }
