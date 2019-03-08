@@ -20,7 +20,7 @@ int main()
   servo.init(90);
   delay(2 * sec);
 
-  for(i=90;i<181;++i) {
+  for(int i=90;i<181;++i) {
     //cout << "Angle +60 degrees" << endl;
     servo.move(i);
     delay(0.1*sec);
