@@ -13,8 +13,9 @@ class AcquiringImages{
           raspicam::RaspiCam Camera; //Camera object
           //Open camera
           cout<<"Opening Camera..."<<endl;
-          //if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
+          if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}//return -1;}
           //wait a while until camera stabilizes
+          sleep(3);
           Camera.grab();
           //allocate memory
           unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB )];
