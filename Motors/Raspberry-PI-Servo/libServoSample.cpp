@@ -19,13 +19,12 @@ int main()
   cout << "Initialising the servo" << endl;
   servo.init(90);
   delay(2 * sec);
-  for(;;) {
-    cout << "Angle +60 degrees" << endl;
-    servo.move(0);
-    delay(2*sec);
-    cout << "Angle -60 degrees" << endl;
-    servo.move(180);
-    delay(2*sec);
+
+  for(i=90;i<181;++i) {
+    //cout << "Angle +60 degrees" << endl;
+    servo.move(i);
+    delay(0.1*sec);
+    //cout << "Angle -60 degrees" << endl;
   }
 
 return 0;
