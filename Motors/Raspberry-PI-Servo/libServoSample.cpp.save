@@ -1,0 +1,29 @@
+#include <wiringPi.h> // don't forget
+#include <cstdlib>
+#include <iostream>
+#include "libServo.h"
+
+using namespace std;
+
+int dly = 100;
+int pin=18;
+int Q=1;
+int main()
+{
+    wiringPiSetupGpio();
+    if (wiringPiSetup() == -1)
+        exit(1);
+//while(pin<40){
+while(Q<40){
+    Servo servo(pin);
+    servo.init(90); // initialize the servo to an angle. Need to be called only once
+cout << "Im a saucy monkey" <<endl;
+servo.move(135); // Then move the servo to any angle
+delay(dly);
+servo.move(45);
+delay(dly);
+Q=Q+1;
+cout << pin << endl;
+}
+return 0;
+}
