@@ -7,13 +7,13 @@ using namespace std;
 
 class AcquiringImages{
 
-  public;
+  public:
 
- void captureImage{}{
+ void captureImage(){
           raspicam::RaspiCam Camera; //Camera object
           //Open camera
           cout<<"Opening Camera..."<<endl;
-          if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
+          //if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
           //wait a while until camera stabilizes
           Camera.grab();
           //allocate memory
