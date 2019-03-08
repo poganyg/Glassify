@@ -1,0 +1,5 @@
+cmake_minimum_required (VERSION 2.8) 
+project (raspicam_test)
+find_package(raspicam REQUIRED)
+add_executable (Using_Camera Using_Camera.cpp)  
+target_link_libraries (Using_Camera ${raspicam_LIBS})
