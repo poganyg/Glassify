@@ -12,9 +12,9 @@ public:
         raspicam::RaspiCam Camera;
         cout<<"Opening Camera..."<<endl;
         if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
-        time.sleep(2);
-        void camera.setWidth(640) ;
-        void camera.setHeight(480);
+        //time.sleep(2);
+        Camera.setWidth(640) ;
+        Camera.setHeight(480);
         Camera.setFrameRate(60);
       }
       void captureImage(){
@@ -36,6 +36,7 @@ public:
              }
 
      void captureBurst(){
+        raspicam::RaspiCam Camera;
         std::clock_t start;
         double duration;
         start = std::clock();
@@ -49,6 +50,6 @@ public:
               outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB ) );
             }
             duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-            std::cout<<"printf: "<< duration <<'\n'
+            std::cout<<"printf: "<< duration <<'\n';
      }
 };
