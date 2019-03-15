@@ -35,7 +35,7 @@ class AcquiringImages{
                cout<<"Image saved as Bottle_image.ppm"<<endl;
              }
 
-     void catureBurst{}{
+     void captureBurst{}{
         std::clock_t start;
         double duration;
         start = std::clock();
