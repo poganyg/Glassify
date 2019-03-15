@@ -1,8 +1,0 @@
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/install/local.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/install.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/list_install_components.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/raspicam_test.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/install/strip.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/edit_cache.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/rebuild_cache.dir
-/home/pi/raspicam/raspicam-0.1.6/utils/CMakeFiles/raspicam_still_test.dir
