@@ -7,8 +7,8 @@ using namespace std;
 
 class AcquiringImages{
 
-  public;
-  void SetupCamera{}{
+public:
+  void SetupCamera(){
         raspicam::RaspiCam Camera;
         cout<<"Opening Camera..."<<endl;
         if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
@@ -17,7 +17,7 @@ class AcquiringImages{
         void camera.setHeight(480);
         Camera.setFrameRate(60);
       }
-      void captureImage{}{
+      void captureImage(){
                raspicam::RaspiCam Camera; //Camera object
                //Open camera
                cout<<"Opening Camera..."<<endl;
@@ -35,7 +35,7 @@ class AcquiringImages{
                cout<<"Image saved as Bottle_image.ppm"<<endl;
              }
 
-     void captureBurst{}{
+     void captureBurst(){
         std::clock_t start;
         double duration;
         start = std::clock();
