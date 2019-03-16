@@ -6,14 +6,14 @@
 # Pinout of the LCD:
 # 1 : GND
 # 2 : 5V power
-# 3 : Display contrast    - Connect to middle pin potentiometer   
+# 3 : Display contrast    - Connect to middle pin potentiometer
 # 4 : RS (Register Select)
 # 5 : R/W (Read Write)    - Ground this pin (important)
 # 6 : Enable or Strobe
 # 7 : Data Bit 0          - data pin 0, 1, 2, 3 are not used
-# 8 : Data Bit 1          -   
-# 9 : Data Bit 2          -   
-# 10: Data Bit 3          -   
+# 8 : Data Bit 1          -
+# 9 : Data Bit 2          -
+# 10: Data Bit 3          -
 # 11: Data Bit 4
 # 12: Data Bit 5
 # 13: Data Bit 6
@@ -40,19 +40,12 @@ LCD_LINE_1 = 0x80 # LCD memory location for 1st line
 LCD_LINE_2 = 0xC0 # LCD memory location 2nd line
 
 # Define main program code
+"""
 def main():
-  
-  GPIO.setwarnings(False)
-  GPIO.setmode(GPIO.BCM)       # Use BCM GPIO numbers
-  GPIO.setup(LCD_E, GPIO.OUT)  # Set GPIO's to output mode
-  GPIO.setup(LCD_RS, GPIO.OUT)
-  GPIO.setup(LCD_D4, GPIO.OUT)
-  GPIO.setup(LCD_D5, GPIO.OUT)
-  GPIO.setup(LCD_D6, GPIO.OUT)
-  GPIO.setup(LCD_D7, GPIO.OUT)
+
 
 # Initialize display
-  lcd_init()
+
 
 # Loop - send text and sleep 3 seconds between texts
 # Change text to anything you wish, but must be 16 characters or less
@@ -86,6 +79,15 @@ def main():
 
 # Initialize and clear display
 def lcd_init():
+  GPIO.setwarnings(False)
+  GPIO.setmode(GPIO.BCM)       # Use BCM GPIO numbers
+  GPIO.setup(LCD_E, GPIO.OUT)  # Set GPIO's to output mode
+  GPIO.setup(LCD_RS, GPIO.OUT)
+  GPIO.setup(LCD_D4, GPIO.OUT)
+  GPIO.setup(LCD_D5, GPIO.OUT)
+  GPIO.setup(LCD_D6, GPIO.OUT)
+  GPIO.setup(LCD_D7, GPIO.OUT)
+
   lcd_write(0x33,LCD_CMD) # Initialize
   lcd_write(0x32,LCD_CMD) # Set to 4-bit mode
   lcd_write(0x06,LCD_CMD) # Cursor move direction
@@ -146,17 +148,3 @@ def lcd_text(message,line):
 
   for i in range(LCD_CHARS):
     lcd_write(ord(message[i]),LCD_CHR)
-
-
-#Begin program
-try:
-  main()
-	  
-except KeyboardInterrupt:
-  pass
-	
-finally:
-  lcd_write(0x01, LCD_CMD)
-  lcd_text("So long!",LCD_LINE_1)
-  lcd_text("MBTechWorks.com",LCD_LINE_2)
-  GPIO.cleanup()

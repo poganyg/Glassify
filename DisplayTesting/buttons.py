@@ -57,7 +57,7 @@ except KeyboardInterrupt:
   pass
 
 finally:
-  lcd_write(0x01, LCD_CMD)
-  lcd_text("Bye!",LCD_LINE_1)
-  lcd_text("Glassify",LCD_LINE_2)
+  lcd.lcd_write(0x01, LCD_CMD)
+  lcd.lcd_text("Bye!",LCD_LINE_1)
+  lcd.lcd_text("Glassify",LCD_LINE_2)
   GPIO.cleanup()
