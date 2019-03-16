@@ -40,7 +40,7 @@ LCD_LINE_1 = 0x80 # LCD memory location for 1st line
 LCD_LINE_2 = 0xC0 # LCD memory location 2nd line
 
 # Define main program code
-"""
+
 def main():
 
 
