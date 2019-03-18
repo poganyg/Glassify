@@ -50,7 +50,7 @@ def main ():
                 GPIO.output(SWITCH, GPIO.HIGH)
     		if S == GPIO.LOW:
     			lcd.lcd_text("Sensor up",lcd.LCD_LINE_1)
-                #GPIO.output(SWITCH, 0)
+                GPIO.output(SWITCH, GPIO.LOW)
     		time.sleep(0.05)
 
 
