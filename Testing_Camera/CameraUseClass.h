@@ -1,4 +1,5 @@
 #include <ctime>
+#include <sstream>
 #include <fstream>
 #include <iostream>
 #include <unistd.h>
@@ -39,13 +40,19 @@ public:
         raspicam::RaspiCam Camera;
         std::clock_t start;
         double duration;
+//	char name[12]="Burst";
         start = std::clock();
             for (int i=0; i<50; i++) {
               Camera.grab();
               unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB )];
               Camera.retrieve( data,raspicam::RASPICAM_FORMAT_RGB  );
-              filename="c:\\BurstImage" + IntToStr(i) +".ppm"
-              std::ofstream outFile ( filename ,std::ios::binary );
+             // filename="c:\\BurstImage" + IntToStr(i) +".ppm"
+		std::string oo;
+	//	name="Burst";
+	//	name<<i<<".ppm";
+		std::stringstream name;
+		name <<i<<".ppm";
+              std::ofstream outFile ( name.str() ,std::ios::binary );
               outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
               outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB ) );
             }
