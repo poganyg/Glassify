@@ -48,6 +48,7 @@ def main ():
     		if S == GPIO.HIGH:
     			lcd.lcd_text("Sensor down",lcd.LCD_LINE_1)
                 GPIO.output(SWITCH, 1)
+                time.sleep(0.05)
     		if S == GPIO.LOW:
     			lcd.lcd_text("Sensor up",lcd.LCD_LINE_1)
                 GPIO.output(SWITCH, 0)
