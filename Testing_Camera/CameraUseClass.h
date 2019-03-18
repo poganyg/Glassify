@@ -12,7 +12,7 @@ public:
         raspicam::RaspiCam Camera;
         cout<<"Opening Camera..."<<endl;
         if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
-        //time.sleep(2);
+        sleep(2);
         Camera.setWidth(640) ;
         Camera.setHeight(480);
         Camera.setFrameRate(60);
