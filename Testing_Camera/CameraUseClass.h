@@ -11,7 +11,7 @@ public:
   void SetupCamera(){
         raspicam::RaspiCam Camera;
         cout<<"Opening Camera..."<<endl;
-        if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
+        if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}//return -1;}
         sleep(2);
         Camera.setWidth(640) ;
         Camera.setHeight(480);
@@ -21,7 +21,7 @@ public:
                raspicam::RaspiCam Camera; //Camera object
                //Open camera
                cout<<"Opening Camera..."<<endl;
-               if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;return -1;}
+               if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}//return -1;}
                //wait a while until camera stabilizes
                Camera.grab();
                //allocate memory
