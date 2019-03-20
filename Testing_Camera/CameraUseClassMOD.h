@@ -31,6 +31,7 @@ public:
                	Camera.grab();
                	//allocate memory
                	unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR )];
+		
                	//extract the image in rgb format
                	Camera.retrieve ( data,raspicam::RASPICAM_FORMAT_BGR );//get camera image
 		Mat frame;
