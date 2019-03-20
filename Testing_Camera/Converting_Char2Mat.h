@@ -1,8 +1,11 @@
-#include <raspicam/raspicam.h>
-class AcquiringImages{
+//#include <raspicam/raspicam.h>
+
+using namespace cv;
+
+class ConvertingImages{
 
 public:
-  void ConvertingChar2Mat(){
+  Mat ConvertingChar2Mat(uchar data){
     raspicam::RaspiCam Camera;
 const int WIDTH = Camera.getWidth(), HEIGHT = Camera.getHeight();
 
@@ -24,26 +27,8 @@ for (int i = 0; i < WIDTH*HEIGHT*3;i+=3)
     }
 }
 
-cout << "May God be pleased with you, amen!\n";
-
-Mat colorfrm = Mat(HEIGHT, WIDTH, CV_8UC3);
-colorfrm.data = data;
-
-while (1)
-{
-imshow("Original Image", colorfrm);
-
-    /////////
-
-    int c = cvWaitKey(30);
-    if (c == ' ')
-    {
-        break;
-    }
-    if (c == 'q' || c == 'Q' || c == 27)
-    {
-        return 0;
-    }
+Mat output = Mat(HEIGHT, WIDTH, CV_8UC3);
+output.data = data;
+return output;
 }
-}
-}
+};

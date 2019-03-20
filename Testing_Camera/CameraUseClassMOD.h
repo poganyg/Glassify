@@ -6,6 +6,7 @@
 #include <raspicam/raspicam.h>
 #include <opencv2/opencv.hpp>
 #include <stdint.h>
+//#include "Converting_Char2Mat.h"
 
 using namespace cv;
 using namespace std;
@@ -24,25 +25,27 @@ public:
       }
       void captureImage(){
 		raspicam::RaspiCam Camera; //Camera object
-               	//Open camera
+               	//ConvertingImages convertNow;
+//Open camera
                	cout<<"Opening Camera..."<<endl;
                	if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}//return -1;}
                	//wait a while until camera stabilizes
                	Camera.grab();
                	//allocate memory
                	unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR )];
-		
+		//convertNow.ConvertingChar2Mat(data);
+		cout<<data[0]<<endl;
                	//extract the image in rgb format
                	Camera.retrieve ( data,raspicam::RASPICAM_FORMAT_BGR );//get camera image
-		Mat frame;
-		Mat modFrame;
-		frame = data;
-		cvtColor(frame, modFrame, COLOR_BGR2HSV);
+		//Mat frame;
+		//Mat modFrame;
+		//frame = output;
+		//cvtColor(frame, modFrame, COLOR_BGR2HSV);
 		
                	//save
                	std::ofstream outFile ( "Bottle_image.ppm",std::ios::binary );
                	outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
-               	outFile.write ( ( char* ) modFrame, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR ) );
+               	outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR ) );
                	cout<<"Image saved as Bottle_image.ppm"<<endl;
 		}
 
