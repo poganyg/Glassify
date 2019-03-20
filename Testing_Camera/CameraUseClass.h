@@ -4,6 +4,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <raspicam/raspicam.h>
+
 using namespace std;
 
 class AcquiringImages{
@@ -40,16 +41,12 @@ public:
         raspicam::RaspiCam Camera;
         std::clock_t start;
         double duration;
-//	char name[12]="Burst";
         start = std::clock();
             for (int i=0; i<50; i++) {
               Camera.grab();
               unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB )];
               Camera.retrieve( data,raspicam::RASPICAM_FORMAT_RGB  );
-             // filename="c:\\BurstImage" + IntToStr(i) +".ppm"
 		std::string oo;
-	//	name="Burst";
-	//	name<<i<<".ppm";
 		std::stringstream name;
 		name <<i<<".ppm";
               std::ofstream outFile ( name.str() ,std::ios::binary );
