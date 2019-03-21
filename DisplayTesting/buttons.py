@@ -55,7 +55,6 @@ def main ():
     			lcd.lcd_text("Sensor down",lcd.LCD_LINE_1)
                 GPIO.output(SWITCH, GPIO.HIGH)
                 time.sleep(2)
-                p = GPIO.PWM(SERVO, 50)
                 p.start(dutyCycle)
                 for i in range(4):
                     lcd.lcd_text("Duty cycle:",lcd.LCD_LINE_1)
