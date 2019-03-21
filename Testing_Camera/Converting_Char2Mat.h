@@ -5,7 +5,7 @@ using namespace cv;
 class ConvertingImages{
 
 public:
-  Mat ConvertingChar2Mat(uchar data){
+  Mat ConvertingChar2Mat(unsigned char* data){
     raspicam::RaspiCam Camera;
 const int WIDTH = Camera.getWidth(), HEIGHT = Camera.getHeight();
 

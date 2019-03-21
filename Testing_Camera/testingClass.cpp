@@ -1,9 +1,9 @@
-#include "CameraUseClass.h"
-//#include "CameraUseClassMOD.h"
+//#include "CameraUseClass.h"
+#include "CameraUseClassMOD.h"
 
 int main(){
 
-AcquiringImages Takepicnow;
+AcqClassImages Takepicnow;
 Takepicnow.captureImage();
 return 0;
 }
