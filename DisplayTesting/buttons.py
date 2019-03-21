@@ -57,7 +57,7 @@ def main ():
                 time.sleep(2)
                 p = GPIO.PWM(SERVO, 50)
                 p.start(dutyCycle)
-                for i in range(4)
+                for i in range(4):
                     lcd.lcd_text("Duty cycle:",lcd.LCD_LINE_1)
                     lcd.lcd_text(str(dutyCycle+(i+1)*2.5),lcd.LCD_LINE_2)
                     p.ChangeDutyCycle(dutyCycle+(i+1)*2.5)
