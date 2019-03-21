@@ -6,6 +6,8 @@
 #include <raspicam/raspicam.h>
 #include <opencv2/opencv.hpp>
 #include <stdint.h>
+//#include <opencv2/core.hpp>
+#include <opencv2/core/mat.hpp>
 #include "Converting_Char2Mat.h"
 
 using namespace cv;
@@ -37,18 +39,24 @@ public:
 		//cout<<data[0]<<endl;
                	//extract the image in rgb format
                	Camera.retrieve ( data,raspicam::RASPICAM_FORMAT_BGR );//get camera image
-	 	Mat frame;
-		Mat modFrame;
+		cout<<Camera.getWidth()<<endl;
+		cout<<Camera.getHeight()<<endl;
+	 	Mat frame(cv::Size(Camera.getWidth(),Camera.getHeight()),CV_8UC3, Scalar::all(0));
+		Mat modFrame(cv::Size(Camera.getWidth(),Camera.getHeight()),CV_8UC3);
+		cout<<frame.data<<endl;
 		//frame = output;
-		convertNow.ConvertingChar2Mat(data);
-		frame = data;
+		frame=convertNow.ConvertingChar2Mat(data);
+	 //	frame = data;
+		cout<<frame.data<<endl;
+		cout<<"Got Past char2Mat"<<endl;
 		cvtColor(frame, modFrame, COLOR_BGR2HSV);
-		imwrite("home/pi/Photo_Storage",modFrame);
-               	//save
-               //	std::ofstream outFile ( "Bottle_image.ppm",std::ios::binary );
-               //	outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
-               //	outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR ) );
-		cout<<"Image saved as Bottle_image.ppm"<<endl; 
+		cout<<"Got Past BGR2HSV"<<endl;
+		imwrite("ClassifiableImage.ppm",modFrame);
+		//save
+        //       	std::ofstream outFile ( "ClassifiableImage.xml",std::ios::binary );
+          //     	outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
+            //  	outFile.write ( ( Mat ) modFrame, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR ) );
+	//	cout<<"Image saved as Bottle_image.ppm"<<endl; 
 		}
 
 /*
