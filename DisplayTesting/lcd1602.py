@@ -25,12 +25,12 @@ import RPi.GPIO as GPIO
 import time
 
 # GPIO to LCD mapping
-LCD_RS = 2   # Pi pin 26
-LCD_E  = 3   # Pi pin 24
-LCD_D4 = 6  # Pi pin 22
-LCD_D5 = 13  # Pi pin 18
-LCD_D6 = 19  # Pi pin 16
-LCD_D7 = 26  # Pi pin 12
+LCD_RS = 24   # Pi pin 26
+LCD_E  = 23   # Pi pin 24
+LCD_D4 = 2  # Pi pin 22
+LCD_D5 = 18  # Pi pin 18
+LCD_D6 = 15  # Pi pin 16
+LCD_D7 = 14  # Pi pin 12
 
 # Device constants
 LCD_CHR = True    # Character mode
