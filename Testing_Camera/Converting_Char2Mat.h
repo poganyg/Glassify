@@ -5,9 +5,9 @@ using namespace cv;
 class ConvertingImages{
 
 public:
-  Mat ConvertingChar2Mat(unsigned char* data){
-    raspicam::RaspiCam Camera;
-const int WIDTH = Camera.getWidth(), HEIGHT = Camera.getHeight();
+  Mat ConvertingChar2Mat(unsigned char* data){ // Function takes the pointer to the data
+    raspicam::RaspiCam Camera; // creates an instance of the camera class
+const int WIDTH = Camera.getWidth(), HEIGHT = Camera.getHeight(); // creates constant variables WIDTH and HEIGHT
 
 //uchar *data = new uchar[WIDTH * HEIGHT * 3];
 
@@ -27,7 +27,7 @@ for (int i = 0; i < WIDTH*HEIGHT*3;i+=3)
     }
 }
 
-Mat output = Mat(HEIGHT, WIDTH, CV_8UC3);
+Mat output = Mat(HEIGHT, WIDTH, CV_8UC3); //creates 3D Mat object HEIGHT x WIDTH x 3 consisting of 8-bit Unsigned Chars
 output.data = data;
 return output;
 }
