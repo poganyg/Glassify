@@ -31,7 +31,7 @@ public:
                //extract the image in rgb format
                Camera.retrieve ( data,raspicam::RASPICAM_FORMAT_RGB );//get camera image
                //save
-               std::ofstream outFile ( "Bottle_image.ppm",std::ios::binary );
+               std::ofstream outFile ( "Bottle_image2.ppm",std::ios::binary );
                outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
                outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB ) );
                cout<<"Image saved as Bottle_image.ppm"<<endl;
