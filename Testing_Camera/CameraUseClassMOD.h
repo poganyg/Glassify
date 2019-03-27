@@ -37,9 +37,9 @@ public:
                	Camera.grab();
                	//allocate memory
                	unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR )];
-		int Dims = 0;
-		Dims = Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_BGR);
-		cout << "The image dimensions are : " << Dims << ". I.e. Height X Width X 3" << endl;
+		//int Dims = 0;
+		//Dims = Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_BGR);
+		//cout << "The image dimensions are : " << Dims << ". I.e. Height X Width X 3" << endl;
 		//convertNow.ConvertingChar2Mat(data);
 		//cout<<data[0]<<endl;
                	//extract the image in rgb format
@@ -65,18 +65,19 @@ cout<<sizeof(data)<<endl;
 //		cout<<frame.data<<endl;
 		//frame = output;
 //		frame=convertNow.ConvertingChar2Mat(data);
-		Mat frame(height,width, CV_8UC3); // should be height THEN width
+		Mat frame(height,width, CV_8UC3, data); // should be height THEN width
 		//frame=Scalar(0,0);
-		cout << "is Mat object, 'frame' empty?" << frame.empty() << endl;
+		//cout << "is Mat object, 'frame' empty?" << frame.empty() << endl;
 
 		//cout << "The number of nonzero elements in 'frame' is : " << countNonZero(frame);
  //		frame = data;
-		cout<<"Output from 'frame.data': " << frame.data <<endl;
-		cout<<"Output from 'frame.size': " << frame.size() <<endl;
-//		imwrite("MatconvertedImage.ppm",frame);
-		cout<<"Got Past char2Mat"<<endl;
+		//cout<<"Output from 'frame.data': " << frame.data <<endl;
+		//cout<<"Output from 'frame.size': " << frame.size() <<endl;
+		imwrite("MatconvertedImage.ppm",frame);
+		//cout<<"Got Past char2Mat"<<endl;
 		//cvtColor(frame, modFrame, COLOR_RGB2HSV);
-		cout<<"Got Past BGR2HSV"<<endl;
+		//cout<<"Got Past BGR2HSV"<<endl;
+		/*
 		int j = 0;
 		for (int r = 0; r < frame.rows; r++)
 		  {
@@ -96,6 +97,7 @@ cout<<sizeof(data)<<endl;
 				}
 			}
 		}
+		
 		std::cout << "The final value of j was: " << j << endl;		
 		std::cout << endl;
 		std::cout << "FIRST pixel values are: ";
@@ -123,7 +125,7 @@ cout<<sizeof(data)<<endl;
                 std::cout << endl;
                 printf("%u", frame.at<Vec3b>(960,1280)[2]);
                 std::cout << endl;
-		imwrite("ClassifiableImage.ppm",frame);		/*
+		imwrite("ClassifiableImage.ppm",frame);		
                 printf("%u", frame.at<Vec3b>(1279,959)[1]);
                 std::cout << endl;
                 printf("%u", frame.at<Vec3b>(1279,959)[2]);
@@ -132,8 +134,9 @@ cout<<sizeof(data)<<endl;
                 std::cout << endl;
 		printf("%u", frame.at<Vec3b>(1280,960)[2]);
 		*/
+		
 		std::cout << endl;
-
+		
 		//std::cout << "The number of non-zero elements in the frame is: " << countNonZero(frame) << endl;
 
 		//Mat testing = 0;

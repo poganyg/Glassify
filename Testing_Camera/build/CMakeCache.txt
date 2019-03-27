@@ -165,25 +165,8 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Path where debug 3rdpaty OpenCV dependencies are located
-OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
-
-//Path where release 3rdpaty OpenCV dependencies are located
-OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
-
-OpenCV_CONFIG_PATH:FILEPATH=/usr/share/OpenCV
-
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
-
-//Path where debug OpenCV libraries are located
-OpenCV_LIB_DIR_DBG:PATH=
-
-//Path where release OpenCV libraries are located
-OpenCV_LIB_DIR_OPT:PATH=
-
-//The directory containing a CMake configuration file for raspicam.
-raspicam_DIR:PATH=raspicam_DIR-NOTFOUND
 
 //Value Computed by CMake
 raspicam_test_BINARY_DIR:STATIC=/home/pi/Glassify/Testing_Camera/build
@@ -323,14 +306,4 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr/local][v4.0.1()]
-//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
-OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
-OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenCV_CONFIG_PATH
-OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
-OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
-OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 

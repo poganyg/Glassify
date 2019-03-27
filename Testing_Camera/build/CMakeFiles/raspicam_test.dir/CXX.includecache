@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Glassify/Testing_Camera/CameraUseClassMOD.h
+/home/pi/Glassify/Testing_Camera/FunctioningCamera.h
 ctime
 -
 sstream
@@ -25,16 +25,12 @@ stdint.h
 -
 opencv2/core.hpp
 -
-Converting_Char2Mat.h
-/home/pi/Glassify/Testing_Camera/Converting_Char2Mat.h
-
-/home/pi/Glassify/Testing_Camera/Converting_Char2Mat.h
 
 /home/pi/Glassify/Testing_Camera/testingClass.cpp
 opencv2/opencv.hpp
 -
-CameraUseClassMOD.h
-/home/pi/Glassify/Testing_Camera/CameraUseClassMOD.h
+FunctioningCamera.h
+/home/pi/Glassify/Testing_Camera/FunctioningCamera.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

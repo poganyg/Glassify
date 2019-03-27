@@ -1,3 +1,0 @@
-/home/pi/Glassify/Testing_Camera/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/Testing_Camera/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/Testing_Camera/CMakeFiles/raspicam_test.dir
