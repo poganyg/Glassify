@@ -1,4 +1,3 @@
-
 #include <ctime>
 #include <sstream>
 #include <fstream>
@@ -7,8 +6,8 @@
 #include <raspicam/raspicam.h>
 #include <opencv2/opencv.hpp>
 #include <stdint.h>
-#include <opencv2/core.hpp>
-//#include <opencv2/core/mat.hpp>
+//#include <opencv2/core.hpp>
+#include <opencv2/core/mat.hpp>
 #include "Converting_Char2Mat.h"
 
 using namespace cv;
@@ -37,7 +36,7 @@ public:
                	Camera.grab();
                	//allocate memory
                	unsigned char *data=new unsigned char[  Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_BGR )];
-		int Dims = 0;
+		int Dims;
 		Dims = Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_BGR);
 		cout << "The image dimensions are : " << Dims << ". I.e. Height X Width X 3" << endl;
 		//convertNow.ConvertingChar2Mat(data);
@@ -51,13 +50,11 @@ public:
 		/*for (int i=0; i<Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_BGR); i+=1000)
 		{
 			cout << "Pixel Data is:" << data[i] << endl;
-		}
+		}		
 cout<<sizeof(data)<<endl;
 //		cout<<Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)<<endl;
 		cout<<"Camera image width = " << Camera.getWidth()<<endl;
 		cout<<"Camera image height = " << Camera.getHeight()<<endl;
-		*/
-		
 		int width = Camera.getWidth();
 		int height = Camera.getHeight();
 	 //	Mat frame(cv::Size(Camera.getWidth(),Camera.getHeight()),CV_8UC3, Scalar::all(0));
@@ -65,8 +62,8 @@ cout<<sizeof(data)<<endl;
 //		cout<<frame.data<<endl;
 		//frame = output;
 //		frame=convertNow.ConvertingChar2Mat(data);
-		Mat frame(height,width, CV_8UC3); // should be height THEN width
-		//frame=Scalar(0,0);
+		*/
+		Mat frame = Mat(Camera.getHeight(),Camera.getWidth(), CV_8UC3); // should be height THEN width
 		cout << "is Mat object, 'frame' empty?" << frame.empty() << endl;
 
 		//cout << "The number of nonzero elements in 'frame' is : " << countNonZero(frame);
@@ -114,50 +111,39 @@ cout<<sizeof(data)<<endl;
 		
 
 		std::cout << "FINAL pixel value is: ";
-		//
-		printf("%u", frame.at<Vec3b>(959,1279)[1]); 
-		std::cout << endl;
+                /*
+		printf("%u", frame.at<Vec3b>(959,1279)[0]);
+                std::cout << endl;
+                printf("%u", frame.at<Vec3b>(959,1279)[1]);
+                std::cout << endl;
                 printf("%u", frame.at<Vec3b>(959,1279)[2]);
+                std::cout << endl;
+                printf("%u", frame.at<Vec3b>(960,1280)[0]);
                 std::cout << endl;
                 printf("%u", frame.at<Vec3b>(960,1280)[1]);
                 std::cout << endl;
                 printf("%u", frame.at<Vec3b>(960,1280)[2]);
-                std::cout << endl;
-		imwrite("ClassifiableImage.ppm",frame);		/*
-                printf("%u", frame.at<Vec3b>(1279,959)[1]);
-                std::cout << endl;
-                printf("%u", frame.at<Vec3b>(1279,959)[2]);
+		std::cout << "FINAL pixel value is: ";
+		*/
+ 		printf("%u", frame.at<Vec3b>(1279,959)[0]);
+		std::cout << endl;
+		printf("%u", frame.at<Vec3b>(1279,959)[1]); 
+		std::cout << endl;
+		printf("%u", frame.at<Vec3b>(1279,959)[2]);
+		std::cout << endl;
+		printf("%u", frame.at<Vec3b>(1280,960)[0]);
                 std::cout << endl;
                 printf("%u", frame.at<Vec3b>(1280,960)[1]);
                 std::cout << endl;
-		printf("%u", frame.at<Vec3b>(1280,960)[2]);
-		*/
-		std::cout << endl;
+                printf("%u", frame.at<Vec3b>(1280,960)[2]);
 
-		//std::cout << "The number of non-zero elements in the frame is: " << countNonZero(frame) << endl;
+                std::cout << endl;
+				
 
-		//Mat testing = 0;
-		//Mat testing(height,width,CV_8UC3, Scalar(0,0,100));
-//		Mat testing = imread("Bottle_image.ppm", IMREAD_COLOR);
-//		cout << "image loaded" << endl;
+		std::cout << "The number of non-zero elements in the frame is: " << countNonZero(frame) << endl;
 
-		//imshow("test", testing);
-		//waitKey();
 
-//		cout << "created Mat::ones" << endl;
-		
-		//cvtColor(testing, testing, COLOR_BGR2HSV);
-
-		//printf("%u", testing.at<Vec3b>(5,5)[1]);
-
-		//RNG::fill(test, RNG::UNIFORM,{100,100,100},{10,20,30},);
-		//cout << "passed CONVERT" << endl;
-		
-		
-
-//		imwrite("ClassifiableImage.ppm",testing);
-
-		
+		imwrite("ClassifiableImage.jpg",frame);
 		//save
           //     	std::ofstream outFile ( "ClassifiableImage.xml",std::ios::binary );
         //       	outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
