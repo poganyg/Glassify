@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name GLFfootprints)(type KiCad)(uri ${KIPRJMOD}/GLFfootprints.pretty)(options "")(descr ""))
+)
