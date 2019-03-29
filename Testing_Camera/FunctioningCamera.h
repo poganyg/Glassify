@@ -15,6 +15,7 @@ using namespace std;
 class AcqClassImages{
 
 public:
+/*
   Mat checkColourUp(Mat input, Mat outputImg, int output, int limH, int limS, int limV, int angle)
   {
     int counter = 0;
@@ -105,11 +106,19 @@ public:
         sleep(2);
         Camera.setWidth(640) ;
         Camera.setHeight(480);
-        Camera.setFrameRate(60);
-      }
+        Camera.setFrameRate(20);
+        Camera.setShutterSpeed(100);
+            }
+
+*/
 
       void captureImage(){
 		raspicam::RaspiCam Camera; //Camera object
+    Camera.setWidth(1280) ;
+    Camera.setHeight(960);
+    Camera.setFrameRate(20);
+    Camera.setShutterSpeed(1000000);
+    Camera.setBrightness(50);
 //Open camera
                	cout<<"Opening Camera..."<<endl;
                	if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}//return -1;}
@@ -123,7 +132,12 @@ public:
 		int width = Camera.getWidth();
 		int height = Camera.getHeight();
 		Mat frame(height,width, CV_8UC3, data); // should be height THEN width
-		imwrite("MatconvertedImage.ppm",frame);
+    //cvtColor(frame, frame, COLOR_BGR2HSV);
+
+    Mat gray(height,width,CV_8UC1);
+    cvtColor(frame, gray, COLOR_BGR2GRAY);
+		imwrite("TestImage.jpg",frame);
+    imwrite("GreyImg.jpg", gray);
 		}
 
 };

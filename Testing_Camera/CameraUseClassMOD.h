@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <opencv2/core.hpp>
 //#include <opencv2/core/mat.hpp>
-#include "Converting_Char2Mat.h"
+//#include "Converting_Char2Mat.h"
 
 using namespace cv;
 using namespace std;
