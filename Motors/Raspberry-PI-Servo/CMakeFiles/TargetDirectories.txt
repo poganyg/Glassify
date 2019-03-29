@@ -1,3 +1,0 @@
-/home/pi/Glassify/Motors/Raspberry-PI-Servo/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/Motors/Raspberry-PI-Servo/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/Motors/Raspberry-PI-Servo/CMakeFiles/cmake_compiled_executable.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++14 -g   CMakeFiles/cmake_compiled_executable.dir/libServo.cpp.o CMakeFiles/cmake_compiled_executable.dir/libServoSample.cpp.o  -o cmake_compiled_executable -Wl,-rpath,/usr/local/lib -rdynamic /usr/local/lib/libwiringPi.so 
