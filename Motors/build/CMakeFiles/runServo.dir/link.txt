@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/runServo.dir/TestingServoControl.cpp.o  -o runServo -Wl,-rpath,/usr/local/lib -rdynamic /usr/local/lib/libwiringPi.so 

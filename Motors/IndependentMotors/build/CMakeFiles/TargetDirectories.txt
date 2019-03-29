@@ -1,3 +1,0 @@
-/home/pi/Glassify/Motors/IndependentMotors/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/Motors/IndependentMotors/build/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/Motors/IndependentMotors/build/CMakeFiles/runServo.dir

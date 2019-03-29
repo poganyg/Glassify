@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Glassify/Motors/ServoControl.h
+wiringPi.h
+-
+cstdlib
+-
+iostream
+-
+libServo.h
+/home/pi/Glassify/Motors/libServo.h
+
+/home/pi/Glassify/Motors/TestingServoControl.cpp
+ServoControl.h
+/home/pi/Glassify/Motors/ServoControl.h
+libServo.cpp
+/home/pi/Glassify/Motors/libServo.cpp
+
+/home/pi/Glassify/Motors/libServo.cpp
+math.h
+-
+cmath
+-
+wiringPi.h
+-
+libServo.h
+/home/pi/Glassify/Motors/libServo.h
+
+/home/pi/Glassify/Motors/libServo.h
+
+/usr/local/include/wiringPi.h
+
