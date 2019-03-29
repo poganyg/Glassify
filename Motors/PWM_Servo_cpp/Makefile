@@ -1,7 +1,7 @@
 
 CXX=g++
 
-TARGET=rpiServoTest
+TARGET=rpiServoTestShort
 
 INCLUDEDIR = ./
 
@@ -14,7 +14,7 @@ WARN= -Wall
 CXXFLAGS= $(OPT) $(DEBUG) $(WARN) $(INCDIR)
 
 INC = rpiPWM1.h rpiServo.h
-SRC = rpiPWM1.cpp rpiServo.cpp rpiServoTest.cpp
+SRC = rpiPWM1.cpp rpiServo.cpp rpiServoTestShort.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
