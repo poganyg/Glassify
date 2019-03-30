@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace std;
 
-Mat checkColour(Mat input, int lowH, int highH, int lowS, int highS, int lowV, int highV)
+int checkColour(Mat input, int lowH, int highH, int lowS, int highS, int lowV, int highV)
 {
 	cvtColor(input, input, COLOR_BGR2HSV);
 	int counter = 0;
@@ -45,41 +45,40 @@ Mat checkColour(Mat input, int lowH, int highH, int lowS, int highS, int lowV, i
 			}
 		}
 	}
-
-	cvtColor(input, input, COLOR_HSV2BGR);
-	return input;
+	return counter;
 }
 
-Mat checkMatch(Mat templateImg, Mat currentImg)
+int checkMatch(Mat templateImg, Mat currentImg)
 {
 	int counter = 0;
-	Mat outputImg = Mat::zeros(templateImg.size(), CV_8UC1);
+	Mat greyImg;
+	cvtColor(currentImg, greyImg, COLOR_BGR2GRAY);
 
 	for (int r = 0; r < templateImg.rows; r++)
 	{
 		for (int c = 0; c < templateImg.cols; c++)
 		{
-			outputImg.at<uint8_t>(r, c) = abs(templateImg.at<uint8_t>(r, c) - currentImg.at<uint8_t>(r, c));
-			counter = counter + outputImg.at<uint8_t>(r, c);
+			greyImg.at<uint8_t>(r, c) = abs(templateImg.at<uint8_t>(r, c) - greyImg.at<uint8_t>(r, c));
+			counter = counter + greyImg.at<uint8_t>(r, c);
 		}
 	}
-	return outputImg;
+	return counter;
 }
 
 int main(int argv, char** argc)
 {
-	int fps = 20;
 
 	//To Initialise
 	Mat Template;
 	Mat grayTemplate;
+	int fps = 20; //sets rate of capture
 
 	//Looped Classification
 	Mat Frame;
-	Mat grayFrame;
-	Mat brownOut;
-	Mat greenOut;
-	Mat grayOut;
+
+	int gCounter; //green counter
+	int bCounter; //brown counter
+	int cCounter; //clear counter
 
 	VideoCapture vid(0);
 
@@ -89,13 +88,18 @@ int main(int argv, char** argc)
 	}
 
 	vid.read(Template);
+	
+	//Not specific to OpenCV camera capture from here down
 	cvtColor(Template, grayTemplate, COLOR_BGR2GRAY);
 	int counter = 0;
 	while (vid.read(Frame))
 	{
-		cvtColor(Frame, grayFrame, COLOR_BGR2GRAY);
-		grayOut = checkMatch(grayTemplate, grayFrame);
-		greenOut = checkColour(Frame, 40, 75, 90, 255, 50, 255);
+		cCounter = checkMatch(grayTemplate, Frame);
+		bCounter = checkColour(Frame, 170, 25, 50, 150, 0, 65); // For Brown
+		gCounter = checkColour(Frame, 40, 75, 90, 255, 50, 255); //For Green
+
+		std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter << " GREEN: " << gCounter << endl;
+
 		if (waitKey(1000 / fps) >= 0)
 			break;
 	}
