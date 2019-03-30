@@ -4,85 +4,56 @@
 using namespace cv;
 using namespace std;
 
-void checkColourUp(Mat input, Mat& outputImg, int& output, int limH, int limS, int limV, int angle)
+Mat checkColour(Mat input, int lowH, int highH, int lowS, int highS, int lowV, int highV)
 {
+	cvtColor(input, input, COLOR_BGR2HSV);
 	int counter = 0;
-	Mat temp = input;
-	outputImg = input;
-	Mat splitChannels[3];//declares an array of Mat objects which will store each of the channels
-	split(temp, splitChannels);
-	int H;
-	int S;
-	int V;
 
-	for (int r = 0; r < splitChannels[0].rows; r++)
+	for (int r = 0; r < input.rows; r++)
 	{
-		for (int c = 0; c < splitChannels[0].cols; c++)
+		for (int c = 0; c < input.cols; c++)
 		{
-			//double H = splitChannels[0].at<double>(r, c);
-			//double S = splitChannels[1].at<double>(r, c);
-			//double V = splitChannels[2].at<double>(r, c);
-			H = temp.at<Vec3b>(r, c)[0];
-			S = temp.at<Vec3b>(r, c)[1];
-			V = temp.at<Vec3b>(r, c)[2];
+			unsigned char H = input.at<Vec3b>(r, c)[0];
+			unsigned char S = input.at<Vec3b>(r, c)[1];
+			unsigned char V = input.at<Vec3b>(r, c)[2];
 
-			if (H >= limH && H <= (limH + angle) && S >= limS && V >= limV)
-				counter = counter + 1;
-			//
-			else //Set all values of HSV to 0 if pixel in desired range not found
-				outputImg.at<Vec3b>(r, c)[0] = 0;
-				outputImg.at<Vec3b>(r, c)[1] = 0;
-				outputImg.at<Vec3b>(r, c)[2] = 0;
-			//
+			if (lowH > highH)
+			{
+				if ((H >= lowH || H <= highH) && S >= lowS && S <= highS && V >= lowV && V <= highV)
+				{
+					counter = counter + 1;
+				}
+				else //Set all values of HSV to 0 if pixel in desired range not found
+				{
+					input.at<Vec3b>(r, c)[0] = 0;
+					input.at<Vec3b>(r, c)[1] = 0;
+					input.at<Vec3b>(r, c)[2] = 0;
+				}
+			}
+			if (highH > lowH)
+			{
+				if (H >= lowH && H <= highH && S >= lowS && S <= highS && V >= lowV && V <= highV)
+				{
+					counter = counter + 1;
+				}
+				else //Set all values of HSV to 0 if pixel in desired range not found
+				{
+					input.at<Vec3b>(r, c)[0] = 0;
+					input.at<Vec3b>(r, c)[1] = 0;
+					input.at<Vec3b>(r, c)[2] = 0;
+				}
+			}
 		}
 	}
-	//cvtColor(outputImg, outputImg, COLOR_HSV2BGR);
-	imshow("original", input);
-	moveWindow("original",100, 100);
-	imshow("test", outputImg);
-	moveWindow("test", 600, 100);
-	output = counter;
-	waitKey();
+
+	cvtColor(input, input, COLOR_HSV2BGR);
+	return input;
 }
 
-void checkColourDown(Mat input, Mat& outputImg, int& output, int limH, int limS, int limV, int angle)
+Mat checkMatch(Mat templateImg, Mat currentImg)
 {
 	int counter = 0;
-	Mat temp = input;
-	outputImg = input;
-	Mat splitChannels[3]; //declares an array of Mat objects which will store each of the channels
-	split(temp, splitChannels);
-	int H;
-	int S;
-	int V;
-
-	for (int r = 0; r < splitChannels[0].rows; r++)
-	{
-		for (int c = 0; c < splitChannels[0].cols; c++)
-		{
-			//double H = splitChannels[0].at<double>(r, c);
-			//double S = splitChannels[1].at<double>(r, c);
-			//double V = splitChannels[2].at<double>(r, c);
-			H = temp.at<Vec3b>(r, c)[0];
-			S = temp.at<Vec3b>(r, c)[1];
-			V = temp.at<Vec3b>(r, c)[2];
-
-			if (H >= limH && H <= (limH + angle) && S >= limS && V <= limV)
-				counter = counter + 1;
-			else //Set all values of HSV to 0 if pixel in desired range not found
-			outputImg.at<Vec3b>(r, c)[0] = 0;
-			outputImg.at<Vec3b>(r, c)[1] = 0;
-			outputImg.at<Vec3b>(r, c)[2] = 0;
-		}
-	}
-	//cvtColor(outputImg, outputImg, COLOR_HSV2BGR);
-	output = counter;
-}
-
-void checkMatch(Mat templateImg, Mat currentImg, Mat& outputImg, int& output)
-{
-	int counter = 0;
-	outputImg =	Mat::zeros(templateImg.size(), CV_8UC1);
+	Mat outputImg = Mat::zeros(templateImg.size(), CV_8UC1);
 
 	for (int r = 0; r < templateImg.rows; r++)
 	{
@@ -92,21 +63,23 @@ void checkMatch(Mat templateImg, Mat currentImg, Mat& outputImg, int& output)
 			counter = counter + outputImg.at<uint8_t>(r, c);
 		}
 	}
-	output = counter;
+	return outputImg;
 }
-
 
 int main(int argv, char** argc)
 {
-	Mat colorFrame;
-	Mat grayFrame;
-	Mat modFrame;
+	int fps = 20;
+
+	//To Initialise
 	Mat Template;
-	Mat Out;
+	Mat grayTemplate;
+
+	//Looped Classification
+	Mat Frame;
+	Mat grayFrame;
+	Mat brownOut;
+	Mat greenOut;
 	Mat grayOut;
-	int gCounter; //green counter
-	int bCounter; //brown counter
-	int cCounter; //clear counter
 
 	VideoCapture vid(0);
 
@@ -116,39 +89,15 @@ int main(int argv, char** argc)
 	}
 
 	vid.read(Template);
-	cvtColor(Template, Template, COLOR_BGR2GRAY);
-	imshow("Template", Template);
-	//waitKey();
-	//while (waitKey() < 0)
-	//{
-		vid.read(colorFrame);
-		cvtColor(colorFrame, modFrame, COLOR_BGR2HSV);
-		cvtColor(colorFrame, grayFrame, COLOR_BGR2GRAY);
-
-		checkColourUp(modFrame, Out, gCounter, 160, 30, 5, 20);
-		imshow("Green", Out);
-		Mat Next;
-		cvtColor(Out, Next, COLOR_HSV2BGR);
-		imshow("Next", Next);
-
-		cout << "Green Pixels " << gCounter << endl;
-		moveWindow("Green", 100, 100);
-		//waitKey();
-
-		checkColourDown(modFrame, Out, bCounter, 7, 70, 20, 15);
-		imshow("Brown", Out);
-		cout << "Brown Pixels " << bCounter << endl;
-		moveWindow("Brown", 500, 100);
-		//waitKey();
-
-		checkMatch(Template, grayFrame, grayOut, cCounter);
-		imshow("Match", grayOut);
-		cout << "Deviation Magnitude " << cCounter << endl;
-		moveWindow("Match", 900, 100);
-		waitKey();
-		//imshow("Webcam", frame);
-		//std::cout << "picture" << std::endl;
-	//}
-
+	cvtColor(Template, grayTemplate, COLOR_BGR2GRAY);
+	int counter = 0;
+	while (vid.read(Frame))
+	{
+		cvtColor(Frame, grayFrame, COLOR_BGR2GRAY);
+		grayOut = checkMatch(grayTemplate, grayFrame);
+		greenOut = checkColour(Frame, 40, 75, 90, 255, 50, 255);
+		if (waitKey(1000 / fps) >= 0)
+			break;
+	}
 	return 1;
 }
