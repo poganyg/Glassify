@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Glassify/Testing_Camera/Processing.h
+/home/pi/Glassify/Testing_Camera/ClassifyPi.h
 ctime
 -
 sstream
@@ -29,8 +29,8 @@ opencv2/core.hpp
 /home/pi/Glassify/Testing_Camera/testingClass.cpp
 opencv2/opencv.hpp
 -
-Processing.h
-/home/pi/Glassify/Testing_Camera/Processing.h
+ClassifyPi.h
+/home/pi/Glassify/Testing_Camera/ClassifyPi.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

@@ -151,7 +151,7 @@ void captureImage(){
 		int height = Camera.getHeight();
 		Mat frame(height,width, CV_8UC3, data); // should be height THEN width
     Mat outFrame(height,width,CV_8UC3);
-    checkColour(frame,outFrame,100,125,90,255,50,255);
+    //checkColour(frame,outFrame,100,125,90,255,50,255);
 
     //Mat gray(height,width,CV_8UC1);
     //cvtColor(frame, gray, COLOR_BGR2GRAY);

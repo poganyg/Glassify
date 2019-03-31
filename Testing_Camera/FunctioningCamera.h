@@ -116,7 +116,8 @@ public:
 		raspicam::RaspiCam Camera; //Camera object
     Camera.setWidth(1280) ;
     Camera.setHeight(960);
-    Camera.setFrameRate(20);
+    //Camera.setFrameRate(60);
+    Camera.setISO(1600);
     Camera.setShutterSpeed(1000000);
     Camera.setBrightness(50);
 //Open camera
