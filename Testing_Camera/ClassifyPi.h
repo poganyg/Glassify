@@ -79,8 +79,8 @@ public:
 
 void captureImage(){
 		raspicam::RaspiCam Camera; //Camera object
-    Camera.setWidth(128) ;
-    Camera.setHeight(128);
+    Camera.setWidth(512) ;
+    Camera.setHeight(512);
     Camera.setFrameRate(20);
     Camera.setShutterSpeed(1000000);
     Camera.setBrightness(50);
@@ -109,7 +109,7 @@ void captureImage(){
     Mat grayTemplate(height,width,CV_8UC1);
     cvtColor(Template, grayTemplate, COLOR_RGB2GRAY);
     cvtColor(Template,Template,COLOR_RGB2BGR);
-    imwrite("test.ppm",Template);
+    imwrite("TEST.jpg",Template);
     int j = 0;
     while(true)
     {
