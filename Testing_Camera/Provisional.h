@@ -13,29 +13,23 @@ using namespace std;
 
 class acquireImage{
 private:
-  int width; //width of image
-  int height;
-  int fps;
-  int shutter; 
-  int brightness;
+  int m_width; //width of image
+  int m_height;
+  int m_fps;
+  int m_shutter;
+  int m_brightness;
   raspicam::Raspicam Camera; //instantiates the camera within the class
 
 public:
   acquireImage()
+    :m_width(256),m_height(256),m_fps(20),m_shutter(10000),m_brightness(50) //default parameters for camera
   {
-    //default parameters for camera
-    width = 256;
-    height = 256;
-    fps = 20;
-    shutter = 100000;
-    brightness = 50;
-
     //Setting up camera
-    Camera.setWidth(width);
-    Camera.setHeight(height);
-    Camera.setFrameRate(fps);
-    Camera.setShutterSpeed(shutter);
-    Camera.setBrightness(brightness);
+    Camera.setWidth(m_width);
+    Camera.setHeight(m_height);
+    Camera.setFrameRate(m_fps);
+    Camera.setShutterSpeed(m_shutter);
+    Camera.setBrightness(m_brightness);
 
     //Allocate Memory
     unsigned char *data=new unsigned char[Camera.getImageTypeSize()]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
@@ -43,20 +37,13 @@ public:
   }
 
   acquireImage(int width,int height,int fps,int shutter,int brightness)
+    :m_width(width),m_height(height),m_fps(fps),m_shutter(shutter),m_brightness(brightness)
   {
-    this->width = width;
-    this->height = height;
-    this->fps = fps;
-    this->shutter = shutter;
-    this->brightness = brightness;
-
-
-    raspicam::Raspicam Camera;
-    Camera.setWidth(width);
-    Camera.setHeight(height);
-    Camera.setFrameRate(fps);
-    Camera.setShutterSpeed(shutter);
-    Camera.setBrightness(brightness);
+    Camera.setWidth(m_width);
+    Camera.setHeight(m_height);
+    Camera.setFrameRate(m_fps);
+    Camera.setShutterSpeed(m_shutter);
+    Camera.setBrightness(m_brightness);
 
     //Allocate Memory
     unsigned char *data=new unsigned char[Camera.getImageTypeSize()]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
@@ -89,7 +76,7 @@ public:
     int gCounter; //green counter
   	int bCounter; //brown counter
   	int cCounter; //clear counter
-    Mat greenOut; 
+    Mat greenOut;
     Mat brownOut;
 
     //Gather Baseline Data

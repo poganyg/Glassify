@@ -1,1 +1,0 @@
-/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/raspicam_test.dir/raspicam_test.cpp.o  -o raspicam_test -rdynamic -lProject 

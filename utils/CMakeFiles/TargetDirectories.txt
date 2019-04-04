@@ -1,7 +1,0 @@
-/home/pi/Glassify/utils/CMakeFiles/install/local.dir
-/home/pi/Glassify/utils/CMakeFiles/install.dir
-/home/pi/Glassify/utils/CMakeFiles/list_install_components.dir
-/home/pi/Glassify/utils/CMakeFiles/raspicam_test.dir
-/home/pi/Glassify/utils/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/utils/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/utils/CMakeFiles/raspicam_still_test.dir

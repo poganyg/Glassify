@@ -14,7 +14,7 @@ include_directories(${WIRINGPI_INCLUDE_DIRS})
 
 add_executable(
 	runServo
-	TestingServoControl.cpp	
+	TestingServoControl.cpp
 )
 
 target_link_libraries(runServo ${WIRINGPI_LIBRARIES})
