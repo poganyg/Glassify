@@ -56,6 +56,17 @@ CMAKE_BINARY_DIR = /home/pi/Glassify/Testing_Camera/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -123,6 +134,19 @@ raspicam_test/fast:
 	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/build
 .PHONY : raspicam_test/fast
 
+#=============================================================================
+# Target rules for targets named test_functionality
+
+# Build rule for target.
+test_functionality: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_functionality
+.PHONY : test_functionality
+
+# fast build rule for target.
+test_functionality/fast:
+	$(MAKE) -f test/CMakeFiles/test_functionality.dir/build.make test/CMakeFiles/test_functionality.dir/build
+.PHONY : test_functionality/fast
+
 testingClass.o: testingClass.cpp.o
 
 .PHONY : testingClass.o
@@ -156,9 +180,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... raspicam_test"
+	@echo "... test_functionality"
 	@echo "... testingClass.o"
 	@echo "... testingClass.i"
 	@echo "... testingClass.s"
