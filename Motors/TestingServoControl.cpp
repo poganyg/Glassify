@@ -1,14 +1,17 @@
-//#include <wiringPi.h>
-//#include <cstdlib>
-//#include <iostream>
-//#include "libServo.h"
-
-#include "ServoControl.h"
+#include <wiringPi.h>
+#include <cstdlib>
+#include <iostream>
+#include "libServo.h"
 #include "libServo.cpp"
 
 int main(){
-	motorMove shift;
-	shift.motorSetup();
-	shift.isGreen();
-	return 0;
+int sec=1000;
+int pin=18;
+wiringPiSetupGpio();
+Servo servo(18);
+servo.init(90);
+delay(sec);
+servo.move(45);
+delay(0.2*sec);
+servo.move(135);
 }
