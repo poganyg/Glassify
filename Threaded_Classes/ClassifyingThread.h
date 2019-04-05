@@ -6,13 +6,14 @@
 class ClassifyingThread : public CppThread {
 
 public:
-    int Output;
-    ClassifyingThread(){
-    }
+  ClassifyingThread(int* inp)
+  :Output(inp)
+  {
+  }
 
 private:
-      int run()
+  void run();
 private:
-  Mat Frame;
-    };
-  #endif
+  int* Output
+};
+#endif

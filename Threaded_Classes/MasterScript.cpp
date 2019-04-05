@@ -3,16 +3,19 @@
 #include "ClassifyingThread.h"
 #include "MotorThread.h"
 
+int qq
+int* ptr=&qq
+
 int main ( int argc, const char* argv[] )
 {
 while(true){
   SwitchThread CheckingSwitch();
-  ClassifyingThread Classification();
+  ClassifyingThread Classification(ptr);
   CheckingSwitch.start();
   CheckingSwitch.join();
-  Output=Classification.start();
+  Classification.start();
   Classification.join();
-  MotorThread MotorTurning(Output);
+  MotorThread MotorTurning(qq);
   MotorTurning.start();
   MotorTurning.join();
 }

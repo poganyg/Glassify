@@ -2,19 +2,19 @@
 #include "libServo.cpp"
 #include "libServo.h"
 
-void MotorThread:run(int output)
+void MotorThread:run()
 {
     Servo servo(18);
     servo.init(90);
-  if (ouput==1)
+  if (colour==1)
   {
     servo.move(45);
   }
-  if (output==2)
+  if (colour==2)
   {
     servo.move(90);
   }
-  if (output==3)
+  if (colour==3)
   {
     servo.move(135);
   }

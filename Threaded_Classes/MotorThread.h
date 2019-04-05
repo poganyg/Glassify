@@ -6,8 +6,9 @@
 class MotorThread : public CppThread {
 
 public:
-  MotorThread(int Output){
-    output=Output;
+  MotorThread(int Output)
+    :colour(Output)
+    {
     int pin=18;
     wiringPiSetupGpio();
   }
@@ -16,7 +17,7 @@ private:
   void run();
 
 private:
-  int output;
+  int* colour ;
 
 };
 #endif
