@@ -14,10 +14,11 @@ public:
 	#define POLL_TIMEOUT (5*1000)
         SwitchThread(){
         rc=0;
+	prerun=0;
         gpio =22;
         gpio_export(gpio);
         gpio_set_dir(gpio, 0);
-        gpio_set_edge(gpio, "falling");
+        gpio_set_edge(gpio, "rising");
         gpio_fd = gpio_fd_open(gpio);
         }
 private:
@@ -25,6 +26,7 @@ private:
 
 private:
 	int rc;
+	int prerun;
          int gpio_fd;
          char *buf[MAX_BUF];
          unsigned int gpio;
