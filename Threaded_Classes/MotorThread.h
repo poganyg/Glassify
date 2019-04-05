@@ -2,22 +2,22 @@
 #define MOTOR_THREAD_H
 
 #include "CppThread.h"
-
+//#include <wiringPi.h>
 class MotorThread : public CppThread {
 
 public:
   MotorThread(int Output)
-    :colour(Output)
     {
-    int pin=18;
-    wiringPiSetupGpio();
+	 colour=Output;
+         pin=18;
+  //  wiringPiSetupGpio();
   }
 
 private:
   void run();
 
 private:
-  int* colour ;
-
+   int colour ;
+   int pin;
 };
 #endif

@@ -1,9 +1,15 @@
+//#include <wiringPi.h>
+#include <thread>
+//#include <cstdlib>
+#include <iostream>
 #include "MotorThread.h"
+//#include "libServo.h"
 #include "libServo.cpp"
-#include "libServo.h"
 
-void MotorThread:run()
+
+void MotorThread::run()
 {
+	wiringPiSetupGpio();
     Servo servo(18);
     servo.init(90);
   if (colour==1)
