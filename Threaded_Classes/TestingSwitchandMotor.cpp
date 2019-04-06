@@ -7,10 +7,12 @@
 
 int main()//(int argc, const char* argv[] )
 {
+while(true){
   SwitchThread switchCheck1;
  switchCheck1.start();
   switchCheck1.join();
   MotorThread MotorTurning(1);
   MotorTurning.start();
   MotorTurning.join();
+}
 }
