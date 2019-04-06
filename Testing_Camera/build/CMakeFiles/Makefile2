@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/pi/Glassify/Testing_Camera
 CMAKE_BINARY_DIR = /home/pi/Glassify/Testing_Camera/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/raspicam_test.dir
+# Target rules for target CMakeFiles/Classifier.dir
 
 # All Build rule for target.
-CMakeFiles/raspicam_test.dir/all:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/depend
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Glassify/Testing_Camera/build/CMakeFiles --progress-num=1,2 "Built target raspicam_test"
-.PHONY : CMakeFiles/raspicam_test.dir/all
+CMakeFiles/Classifier.dir/all:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/depend
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Glassify/Testing_Camera/build/CMakeFiles --progress-num=1,2 "Built target Classifier"
+.PHONY : CMakeFiles/Classifier.dir/all
 
 # Include target in all.
-all: CMakeFiles/raspicam_test.dir/all
+all: CMakeFiles/Classifier.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/raspicam_test.dir/rule: cmake_check_build_system
+CMakeFiles/Classifier.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/Testing_Camera/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/raspicam_test.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Classifier.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/Testing_Camera/build/CMakeFiles 0
-.PHONY : CMakeFiles/raspicam_test.dir/rule
+.PHONY : CMakeFiles/Classifier.dir/rule
 
 # Convenience name for target.
-raspicam_test: CMakeFiles/raspicam_test.dir/rule
+Classifier: CMakeFiles/Classifier.dir/rule
 
-.PHONY : raspicam_test
-
-# clean rule for target.
-CMakeFiles/raspicam_test.dir/clean:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/clean
-.PHONY : CMakeFiles/raspicam_test.dir/clean
+.PHONY : Classifier
 
 # clean rule for target.
-clean: CMakeFiles/raspicam_test.dir/clean
+CMakeFiles/Classifier.dir/clean:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/clean
+.PHONY : CMakeFiles/Classifier.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Classifier.dir/clean
 
 .PHONY : clean
 

@@ -6,7 +6,7 @@
 #include "Provisional.h"
 
 int main(){
-acquireImage Classifier();
+acquireImage Classifier;
 Classifier.classify();
 return 0;
 }

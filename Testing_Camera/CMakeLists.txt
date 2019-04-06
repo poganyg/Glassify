@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Project Name
-project (raspicam_test)
+project (Classifier)
 
 # Define Test Directories
 # add_subdirectory (src)
@@ -12,6 +12,6 @@ enable_testing()
 set(raspicam_DIR "/usr/local/lib/cmake")
 find_package(raspicam REQUIRED)
 find_package(OpenCV REQUIRED)
-add_executable (raspicam_test testingClass.cpp)
-target_link_libraries (raspicam_test ${raspicam_LIBS})
-target_link_libraries (raspicam_test ${OpenCV_LIBS})
+add_executable (Classifier Provisional.cpp)
+target_link_libraries (Classifier ${raspicam_LIBS})
+target_link_libraries (Classifier ${OpenCV_LIBS})

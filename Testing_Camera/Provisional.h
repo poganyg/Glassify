@@ -13,12 +13,24 @@ using namespace std;
 
 class acquireImage{
 private:
+  int state;
   int m_width; //width of image
   int m_height;
   int m_fps;
   int m_shutter;
   int m_brightness;
-  raspicam::Raspicam Camera; //instantiates the camera within the class
+  raspicam::RaspiCam Camera; //instantiates the camera within the class
+  unsigned char *data;
+
+  //Initialise Variables
+  cv::Scalar gCounter; //green counter
+  cv::Scalar bCounter; //brown counter
+  int cCounter; //clear counter
+  Mat greenOut;
+  Mat brownOut;
+
+  int setup = 0;
+  int baseClear;
 
 public:
   acquireImage()
@@ -32,8 +44,11 @@ public:
     Camera.setBrightness(m_brightness);
 
     //Allocate Memory
-    unsigned char *data=new unsigned char[Camera.getImageTypeSize()]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
+    data=new unsigned char[Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
     //IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
+
+    cout<<"Opening Camera..."<<endl;
+    if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}
   }
 
   acquireImage(int width,int height,int fps,int shutter,int brightness)
@@ -46,8 +61,11 @@ public:
     Camera.setBrightness(m_brightness);
 
     //Allocate Memory
-    unsigned char *data=new unsigned char[Camera.getImageTypeSize()]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
+    data=new unsigned char[Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
     //IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
+
+    cout<<"Opening Camera..."<<endl;
+    if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}
   }
 
   int checkMatch(Mat templateImg, Mat currentImg)
@@ -69,35 +87,51 @@ public:
 
   int classify()
   {
+    state=0;
 		//wait a while until camera stabilizes
     Camera.grab();
-
-    //Initialise Variables
-    int gCounter; //green counter
-  	int bCounter; //brown counter
-  	int cCounter; //clear counter
-    Mat greenOut;
-    Mat brownOut;
-
     //Gather Baseline Data
     Camera.retrieve ( data );//get camera image
-    Mat Template(height,width,CV_8UC3,data);
-    Mat grayTemplate(height,width,CV_8UC1);
+    Mat Template(m_height,m_width,CV_8UC3,data);
+    Mat grayTemplate(m_height,m_width,CV_8UC1);
     cvtColor(Template, grayTemplate, COLOR_RGB2GRAY);
-    while(true)
+    Camera.grab();
+    //Gather Baseline Data
+    Camera.retrieve ( data );//get camera image
+    Mat Frame(m_height,m_width,CV_8UC3,data);
+    baseClear = checkMatch(grayTemplate, Frame);
+    while(state==0)
     {
+
       Camera.grab();
       Camera.retrieve(data);
-      Mat Frame(height,width,CV_8UC3,data);
-
+      Mat Frame(m_height,m_width,CV_8UC3,data);
+      cvtColor(Frame,Frame,COLOR_RGB2HSV);
       cCounter = checkMatch(grayTemplate, Frame);
-      inRange(Frame, Scalar(35,90,0), Scalar(80,255,255), greenOut);
+
+      inRange(Frame, Scalar(20,90,0), Scalar(80,255,255), greenOut);
       gCounter = cv::sum(greenOut);
       inRange(Frame, Scalar(0,50,0), Scalar(30,255,150), brownOut);
       bCounter = cv::sum(brownOut);
 
-      std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter << " GREEN: " << gCounter << endl;
 
+
+      if(cCounter>=baseClear*4){
+        if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
+        {
+          state = 1;
+        }
+        else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
+        {
+          state = 2;
+        }
+        else
+        {
+          state = 3;
+        }
+      }
+      std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter[0] << " GREEN: " << gCounter[0] << "                    STATE: " << state << endl;
+      state = 0;
 
     }
     return 0;
