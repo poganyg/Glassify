@@ -67,7 +67,7 @@ public:
   	return counter;
   }
 
-  int classify(state)
+  int classify()
   {
 		//wait a while until camera stabilizes
     Camera.grab();
@@ -84,7 +84,7 @@ public:
     Mat Template(height,width,CV_8UC3,data);
     Mat grayTemplate(height,width,CV_8UC1);
     cvtColor(Template, grayTemplate, COLOR_RGB2GRAY);
-    while(state==0)
+    while(true)
     {
       Camera.grab();
       Camera.retrieve(data);
@@ -98,10 +98,8 @@ public:
 
       std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter << " GREEN: " << gCounter << endl;
 
-      if(state!=0)
-      {
-        return state;
-      }
+
     }
+    return 0;
   }
 };
