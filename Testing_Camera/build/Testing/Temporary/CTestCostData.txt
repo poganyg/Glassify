@@ -1,3 +1,0 @@
-TestFunctionality 8 0
----
-TestFunctionality

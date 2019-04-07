@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/pi/Glassify/Testing_Camera/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -88,6 +77,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,17 +122,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named raspicam_test
+# Target rules for targets named Classifier
 
 # Build rule for target.
-raspicam_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 raspicam_test
-.PHONY : raspicam_test
+Classifier: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Classifier
+.PHONY : Classifier
 
 # fast build rule for target.
-raspicam_test/fast:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/build
-.PHONY : raspicam_test/fast
+Classifier/fast:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/build
+.PHONY : Classifier/fast
 
 #=============================================================================
 # Target rules for targets named test_functionality
@@ -147,32 +147,32 @@ test_functionality/fast:
 	$(MAKE) -f test/CMakeFiles/test_functionality.dir/build.make test/CMakeFiles/test_functionality.dir/build
 .PHONY : test_functionality/fast
 
-testingClass.o: testingClass.cpp.o
+Provisional.o: Provisional.cpp.o
 
-.PHONY : testingClass.o
+.PHONY : Provisional.o
 
 # target to build an object file
-testingClass.cpp.o:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/testingClass.cpp.o
-.PHONY : testingClass.cpp.o
+Provisional.cpp.o:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/Provisional.cpp.o
+.PHONY : Provisional.cpp.o
 
-testingClass.i: testingClass.cpp.i
+Provisional.i: Provisional.cpp.i
 
-.PHONY : testingClass.i
+.PHONY : Provisional.i
 
 # target to preprocess a source file
-testingClass.cpp.i:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/testingClass.cpp.i
-.PHONY : testingClass.cpp.i
+Provisional.cpp.i:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/Provisional.cpp.i
+.PHONY : Provisional.cpp.i
 
-testingClass.s: testingClass.cpp.s
+Provisional.s: Provisional.cpp.s
 
-.PHONY : testingClass.s
+.PHONY : Provisional.s
 
 # target to generate assembly for a file
-testingClass.cpp.s:
-	$(MAKE) -f CMakeFiles/raspicam_test.dir/build.make CMakeFiles/raspicam_test.dir/testingClass.cpp.s
-.PHONY : testingClass.cpp.s
+Provisional.cpp.s:
+	$(MAKE) -f CMakeFiles/Classifier.dir/build.make CMakeFiles/Classifier.dir/Provisional.cpp.s
+.PHONY : Provisional.cpp.s
 
 # Help Target
 help:
@@ -180,14 +180,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... raspicam_test"
+	@echo "... test"
+	@echo "... Classifier"
 	@echo "... test_functionality"
-	@echo "... testingClass.o"
-	@echo "... testingClass.i"
-	@echo "... testingClass.s"
+	@echo "... Provisional.o"
+	@echo "... Provisional.i"
+	@echo "... Provisional.s"
 .PHONY : help
 
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/Glassify/Testing_Camera/testingClass.cpp" "/home/pi/Glassify/Testing_Camera/build/CMakeFiles/raspicam_test.dir/testingClass.cpp.o"
+  "/home/pi/Glassify/Testing_Camera/Provisional.cpp" "/home/pi/Glassify/Testing_Camera/build/CMakeFiles/Classifier.dir/Provisional.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

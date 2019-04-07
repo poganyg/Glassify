@@ -13,8 +13,7 @@ using namespace std;
 
 class acquireImage{
 private:
-  int* stateptr;
-  int state = 0;
+  int state;
   int m_width; //width of image
   int m_height;
   int m_fps;
@@ -34,7 +33,7 @@ private:
   int baseClear;
 
 public:
-  acquireImage(int* stateptr)
+  acquireImage()
     :m_width(256),m_height(256),m_fps(20),m_shutter(10000),m_brightness(50) //default parameters for camera
   {
     //Setting up camera
@@ -52,7 +51,6 @@ public:
     if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}
   }
 
-  /*
   acquireImage(int width,int height,int fps,int shutter,int brightness)
     :m_width(width),m_height(height),m_fps(fps),m_shutter(shutter),m_brightness(brightness)
   {
@@ -69,7 +67,6 @@ public:
     cout<<"Opening Camera..."<<endl;
     if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}
   }
-  */
 
   int checkMatch(Mat templateImg, Mat currentImg)
   {
@@ -103,7 +100,7 @@ public:
     Camera.retrieve ( data );//get camera image
     Mat Frame(m_height,m_width,CV_8UC3,data);
     baseClear = checkMatch(grayTemplate, Frame);
-    while(true)
+    while(state==0)
     {
 
       Camera.grab();
@@ -118,21 +115,24 @@ public:
       bCounter = cv::sum(brownOut);
 
 
-      if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
-      {
-        *stateptr = 1;
+
+      if(cCounter>=baseClear*4){
+        if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
+        {
+          state = 1;
+        }
+        else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
+        {
+          state = 2;
+        }
+        else
+        {
+          state = 3;
+        }
       }
-      else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
-      {
-        *stateptr = 2;
-      }
-      else if(cCounter>=baseClear*3.5){
-        *stateptr = 3;
-      }
-      else {
-        *stateptr = 0;
-      }
-      std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter[0] << " GREEN: " << gCounter[0] << "                    STATE: " << *stateptr << endl;
+      std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter[0] << " GREEN: " << gCounter[0] << "                    STATE: " << state << endl;
+      state = 0;
+
     }
     return 0;
   }
