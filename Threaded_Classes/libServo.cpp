@@ -15,9 +15,9 @@ Servo::Servo(int pin)
 void Servo::init(float degree)
 {
     float t=degree*100/180+25;
-    pwmWrite(this->pin, t);
+//    pwmWrite(this->pin, t);
     lastDegree=degree;
-    delay(1000);
+    //delay(1000);
 }
 
 void Servo::move(float degree)
@@ -26,5 +26,5 @@ void Servo::move(float degree)
     float t2=abs(lastDegree-degree)*100/180;
     pwmWrite(this->pin, t);
     lastDegree=degree;
-    delay(t2*5);
+    //delay(t2*5);
 }

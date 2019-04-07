@@ -1,23 +1,24 @@
 #ifndef MOTOR_THREAD_H
 #define MOTOR_THREAD_H
-
+//#include "libServo.cpp"
 #include "CppThread.h"
+#include "state.h"
 //#include <wiringPi.h>
 class MotorThread : public CppThread {
 
 public:
-  MotorThread(int Output)
+  MotorThread(State* _stateptr)
+    :stateptr(_stateptr),pin(18)
     {
-	 colour=Output;
-         pin=18;
-  //  wiringPiSetupGpio();
-  }
+      printf("constructed MotorThread\n");
+    }
 
 private:
   void run();
 
 private:
-   int colour ;
-   int pin;
+State* stateptr;
+int pin;
+int state =0;
 };
 #endif

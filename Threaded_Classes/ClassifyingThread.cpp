@@ -1,9 +1,9 @@
 #include "ClassifyingThread.h"
-#include "FunctioningCamera.h"
+#include "Provisional0.h"
 
-int ClassifyingThread::run(){
-  AcqClassImages cam;
+void ClassifyingThread::run(){
+  acquireImage cam = acquireImage(stateptr);
       do{
-        *Output=cam.Classify();
-      }while(*Output==0)
+        cam.classify();
+      }while(true);
 }

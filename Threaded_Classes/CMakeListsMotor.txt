@@ -1,0 +1,12 @@
+
+cmake_minimum_required(VERSION 2.8.9)
+set (CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+project (TestingMotor)
+set(WiringPi_DIR "/home/pi/wiringPi")
+include_directories(${WIRINGPI_INCLUDE_DIRS})
+add_executable(TestingMotor MotorThread.cpp TestingMotor.cpp)
+find_package (Threads)
+find_package(WiringPi REQUIRED)
+target_link_libraries (TestingMotor ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries (TestingMotor ${WIRINGPI_LIBRARIES})

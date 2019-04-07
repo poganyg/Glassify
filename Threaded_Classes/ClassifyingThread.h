@@ -14,6 +14,6 @@ public:
 private:
   void run();
 private:
-  int* Output
+  int* Output;
 };
 #endif
