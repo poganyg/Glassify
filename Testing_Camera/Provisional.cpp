@@ -4,9 +4,11 @@
 //#include "Processing.h"
 //#include "CameraUseClassMOD.h"
 #include "Provisional.h"
+int state = 0;
+int* stateptr = &state;
 
 int main(){
-acquireImage Classifier;
+acquireImage Classifier(stateptr);
 Classifier.classify();
 return 0;
 }
