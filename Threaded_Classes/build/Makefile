@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Glassify/Threaded_Classes
+CMAKE_SOURCE_DIR = /home/pi/Threaded_Classes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Glassify/Threaded_Classes/build
+CMAKE_BINARY_DIR = /home/pi/Threaded_Classes/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/Threaded_Classes/build/CMakeFiles /home/pi/Glassify/Threaded_Classes/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Threaded_Classes/build/CMakeFiles /home/pi/Threaded_Classes/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Glassify/Threaded_Classes/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Threaded_Classes/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,60 +123,6 @@ TestingAll/fast:
 	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/build
 .PHONY : TestingAll/fast
 
-MotorThread.o: MotorThread.cpp.o
-
-.PHONY : MotorThread.o
-
-# target to build an object file
-MotorThread.cpp.o:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/MotorThread.cpp.o
-.PHONY : MotorThread.cpp.o
-
-MotorThread.i: MotorThread.cpp.i
-
-.PHONY : MotorThread.i
-
-# target to preprocess a source file
-MotorThread.cpp.i:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/MotorThread.cpp.i
-.PHONY : MotorThread.cpp.i
-
-MotorThread.s: MotorThread.cpp.s
-
-.PHONY : MotorThread.s
-
-# target to generate assembly for a file
-MotorThread.cpp.s:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/MotorThread.cpp.s
-.PHONY : MotorThread.cpp.s
-
-SwitchThread.o: SwitchThread.cpp.o
-
-.PHONY : SwitchThread.o
-
-# target to build an object file
-SwitchThread.cpp.o:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/SwitchThread.cpp.o
-.PHONY : SwitchThread.cpp.o
-
-SwitchThread.i: SwitchThread.cpp.i
-
-.PHONY : SwitchThread.i
-
-# target to preprocess a source file
-SwitchThread.cpp.i:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/SwitchThread.cpp.i
-.PHONY : SwitchThread.cpp.i
-
-SwitchThread.s: SwitchThread.cpp.s
-
-.PHONY : SwitchThread.s
-
-# target to generate assembly for a file
-SwitchThread.cpp.s:
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/SwitchThread.cpp.s
-.PHONY : SwitchThread.cpp.s
-
 TestingAll.o: TestingAll.cpp.o
 
 .PHONY : TestingAll.o
@@ -204,6 +150,87 @@ TestingAll.cpp.s:
 	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/TestingAll.cpp.s
 .PHONY : TestingAll.cpp.s
 
+include/MotorThread.o: include/MotorThread.cpp.o
+
+.PHONY : include/MotorThread.o
+
+# target to build an object file
+include/MotorThread.cpp.o:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o
+.PHONY : include/MotorThread.cpp.o
+
+include/MotorThread.i: include/MotorThread.cpp.i
+
+.PHONY : include/MotorThread.i
+
+# target to preprocess a source file
+include/MotorThread.cpp.i:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/MotorThread.cpp.i
+.PHONY : include/MotorThread.cpp.i
+
+include/MotorThread.s: include/MotorThread.cpp.s
+
+.PHONY : include/MotorThread.s
+
+# target to generate assembly for a file
+include/MotorThread.cpp.s:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/MotorThread.cpp.s
+.PHONY : include/MotorThread.cpp.s
+
+include/SwitchThread.o: include/SwitchThread.cpp.o
+
+.PHONY : include/SwitchThread.o
+
+# target to build an object file
+include/SwitchThread.cpp.o:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o
+.PHONY : include/SwitchThread.cpp.o
+
+include/SwitchThread.i: include/SwitchThread.cpp.i
+
+.PHONY : include/SwitchThread.i
+
+# target to preprocess a source file
+include/SwitchThread.cpp.i:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.i
+.PHONY : include/SwitchThread.cpp.i
+
+include/SwitchThread.s: include/SwitchThread.cpp.s
+
+.PHONY : include/SwitchThread.s
+
+# target to generate assembly for a file
+include/SwitchThread.cpp.s:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.s
+.PHONY : include/SwitchThread.cpp.s
+
+include/gpio-sysfs.o: include/gpio-sysfs.cpp.o
+
+.PHONY : include/gpio-sysfs.o
+
+# target to build an object file
+include/gpio-sysfs.cpp.o:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o
+.PHONY : include/gpio-sysfs.cpp.o
+
+include/gpio-sysfs.i: include/gpio-sysfs.cpp.i
+
+.PHONY : include/gpio-sysfs.i
+
+# target to preprocess a source file
+include/gpio-sysfs.cpp.i:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.i
+.PHONY : include/gpio-sysfs.cpp.i
+
+include/gpio-sysfs.s: include/gpio-sysfs.cpp.s
+
+.PHONY : include/gpio-sysfs.s
+
+# target to generate assembly for a file
+include/gpio-sysfs.cpp.s:
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.s
+.PHONY : include/gpio-sysfs.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TestingAll"
-	@echo "... MotorThread.o"
-	@echo "... MotorThread.i"
-	@echo "... MotorThread.s"
-	@echo "... SwitchThread.o"
-	@echo "... SwitchThread.i"
-	@echo "... SwitchThread.s"
 	@echo "... TestingAll.o"
 	@echo "... TestingAll.i"
 	@echo "... TestingAll.s"
+	@echo "... include/MotorThread.o"
+	@echo "... include/MotorThread.i"
+	@echo "... include/MotorThread.s"
+	@echo "... include/SwitchThread.o"
+	@echo "... include/SwitchThread.i"
+	@echo "... include/SwitchThread.s"
+	@echo "... include/gpio-sysfs.o"
+	@echo "... include/gpio-sysfs.i"
+	@echo "... include/gpio-sysfs.s"
 .PHONY : help
 
 

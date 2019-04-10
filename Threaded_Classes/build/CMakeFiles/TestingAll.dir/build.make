@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Glassify/Threaded_Classes
+CMAKE_SOURCE_DIR = /home/pi/Threaded_Classes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Glassify/Threaded_Classes/build
+CMAKE_BINARY_DIR = /home/pi/Threaded_Classes/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TestingAll.dir/depend.make
@@ -57,66 +57,18 @@ include CMakeFiles/TestingAll.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TestingAll.dir/flags.make
 
-CMakeFiles/TestingAll.dir/MotorThread.cpp.o: CMakeFiles/TestingAll.dir/flags.make
-CMakeFiles/TestingAll.dir/MotorThread.cpp.o: ../MotorThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Glassify/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestingAll.dir/MotorThread.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/MotorThread.cpp.o -c /home/pi/Glassify/Threaded_Classes/MotorThread.cpp
-
-CMakeFiles/TestingAll.dir/MotorThread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/MotorThread.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Glassify/Threaded_Classes/MotorThread.cpp > CMakeFiles/TestingAll.dir/MotorThread.cpp.i
-
-CMakeFiles/TestingAll.dir/MotorThread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/MotorThread.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Glassify/Threaded_Classes/MotorThread.cpp -o CMakeFiles/TestingAll.dir/MotorThread.cpp.s
-
-CMakeFiles/TestingAll.dir/MotorThread.cpp.o.requires:
-
-.PHONY : CMakeFiles/TestingAll.dir/MotorThread.cpp.o.requires
-
-CMakeFiles/TestingAll.dir/MotorThread.cpp.o.provides: CMakeFiles/TestingAll.dir/MotorThread.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/MotorThread.cpp.o.provides.build
-.PHONY : CMakeFiles/TestingAll.dir/MotorThread.cpp.o.provides
-
-CMakeFiles/TestingAll.dir/MotorThread.cpp.o.provides.build: CMakeFiles/TestingAll.dir/MotorThread.cpp.o
-
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.o: CMakeFiles/TestingAll.dir/flags.make
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.o: ../SwitchThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Glassify/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TestingAll.dir/SwitchThread.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/SwitchThread.cpp.o -c /home/pi/Glassify/Threaded_Classes/SwitchThread.cpp
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/SwitchThread.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Glassify/Threaded_Classes/SwitchThread.cpp > CMakeFiles/TestingAll.dir/SwitchThread.cpp.i
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/SwitchThread.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Glassify/Threaded_Classes/SwitchThread.cpp -o CMakeFiles/TestingAll.dir/SwitchThread.cpp.s
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.requires:
-
-.PHONY : CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.requires
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.provides: CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.requires
-	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.provides.build
-.PHONY : CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.provides
-
-CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.provides.build: CMakeFiles/TestingAll.dir/SwitchThread.cpp.o
-
-
 CMakeFiles/TestingAll.dir/TestingAll.cpp.o: CMakeFiles/TestingAll.dir/flags.make
 CMakeFiles/TestingAll.dir/TestingAll.cpp.o: ../TestingAll.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Glassify/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestingAll.dir/TestingAll.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/TestingAll.cpp.o -c /home/pi/Glassify/Threaded_Classes/TestingAll.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestingAll.dir/TestingAll.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/TestingAll.cpp.o -c /home/pi/Threaded_Classes/TestingAll.cpp
 
 CMakeFiles/TestingAll.dir/TestingAll.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/TestingAll.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Glassify/Threaded_Classes/TestingAll.cpp > CMakeFiles/TestingAll.dir/TestingAll.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Threaded_Classes/TestingAll.cpp > CMakeFiles/TestingAll.dir/TestingAll.cpp.i
 
 CMakeFiles/TestingAll.dir/TestingAll.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/TestingAll.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Glassify/Threaded_Classes/TestingAll.cpp -o CMakeFiles/TestingAll.dir/TestingAll.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Threaded_Classes/TestingAll.cpp -o CMakeFiles/TestingAll.dir/TestingAll.cpp.s
 
 CMakeFiles/TestingAll.dir/TestingAll.cpp.o.requires:
 
@@ -129,18 +81,92 @@ CMakeFiles/TestingAll.dir/TestingAll.cpp.o.provides: CMakeFiles/TestingAll.dir/T
 CMakeFiles/TestingAll.dir/TestingAll.cpp.o.provides.build: CMakeFiles/TestingAll.dir/TestingAll.cpp.o
 
 
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o: CMakeFiles/TestingAll.dir/flags.make
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o: ../include/MotorThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o -c /home/pi/Threaded_Classes/include/MotorThread.cpp
+
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/include/MotorThread.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Threaded_Classes/include/MotorThread.cpp > CMakeFiles/TestingAll.dir/include/MotorThread.cpp.i
+
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/include/MotorThread.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Threaded_Classes/include/MotorThread.cpp -o CMakeFiles/TestingAll.dir/include/MotorThread.cpp.s
+
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.requires:
+
+.PHONY : CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.requires
+
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.provides: CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.provides.build
+.PHONY : CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.provides
+
+CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.provides.build: CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o
+
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o: CMakeFiles/TestingAll.dir/flags.make
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o: ../include/SwitchThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o -c /home/pi/Threaded_Classes/include/SwitchThread.cpp
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Threaded_Classes/include/SwitchThread.cpp > CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.i
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Threaded_Classes/include/SwitchThread.cpp -o CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.s
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.requires:
+
+.PHONY : CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.requires
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.provides: CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.provides.build
+.PHONY : CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.provides
+
+CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.provides.build: CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o
+
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o: CMakeFiles/TestingAll.dir/flags.make
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o: ../include/gpio-sysfs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o -c /home/pi/Threaded_Classes/include/gpio-sysfs.cpp
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Threaded_Classes/include/gpio-sysfs.cpp > CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.i
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Threaded_Classes/include/gpio-sysfs.cpp -o CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.s
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.requires:
+
+.PHONY : CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.requires
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.provides: CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TestingAll.dir/build.make CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.provides.build
+.PHONY : CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.provides
+
+CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.provides.build: CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o
+
+
 # Object files for target TestingAll
 TestingAll_OBJECTS = \
-"CMakeFiles/TestingAll.dir/MotorThread.cpp.o" \
-"CMakeFiles/TestingAll.dir/SwitchThread.cpp.o" \
-"CMakeFiles/TestingAll.dir/TestingAll.cpp.o"
+"CMakeFiles/TestingAll.dir/TestingAll.cpp.o" \
+"CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o" \
+"CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o" \
+"CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o"
 
 # External object files for target TestingAll
 TestingAll_EXTERNAL_OBJECTS =
 
-TestingAll: CMakeFiles/TestingAll.dir/MotorThread.cpp.o
-TestingAll: CMakeFiles/TestingAll.dir/SwitchThread.cpp.o
 TestingAll: CMakeFiles/TestingAll.dir/TestingAll.cpp.o
+TestingAll: CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o
+TestingAll: CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o
+TestingAll: CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o
 TestingAll: CMakeFiles/TestingAll.dir/build.make
 TestingAll: /usr/local/lib/libwiringPi.so
 TestingAll: /opt/vc/lib/libmmal_core.so
@@ -162,7 +188,7 @@ TestingAll: /usr/local/lib/libopencv_imgcodecs.so.4.0.1
 TestingAll: /usr/local/lib/libopencv_imgproc.so.4.0.1
 TestingAll: /usr/local/lib/libopencv_core.so.4.0.1
 TestingAll: CMakeFiles/TestingAll.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Glassify/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable TestingAll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Threaded_Classes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable TestingAll"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestingAll.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -170,9 +196,10 @@ CMakeFiles/TestingAll.dir/build: TestingAll
 
 .PHONY : CMakeFiles/TestingAll.dir/build
 
-CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/MotorThread.cpp.o.requires
-CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/SwitchThread.cpp.o.requires
 CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/TestingAll.cpp.o.requires
+CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/include/MotorThread.cpp.o.requires
+CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/include/SwitchThread.cpp.o.requires
+CMakeFiles/TestingAll.dir/requires: CMakeFiles/TestingAll.dir/include/gpio-sysfs.cpp.o.requires
 
 .PHONY : CMakeFiles/TestingAll.dir/requires
 
@@ -181,6 +208,6 @@ CMakeFiles/TestingAll.dir/clean:
 .PHONY : CMakeFiles/TestingAll.dir/clean
 
 CMakeFiles/TestingAll.dir/depend:
-	cd /home/pi/Glassify/Threaded_Classes/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Glassify/Threaded_Classes /home/pi/Glassify/Threaded_Classes /home/pi/Glassify/Threaded_Classes/build /home/pi/Glassify/Threaded_Classes/build /home/pi/Glassify/Threaded_Classes/build/CMakeFiles/TestingAll.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/Threaded_Classes/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Threaded_Classes /home/pi/Threaded_Classes /home/pi/Threaded_Classes/build /home/pi/Threaded_Classes/build /home/pi/Threaded_Classes/build/CMakeFiles/TestingAll.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/TestingAll.dir/depend
 
