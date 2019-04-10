@@ -1,8 +1,0 @@
-/home/pi/Glassify/Testing_Camera/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/Testing_Camera/build/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/Testing_Camera/build/CMakeFiles/test.dir
-/home/pi/Glassify/Testing_Camera/build/CMakeFiles/Classifier.dir
-/home/pi/Glassify/Testing_Camera/build/test/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/Testing_Camera/build/test/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/Testing_Camera/build/test/CMakeFiles/test.dir
-/home/pi/Glassify/Testing_Camera/build/test/CMakeFiles/test_functionality.dir
