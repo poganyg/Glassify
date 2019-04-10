@@ -1,3 +1,0 @@
-/home/pi/Threaded_Classes/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Threaded_Classes/build/CMakeFiles/edit_cache.dir
-/home/pi/Threaded_Classes/build/CMakeFiles/TestingAll.dir

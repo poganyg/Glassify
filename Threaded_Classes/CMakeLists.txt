@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 set (CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-project (TestingAll)
+project (Glassify)
 
 set(WiringPi_DIR "/home/pi/wiringPi")
 set(raspicam_DIR "/usr/local/lib/cmake")
@@ -16,9 +16,9 @@ find_package(raspicam REQUIRED)
 
 include_directories(./include)
 
-add_executable(TestingAll TestingAll.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp)
+add_executable(Glassify Glassify.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp ./include/Camera.cpp)
 
-target_link_libraries (TestingAll ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries (TestingAll ${WIRINGPI_LIBRARIES})
-target_link_libraries (TestingAll ${raspicam_LIBS})
-target_link_libraries (TestingAll ${OpenCV_LIBS})
+target_link_libraries (Glassify ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries (Glassify ${WIRINGPI_LIBRARIES})
+target_link_libraries (Glassify ${raspicam_LIBS})
+target_link_libraries (Glassify ${OpenCV_LIBS})
