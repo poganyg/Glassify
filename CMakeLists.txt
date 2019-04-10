@@ -5,6 +5,11 @@ set (CMAKE_CXX_STANDARD 11)
 
 project (Glassify)
 
+# Define Test Directories
+# add_subdirectory (src)
+# add_subdirectory (test)
+# enable_testing()
+
 set(WiringPi_DIR "/home/pi/wiringPi")
 set(raspicam_DIR "/usr/local/lib/cmake")
 include_directories(${WIRINGPI_INCLUDE_DIRS})
