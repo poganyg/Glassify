@@ -16,6 +16,7 @@ using namespace std;
 class acquireImage{
 private:
   int loopNumber = 0;
+  int decisionVector[3];
   State* stateptr;
   int m_width; //width of image
   int m_height;
@@ -126,24 +127,39 @@ public:
       inRange(Frame, Scalar(0,50,0), Scalar(30,255,150), brownOut);
       bCounter = cv::sum(brownOut);
 
-
       if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
       {
        // *stateptr = 1;
-	      stateptr->writeState(1);
+        decisionVector[0]=decisionVector[1];
+        decisionVector[1]=decisionVector[2];
+        decisionVector[2]=1;
       }
       else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
       {
        // *stateptr = 2;
-        stateptr->writeState(2);
+       decisionVector[0]=decisionVector[1];
+       decisionVector[1]=decisionVector[2];
+       decisionVector[2]=1;
+        //stateptr->writeState(2);
 	     }
       else if(cCounter>=baseClear*1.5){
        // *stateptr = 3;
-	      stateptr->writeState(3);
+       decisionVector[0]=decisionVector[1];
+       decisionVector[1]=decisionVector[2];
+       decisionVector[2]=1;
+	      //stateptr->writeState(3);
       }
       else  {
-        stateptr->writeState(0);
+        decisionVector[0]=decisionVector[1];
+        decisionVector[1]=decisionVector[2];
+        decisionVector[2]=1;
+        //stateptr->writeState(0);
       }
+
+      if (decisionVector[2]==decisionVector[1] && decisionVector[1]==decisionVector[0]) {
+        stateptr->writeState(decisionVector[0]);
+      }
+
       //std::cout << "CLEAR: " << cCounter << " BROWN: " << bCounter[0] << " GREEN: " << gCounter[0] << "                    STATE: " << stateptr->getState() << endl;
 
       /*

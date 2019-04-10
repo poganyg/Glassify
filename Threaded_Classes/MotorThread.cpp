@@ -32,17 +32,19 @@ void MotorThread::run()
 	{
 		printf("servo to GREEN\n");
     servo.move(45);
+		std::this_thread::sleep_for(std::chrono::milliseconds(250));
   }
   if (state==2)//*stateptr==2)
   {
 		printf("servo to BROWN\n");
     servo.move(135);
+		std::this_thread::sleep_for(std::chrono::milliseconds(250));
   }
   if (state==3)//*stateptr==3)
   {
     servo.move(90);
 		printf("servo to CLEAR/NEUTRAL\n");
+		std::this_thread::sleep_for(std::chrono::milliseconds(250));
   }
-	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 }
