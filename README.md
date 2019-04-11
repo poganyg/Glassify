@@ -5,7 +5,7 @@
 We are bringing you a colour-based glass recycling sorter which can separate, in real-time, green, amber and clear bottles.
 This is a university project for the subject real-time embedded programming.
 
-embed glassify video
+[![A video summary of Glassify](https://img.youtube.com/vi/iapjhaJnOS8/0.jpg)](https://www.youtube.com/watch?v=iapjhaJnOS8)
 
 ## Motive
 
