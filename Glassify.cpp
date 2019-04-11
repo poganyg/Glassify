@@ -8,26 +8,25 @@
 #include "./include/libServo.cpp"
 
 //wiringPiSetupGpio();
-State state(0);
-State* stateptr= &state;
-Servo servo(18);
-Servo* servoptr = &servo;
+State State(0);
+State* stateptr= &State;
+Servo Servo(18);
+Servo* servoptr = &Servo;
 acquireImage Classifier(stateptr);
 MotorThread MotorTurning(stateptr,servoptr);
-
+SwitchThread SwitchCheck;
 int main()
 {
-wiringPiSetupGpio () ;
+wiringPiSetupGpio();
 while(true){
-
-  SwitchThread switchCheck1;
- switchCheck1.start();
- switchCheck1.join();
-  //pinMode (4, OUTPUT) ;
-  //digitalWrite (4, HIGH);
-MotorTurning.start();
+SwitchCheck.start();
+SwitchCheck.join();
+//pinMode (4, OUTPUT) ;
+//digitalWrite (4, HIGH);
+//MotorTurning.start();
 printf("MotorTurning.start\n");
 Classifier.classify();
+MotorTurning.start();
 MotorTurning.join();
 }
 }

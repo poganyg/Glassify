@@ -7,7 +7,7 @@
 //#include "libServo.cpp"
 
 
-void MotorThread::run()
+void CheckMatchThread::run()
 {
 	printf("entered loop\n");
 	//Servo servo(pin);
@@ -45,5 +45,4 @@ void MotorThread::run()
 		servoptr->moveClear();
 		//servo.move(90);
   }
-	stateptr->writeState(0);
 }
