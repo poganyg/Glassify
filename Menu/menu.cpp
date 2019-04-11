@@ -29,8 +29,8 @@ int main() {
   int EXIT_TIME = 500000;
   int DEBOUNCE = 50000;
 
-  int halt_time = 1000;
-  int sep_angle = 45;
+  int halt_time = servo.getHaltTime(); //1000;
+  int sep_angle = servo.getSepAngle();//45;
   int rest_position;// = 90;
   int HALT_ADJUST = 100;
   int SEP_ADJUST = 5;
@@ -172,15 +172,16 @@ int main() {
             exit_counter += 1;
           }
 
-          int motor_angle = servo.getRestPosition();
-          cout << motor_angle <<endl;          //if button 1 was pressed then decrease the angle by MOTOR_ADJUST
+         // int motor_angle = servo.getRestPosition();
+         // cout << motor_angle <<endl;          //if button 1 was pressed then decrease the angle by MOTOR_ADJUST
           if (b1_changed == 1 && b2 == 0) {
 
             if (halt_time > 100) {
               halt_time -= HALT_ADJUST;
               cout << halt_time;
               cout << " ms"<< endl;
-              //lcd.write(halt_time);
+              servo.setHaltTime(halt_time);
+	       //lcd.write(halt_time);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -191,7 +192,8 @@ int main() {
               halt_time += HALT_ADJUST;
               cout << halt_time;
               cout << " ms"<< endl;
-              //lcd.write(halt_time);
+             servo.setHaltTime(halt_time);
+		 //lcd.write(halt_time);
             } else {
               cout << "Can't further increase" << endl;
             }
@@ -268,7 +270,8 @@ int main() {
               sep_angle -= SEP_ADJUST;
               cout << sep_angle;
               cout << "°" << endl;
-              //lcd.write(sep_angle);
+              servo.setSepAngle(sep_angle);
+	      //lcd.write(sep_angle);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -280,6 +283,7 @@ int main() {
               sep_angle += SEP_ADJUST;
               cout << sep_angle;
               cout << "°" << endl;
+	      servo.setSepAngle(sep_angle);
               //lcd.write(sep_angle);
             } else {
               cout << "Can't further increase" << endl;
@@ -294,6 +298,7 @@ int main() {
         cout << "Separation angle" << endl;
         //allow time for the release of the button after exiting the menu option
         usleep(DEBOUNCE*20);
+
         //lcd.write("Separation angle");
       }
       //have to set the rest position
@@ -309,6 +314,9 @@ int main() {
         prev_b2 = b2;
         b1_changed = 0;
         b2_changed = 0;
+
+        rest_position = servo.getRestPosition();
+        cout << rest_position;
 
         // stay in the loop until a button is pressed down for a while
         while (exit_counter < EXIT_TIME/DEBOUNCE) {
@@ -350,14 +358,13 @@ int main() {
           //int motor_angle = servo.get_motor_angle();
           //if button 1 was pressed then decrease the angle by MOTOR_ADJUST
           if (b1_changed == 1 && b2 == 0) {
-              rest_position = servo.getRestPosition();
-
             if (rest_position > REST_LOW_LIMIT + sep_angle) {
-              cout << rest_position;//servo.setClear(rest_position -= REST_ADJUST);
+		//servo.setClear(rest_position -= REST_ADJUST);
               rest_position -= REST_ADJUST;
               cout << rest_position;
               cout << "°"<< endl;
-              //lcd.write(rest_position);
+              servo.setClear(rest_position);
+	  //lcd.write(rest_position);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -367,6 +374,7 @@ int main() {
             if (rest_position < REST_UP_LIMIT - sep_angle) {
               rest_position += REST_ADJUST;
               cout << rest_position<< "°"<< endl;
+		servo.setClear(rest_position);
               //lcd.write(rest_position);
             } else {
               cout << "Can't further increase" << endl;

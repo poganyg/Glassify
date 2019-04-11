@@ -13,7 +13,11 @@ class Servo
     void setBrown(float brownAngle);
     void setClear(float clearAngle);
     void setGreen(float greenAngle);
+    void setHaltTime(float Htime);
+    void setSepAngle(float SepAngle);
     int getRestPosition();
+    int getHaltTime();
+    int getSepAngle();
 
   private:
     int m_pin;
@@ -21,6 +25,8 @@ class Servo
     float m_brownAngle;
     float m_clearAngle;
     float m_lastDegree;
+    float m_HaltTime;
+    float m_SepAngle;
 };
 
 #endif
