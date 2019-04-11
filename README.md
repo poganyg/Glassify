@@ -19,3 +19,13 @@ embed 3d model rendering
 
 # Building the Project
 
+# Software Pakages Required
+This project makes use of several widely used programs. The links to these can be found below.
+
+[openCV](https://opencv.org/releases.html)
+
+[Raspicam](http://www.uco.es/investiga/grupos/ava/node/40?fbclid=IwAR3oNeb0COuL_Odd_C1q-Dq5YQPJ6SrulXHsiW9hHNv8-BaiqOYJpjWOB74)
+
+[WiringPi](http://wiringpi.com/download-and-install/) (Check if this is already installed before attempting instalation)
+
+All other files are included in this github, these include modified versions of Bernd Porr's gpio-sysfs and CppTimer libraries and Omar Aflak's libServo library.
