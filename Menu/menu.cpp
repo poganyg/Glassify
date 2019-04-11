@@ -4,10 +4,10 @@
 #include <vector>
 #include <unistd.h>
 #include "libServo.cpp"
+
 //#include "libServo.cpp"
 //#inclde "display.h"
 
-//#include "MotorThread.h"
 using namespace std;
 
 int main() {
@@ -59,7 +59,7 @@ int main() {
 //  lcd.write(menu_vector[i]);
   cout << menu_vector[i] << endl;
 
-  printf("before digitalRead\n");
+ // printf("before digitalRead\n");
 
   int b1 = digitalRead(button1);
   int b2 = digitalRead(button2);
@@ -68,7 +68,7 @@ int main() {
   int b1_changed = 0;
   int b2_changed = 0;
 
-  printf("passed digitalRead\n");
+ // printf("passed digitalRead\n");
 
   while(true) {
 
@@ -192,7 +192,7 @@ int main() {
               halt_time += HALT_ADJUST;
               cout << halt_time;
               cout << " ms"<< endl;
-             servo.setHaltTime(halt_time);
+              servo.setHaltTime(halt_time);
 		 //lcd.write(halt_time);
             } else {
               cout << "Can't further increase" << endl;
@@ -316,7 +316,8 @@ int main() {
         b2_changed = 0;
 
         rest_position = servo.getRestPosition();
-        cout << rest_position;
+        cout<< rest_position;
+        cout << rest_position<< "°"<< endl;
 
         // stay in the loop until a button is pressed down for a while
         while (exit_counter < EXIT_TIME/DEBOUNCE) {
