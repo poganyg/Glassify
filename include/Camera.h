@@ -1,5 +1,5 @@
-#ifndef CLASSIFIER
-#define CLASSIFIER
+#ifndef CAMERA
+#define CAMERA
 
 #include <ctime>
 #include <sstream>
@@ -7,44 +7,26 @@
 #include <iostream>
 #include <unistd.h>
 #include <raspicam/raspicam.h>
-#include <opencv2/opencv.hpp>
 #include <stdint.h>
-#include <opencv2/core.hpp>
 #include <wiringPi.h>
-#include "state.h"
 
-using namespace cv;
 using namespace std;
 
-class acquireImage
+class Camera
 {
 private:
-  int loopNumber = 0;
-  int decisionVector[3];
-  State* stateptr;
-  int m_width; //width of image
-  int m_height;
-  int m_fps;
-  int m_shutter;
-  int m_brightness;
-  raspicam::RaspiCam Camera; //instantiates the camera within the class
-  unsigned char *data;
-  int avg;
-  int counter;
+  raspicam::RaspiCam CameraDevice; //instantiates the camera within the class
 
-  //Initialise Variables
-  cv::Scalar gCounter; //green counter
-  cv::Scalar bCounter; //brown counter
-  int cCounter; //clear counter
-  Mat greenOut;
-  Mat brownOut;
-
-  int baseClear;
+  int m_width; //CONSTRUCTOR
+  int m_height; //CONSTRUCTOR
+  int m_fps; //CONSTRUCTOR
+  int m_shutter; //CONSTRUCTOR
+  int m_brightness; //CONSTRUCTOR
+  unsigned char *data; //CONSTRUCTOR - the array to which the camera will output
 
 public:
-  acquireImage(State* _stateptr);
-  int checkMatch(Mat templateImg, Mat currentImg);
-  int classify();
+  Camera();
+  void capture();
 };
 
 #endif
