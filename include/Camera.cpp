@@ -11,11 +11,11 @@ Camera::Camera()
   CameraDevice.setBrightness(m_brightness);
 
   //Allocate Memory
-  data=new unsigned char[Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
+  data=new unsigned char[CameraDevice.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
   //IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
 
   cout<<"Opening Camera..."<<endl;
-  if ( !Camera.open()) {cerr<<"Error opening camera"<<endl;}
+  if ( !CameraDevice.open()) {cerr<<"Error opening camera"<<endl;}
 }
 
 void Camera::capture()

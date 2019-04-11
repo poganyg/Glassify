@@ -21,7 +21,7 @@ find_package(raspicam REQUIRED)
 
 include_directories(./include)
 
-add_executable(Glassify Glassify.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp ./include/Camera.cpp)
+add_executable(Glassify Glassify.cpp ./include/state.cpp ./include/Camera.cpp ./include/libServo.cpp ./include/Classifier.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp)
 
 target_link_libraries (Glassify ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries (Glassify ${WIRINGPI_LIBRARIES})

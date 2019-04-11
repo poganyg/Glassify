@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "Classifier.h"
 
 
 Classifier::Classifier(State* _stateptr, Camera* _cameraptr)
@@ -18,7 +18,7 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
   {
     for (int c = 0; c < baseImage.cols; c++)
     {
-      rollingImage.at<uint8_t>(r, c) = abs(templateImage.at<uint8_t>(r, c) - rollingImage.at<uint8_t>(r, c));
+      rollingImage.at<uint8_t>(r, c) = abs(baseImage.at<uint8_t>(r, c) - rollingImage.at<uint8_t>(r, c));
       counter = counter + rollingImage.at<uint8_t>(r, c);
     }
   }

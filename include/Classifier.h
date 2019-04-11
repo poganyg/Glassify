@@ -41,8 +41,8 @@ private: // Classification
 
 public:
   Classifier(State* _stateptr, Camera* _cameraptr);
-  int checkMatch(Mat templateImg, Mat currentImg);
-  int classify();
+  int checkMatch(Mat& baseImage, Mat& rollingImage);
+  void classify();
 };
 
 #endif

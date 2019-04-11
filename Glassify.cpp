@@ -1,32 +1,34 @@
 #include <wiringPi.h>
 #include <iostream>
 #include <stdio.h>
+#include "./include/state.h"
+#include "./include/libServo.h"
+#include "./include/Camera.h"
 #include "./include/SwitchThread.h"
 #include "./include/MotorThread.h"
-#include "./include/state.h"
-#include "./include/Camera.h"
-#include "./include/libServo.cpp"
+#include "./include/Classifier.h"
 
-//wiringPiSetupGpio();
-State State(0);
-State* stateptr= &State;
-Servo Servo(18);
-Servo* servoptr = &Servo;
-acquireImage Classifier(stateptr);
-MotorThread MotorTurning(stateptr,servoptr);
-SwitchThread SwitchCheck;
+State state(0);
+State* stateptr= &state;
+Servo servo(18);
+Servo* servoptr = &servo;
+Camera camera;
+Camera* cameraptr = &camera;
+Classifier classifier(stateptr,cameraptr);
+MotorThread motorThread(stateptr,servoptr);
+SwitchThread switchThread(17);
 int main()
 {
-wiringPiSetupGpio();
 while(true){
-SwitchCheck.start();
-SwitchCheck.join();
+  wiringPiSetupGpio();
+switchThread.start();
+switchThread.join();
 //pinMode (4, OUTPUT) ;
 //digitalWrite (4, HIGH);
 //MotorTurning.start();
 printf("MotorTurning.start\n");
-Classifier.classify();
-MotorTurning.start();
-MotorTurning.join();
+classifier.classify();
+motorThread.start();
+motorThread.join();
 }
 }

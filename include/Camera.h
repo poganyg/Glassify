@@ -16,17 +16,16 @@ class Camera
 {
 private:
   raspicam::RaspiCam CameraDevice; //instantiates the camera within the class
-
-  int m_width; //CONSTRUCTOR
-  int m_height; //CONSTRUCTOR
   int m_fps; //CONSTRUCTOR
   int m_shutter; //CONSTRUCTOR
   int m_brightness; //CONSTRUCTOR
-  unsigned char *data; //CONSTRUCTOR - the array to which the camera will output
 
 public:
   Camera();
   void capture();
+  int m_width; //CONSTRUCTOR
+  int m_height; //CONSTRUCTOR
+  unsigned char *data; //CONSTRUCTOR - the array to which the camera will output
 };
 
 #endif
