@@ -39,7 +39,6 @@ private:
   Mat greenOut;
   Mat brownOut;
 
-  int setup = 0;
   int baseClear;
 
 public:

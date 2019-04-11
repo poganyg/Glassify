@@ -13,6 +13,7 @@ acquireImage::acquireImage(State* _stateptr)
 
   //Allocate Memory
   data=new unsigned char[Camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
+  unsigned char* dataptr = &data;
   //IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
 
   cout<<"Opening Camera..."<<endl;
@@ -36,10 +37,10 @@ int acquireImage::checkMatch(Mat templateImg, Mat currentImg)
   return counter;
 }
 
-int acquireImage::classify()
+void acquireImage::classify()
 //   *stateptr=0;
 {
-  while(true)
+  while(stateptr->getState()==0)
   {
   //wait a while until camera stabilizes
   Camera.grab();
@@ -97,12 +98,12 @@ int acquireImage::classify()
       decisionVector[1]=decisionVector[2];
       decisionVector[2]=0;
     }
-    if (decisionVector[1]==decisionVector[0])
+    if (decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
     {
       printf("WritingState %i\n", decisionVector[0]);
       stateptr->writeState(decisionVector[0]);
+      return;
     }
-  return 0;
   }
 }
 }
