@@ -14,26 +14,19 @@
 #define LCD_D7 15
 
 using namespace std;
-/*
-wiringPiSetup();
-int wiringPiSetupGpio (void);
-int M_LCD = lcdInit (2, 16, 4, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
-Display();
-void write(const char* input);
-*/
 
 class Display
 {
   private:
 
   public:
-    /*
-    wiringPiSetup();
+
+    //wiringPiSetup();
     int wiringPiSetupGpio (void);
     int M_LCD = lcdInit (2, 16, 4, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
     Display();
     void write(const char* input);
-    */
+
 
 };
 

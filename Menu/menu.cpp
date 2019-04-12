@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <unistd.h>
-//#include "Display.h"
+#include "Display.h"
 #include "libServo.h"
 #include <lcd.h>
 
@@ -23,8 +23,10 @@ int main() {
   // initialisations
 
   wiringPiSetup();
-  int wiringPiSetupGpio (void);
-  int M_LCD = lcdInit (2, 16, 4, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
+
+  Display display;
+  //int wiringPiSetupGpio (void);
+  //int M_LCD = lcdInit (2, 16, 4, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
   //Display();
   //void write(const char* input);
 
@@ -74,10 +76,10 @@ int main() {
 
 cout << "inmenu" << endl;
 
-  const char* str = "DISPLAYING TEXT";
+  const char* str = "boink";
   //const char* X = "servo halt time";
   //displayptr->write((string) menu_vector[i]);
-  lcdPuts(M_LCD,str);
+  display.write(str);
 
   cout << menu_vector[i] << endl;
 

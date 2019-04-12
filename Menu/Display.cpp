@@ -20,11 +20,10 @@ using namespace std;
 Display::Display()
 {
 }
-/*
+
 void Display::write(const char* input)
 {
-  //wiringPiSetup();
-  //int wiringPiSetupGpio (void);
-  //lcdPuts(this->M_LCD,input);
+  wiringPiSetup();
+  int wiringPiSetupGpio (void);
+  lcdPuts(M_LCD,input);
 }
-*/
