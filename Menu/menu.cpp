@@ -3,19 +3,35 @@
 #include <stdlib.h>
 #include <vector>
 #include <unistd.h>
-#include "libServo.cpp"
+//#include "Display.h"
+#include "libServo.h"
+#include <lcd.h>
 
-//#include "libServo.cpp"
-//#inclde "display.h"
+#define LCD_RS 5               //Register select pin
+#define LCD_E 4               //Enable Pin
+#define LCD_D4 8               //Data pin D4
+#define LCD_D5 1               //Data pin D5 - REWRITE TO PIN 7 WITH NEW PCB
+#define LCD_D6 16               //Data pin D6
+#define LCD_D7 15
 
 using namespace std;
 
+
 int main() {
   cout << "got into main" << endl;
+
   // initialisations
-  wiringPiSetupGpio();
-  Servo servo(18);
-  //DisplayThread lcd;
+
+  wiringPiSetup();
+  int wiringPiSetupGpio (void);
+  int M_LCD = lcdInit (2, 16, 4, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
+  //Display();
+  //void write(const char* input);
+
+  //Display display;
+  //Display* displayptr = &display;
+
+  //Servo servo(18);
 
 
   int button1 = 22;
@@ -29,9 +45,9 @@ int main() {
   int EXIT_TIME = 500000;
   int DEBOUNCE = 50000;
 
-  int halt_time = servo.getHaltTime(); //1000;
-  int sep_angle = servo.getSepAngle();//45;
-  int rest_position;// = 90;
+  int halt_time = 1000; //servo.getHaltTime(); //1000;
+  int sep_angle = 45; //servo.getSepAngle();//45;
+  int rest_position;// = 90; //WHY ISNT THIS GETTED?
   int HALT_ADJUST = 100;
   int SEP_ADJUST = 5;
   int REST_ADJUST = 5 ;
@@ -56,7 +72,13 @@ int main() {
   int exit_counter = 0;
 
 
-//  lcd.write(menu_vector[i]);
+cout << "inmenu" << endl;
+
+  const char* str = "DISPLAYING TEXT";
+  //const char* X = "servo halt time";
+  //displayptr->write((string) menu_vector[i]);
+  lcdPuts(M_LCD,str);
+
   cout << menu_vector[i] << endl;
 
  // printf("before digitalRead\n");
@@ -180,8 +202,8 @@ int main() {
               halt_time -= HALT_ADJUST;
               cout << halt_time;
               cout << " ms"<< endl;
-              servo.setHaltTime(halt_time);
-	       //lcd.write(halt_time);
+              //servo.setHaltTime(halt_time);
+	            //lcd.write(halt_time);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -192,8 +214,8 @@ int main() {
               halt_time += HALT_ADJUST;
               cout << halt_time;
               cout << " ms"<< endl;
-              servo.setHaltTime(halt_time);
-		 //lcd.write(halt_time);
+              //servo.setHaltTime(halt_time);
+		          //lcd.write(halt_time);
             } else {
               cout << "Can't further increase" << endl;
             }
@@ -270,8 +292,8 @@ int main() {
               sep_angle -= SEP_ADJUST;
               cout << sep_angle;
               cout << "°" << endl;
-              servo.setSepAngle(sep_angle);
-	      //lcd.write(sep_angle);
+              //servo.setSepAngle(sep_angle);
+	            //lcd.write(sep_angle);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -283,7 +305,7 @@ int main() {
               sep_angle += SEP_ADJUST;
               cout << sep_angle;
               cout << "°" << endl;
-	      servo.setSepAngle(sep_angle);
+	            //servo.setSepAngle(sep_angle);
               //lcd.write(sep_angle);
             } else {
               cout << "Can't further increase" << endl;
@@ -304,8 +326,8 @@ int main() {
       //have to set the rest position
       else {
         //cout << "Rest position" << endl;
-	 //     cout << rest_position;
-       // cout << "°" << endl;
+	      //cout << rest_position;
+        // cout << "°" << endl;
 	      usleep(DEBOUNCE * 10);
         // updating on what state the GPIOs in prior to entering the loop
         b1 = digitalRead(button1);
@@ -315,9 +337,8 @@ int main() {
         b1_changed = 0;
         b2_changed = 0;
 
-        rest_position = servo.getRestPosition();
-        cout<< rest_position;
-        cout << rest_position<< "°"<< endl;
+        //rest_position = servo.getRestPosition();
+        cout << rest_position;
 
         // stay in the loop until a button is pressed down for a while
         while (exit_counter < EXIT_TIME/DEBOUNCE) {
@@ -360,12 +381,12 @@ int main() {
           //if button 1 was pressed then decrease the angle by MOTOR_ADJUST
           if (b1_changed == 1 && b2 == 0) {
             if (rest_position > REST_LOW_LIMIT + sep_angle) {
-		//servo.setClear(rest_position -= REST_ADJUST);
+		          //servo.setClear(rest_position -= REST_ADJUST);
               rest_position -= REST_ADJUST;
               cout << rest_position;
               cout << "°"<< endl;
-              servo.setClear(rest_position);
-	  //lcd.write(rest_position);
+              //servo.setClear(rest_position);
+	            //lcd.write(rest_position);
             } else {
               cout << "Can't further decrease" << endl;
             }
@@ -375,7 +396,7 @@ int main() {
             if (rest_position < REST_UP_LIMIT - sep_angle) {
               rest_position += REST_ADJUST;
               cout << rest_position<< "°"<< endl;
-		servo.setClear(rest_position);
+		          //servo.setClear(rest_position);
               //lcd.write(rest_position);
             } else {
               cout << "Can't further increase" << endl;
