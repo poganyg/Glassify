@@ -2,6 +2,7 @@
 #define CLASSIFIER
 
 #include <ctime>
+#include <cmath>
 #include <sstream>
 #include <fstream>
 #include <iostream>
@@ -13,6 +14,7 @@
 #include <wiringPi.h>
 #include "state.h"
 #include "Camera.h"
+#include <chrono>
 
 using namespace cv;
 using namespace std;
@@ -23,8 +25,12 @@ private: // Classification
   Camera* cameraptr;
   State* stateptr; // CONSTRUCTOR
 
+  bool bufferOn;
+  auto start;
+  auto end;
+
   //Initialise Variables
-  int loopNumber = 0;
+  int loopNumber;
   int decisionVector[3];
 
   Mat baseFrame; //CONSTRUCTOR
@@ -43,6 +49,8 @@ public:
   Classifier(State* _stateptr, Camera* _cameraptr);
   int checkMatch(Mat& baseImage, Mat& rollingImage);
   void classify();
+  void reset();
+  void softReset();
 };
 
 #endif

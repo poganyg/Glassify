@@ -2,7 +2,7 @@
 
 
 Classifier::Classifier(State* _stateptr, Camera* _cameraptr)
-  :stateptr(_stateptr),cameraptr(_cameraptr)
+  :stateptr(_stateptr),cameraptr(_cameraptr),bufferOn(false),loopNumber(0)
 {
   Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
   Mat baseGrey(cameraptr->m_height,cameraptr->m_width,CV_8UC1);
@@ -93,16 +93,53 @@ void Classifier::classify()
       if (decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
       {
         printf("WritingState %i\n", decisionVector[0]);
-        stateptr->writeState(decisionVector[0]);
         stateptr->bufferDown();
         if(stateptr->getBuffer()!=0)
         {
-          if (bool bufferOn == true){
-            auto end = chrono::steady_clock::now();
+          if (bufferOn == true)
+          {
+            end = chrono::steady_clock::now();
+            stateptr->addState(decisionVector[0],abs(end-start))
+            start = chrono::steady_clock::now();
           }
-          auto start = chrono::steady_clock::now();
+          else
+          {
+            stateptr->addState(decisionVector[0],0)
+            start = chrono::steady_clock::now();
+            bufferOn = true;
+          }
+          softReset();
+        }
+        else
+        {
+          if (bufferOn == true)
+          {
+            bufferOn = false;
+            end = chrono::steady_clock::now();
+            stateptr->addState(decisionVector[0],0)
+          }
+          else
+          {
+            stateptr->addState(decisionVector[0],0);
+          }
+          reset(); //Resets loopNumber and decisionVector variables for next classification loop
+          }
         }
       }
     }
   }
-}
+
+  void Classifier::reset()
+  {
+    loopNumber = 0;
+    decisionVector[0]=0;
+    decisionVector[1]=0;
+    decisionVector[2]=0;
+  }
+
+  void Classifier::softReset()
+  {
+    decisionVector[0]=0;
+    decisionVector[1]=0;
+    decisionVector[2]=0;
+  }
