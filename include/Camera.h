@@ -9,7 +9,6 @@
 #include <raspicam/raspicam.h>
 #include <stdint.h>
 #include <wiringPi.h>
-#include <chrono>
 
 using namespace std;
 
