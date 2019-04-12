@@ -9,7 +9,7 @@
 #include "./include/Classifier.h"
 #include "./include/ClassificationThread.h"
 
-State state(0);
+State state;
 State* stateptr= &state;
 Servo servo(18);
 Servo* servoptr = &servo;
@@ -19,7 +19,8 @@ Classifier classifier(stateptr,cameraptr);
 Classifier* classifierptr = &classifier;
 ClassifierThread classifierThread(classifierptr);
 MotorThread motorThread(stateptr,servoptr);
-SwitchThread switchThread(17);
+SwitchThread switchThread(stateptr,17);
+
 int main()
 {
 while(true){

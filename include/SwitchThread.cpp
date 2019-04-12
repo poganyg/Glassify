@@ -3,12 +3,17 @@
 #include <thread>
 #include "gpio-sysfs.h"
 
-void SwitchThread::run(){
+void SwitchThread::run()
+{
   prerun=gpio_poll(gpio_fd,POLL_TIMEOUT);
-  do {
+  do
+  {
     rc = gpio_poll(gpio_fd, POLL_TIMEOUT);
 	printf("%d\n",rc);
   } while (rc==0);
+
+  m_stateptr->bufferUp();
+
   gpio_fd_close(gpio_fd);
   gpio_unexport(gpio);
-  }
+}
