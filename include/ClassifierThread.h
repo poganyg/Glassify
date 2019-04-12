@@ -1,5 +1,5 @@
-#ifndef MOTOR_THREAD_H
-#define MOTOR_THREAD_H
+#ifndef CLASSIFIERTHREAD_H
+#define CLASSIFIERTHREAD_H
 #include "CppThread.h"
 #include "state.h"
 #include "Classifier.h"
@@ -13,6 +13,6 @@ private:
   void run();
 
 private:
-Classifier* classifierptr;
+Classifier* m_classifierptr;
 };
 #endif

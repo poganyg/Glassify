@@ -10,20 +10,26 @@ project (Glassify)
 # add_subdirectory (test)
 # enable_testing()
 
-set(WiringPi_DIR "/home/pi/wiringPi")
+#set(wiringPi_DIR "/home/pi/wiringPi/wiringPi")
+#set(wiringPiDev_DIR "home/pi/wiringPi/devLib")
 set(raspicam_DIR "/usr/local/lib/cmake")
-include_directories(${WIRINGPI_INCLUDE_DIRS})
+include_directories(/home/pi/wiringPi/wiringPi)
+include_directories(/home/pi/wiringPi/devLib)
+link_directories(/home/pi/wiringPi/wiringPi)
+link_directories(/home/pi/wiringPi/devLib)
+
 
 find_package(Threads)
-find_package(WiringPi REQUIRED)
+# find_package(WiringPi)
 find_package(OpenCV REQUIRED)
 find_package(raspicam REQUIRED)
 
 include_directories(./include)
 
-add_executable(Glassify Glassify.cpp ./include/state.cpp ./include/Camera.cpp ./include/libServo.cpp ./include/Classifier.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp)
+add_executable(Glassify ./include/ClassifierThread.cpp ./include/state.cpp ./include/Camera.cpp ./include/libServo.cpp ./include/Classifier.cpp ./include/MotorThread.cpp ./include/SwitchThread.cpp ./include/gpio-sysfs.cpp Glassify.cpp)
 
 target_link_libraries (Glassify ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries (Glassify ${WIRINGPI_LIBRARIES})
+target_link_libraries (Glassify wiringPi wiringPiDev)
+#target_link_libraries (Glassify ${WIRINGPI_LIBRARIES})
 target_link_libraries (Glassify ${raspicam_LIBS})
 target_link_libraries (Glassify ${OpenCV_LIBS})

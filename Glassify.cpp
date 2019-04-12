@@ -7,7 +7,7 @@
 #include "./include/SwitchThread.h"
 #include "./include/MotorThread.h"
 #include "./include/Classifier.h"
-#include "./include/ClassificationThread.h"
+#include "./include/ClassifierThread.h"
 
 State state;
 State* stateptr= &state;
