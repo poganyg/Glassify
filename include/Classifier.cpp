@@ -28,7 +28,7 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
 
 void Classifier::classify()
 {
-  while(stateptr->getState()==0)
+  while(stateptr->getBuffer()!=0)
   {
     //StableBaseline
     cameraptr->capture();
@@ -94,7 +94,14 @@ void Classifier::classify()
       {
         printf("WritingState %i\n", decisionVector[0]);
         stateptr->writeState(decisionVector[0]);
-        break;
+        stateptr->bufferDown();
+        if(stateptr->getBuffer()!=0)
+        {
+          if (bool bufferOn == true){
+            auto end = chrono::steady_cloch::now();
+          }
+          auto start = chrono::steady_clock::now();
+        }
       }
     }
   }
