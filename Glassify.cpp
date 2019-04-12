@@ -7,6 +7,7 @@
 #include "./include/SwitchThread.h"
 #include "./include/MotorThread.h"
 #include "./include/Classifier.h"
+#include "./include/ClassificationThread.h"
 
 State state(0);
 State* stateptr= &state;
@@ -15,6 +16,8 @@ Servo* servoptr = &servo;
 Camera camera;
 Camera* cameraptr = &camera;
 Classifier classifier(stateptr,cameraptr);
+Classifier* classifierptr = &classifier;
+ClassifierThread classifierThread(classifierptr);
 MotorThread motorThread(stateptr,servoptr);
 SwitchThread switchThread(17);
 int main()
@@ -27,7 +30,7 @@ switchThread.join();
 //digitalWrite (4, HIGH);
 //MotorTurning.start();
 printf("MotorTurning.start\n");
-classifier.classify();
+classifierThread;
 motorThread.start();
 motorThread.join();
 }
