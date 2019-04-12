@@ -8,11 +8,7 @@
 class MotorThread : public CppThread {
 
 public:
-  MotorThread(State* _stateptr,Servo* _servoptr)
-    :stateptr(_stateptr),servoptr(_servoptr),pin(18),m_delay(1000),m_state(0)
-    {
-      printf("constructed MotorThread\n");
-    }
+  MotorThread(State* _stateptr,Servo* _servoptr);
 
 private:
   void run();

@@ -42,7 +42,7 @@ void Classifier::classify()
     baseClear = checkMatch(baseGrey, rollingGrey);
 
     //MainLoop
-    while(true)
+    while(stateptr->getBuffer()!=0)
     {
       cameraptr->capture();
       Mat rollingFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
@@ -93,8 +93,7 @@ void Classifier::classify()
       if (decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
       {
         printf("WritingState %i\n", decisionVector[0]);
-        stateptr->bufferDown();
-        if(stateptr->getBuffer()!=0)
+        if((stateptr->getBuffer()-1)!=0)
         {
           if (bufferOn == true)
           {
@@ -126,6 +125,7 @@ void Classifier::classify()
           }
         }
       }
+      stateptr->bufferDown();
     }
   }
 
