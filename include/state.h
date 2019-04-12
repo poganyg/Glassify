@@ -8,12 +8,17 @@ class State {
 private:
   std::mutex m_stateMutex;
   std::mutex m_bufferMutex;
-  int m_state;
+  std::mutex m_lagMutex;
+  int m_lag[3];
+  int m_state[3];
   int m_buffer;
 public:
   State();
   int getState();
-  void writeState(int input);
+  int getLag();
+  //void writeState(int input);
+  void addState(int stateIn, int lagIn);
+  void removeState();
   int getBuffer();
   void bufferUp();
   void bufferDown();
