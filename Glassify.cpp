@@ -9,30 +9,33 @@
 #include "./include/Classifier.h"
 #include "./include/ClassifierThread.h"
 
-State state;
-State* stateptr= &state;
-Servo servo(18);
-Servo* servoptr = &servo;
-Camera camera;
-Camera* cameraptr = &camera;
-Classifier classifier(stateptr,cameraptr);
-Classifier* classifierptr = &classifier;
-ClassifierThread classifierThread(classifierptr);
-MotorThread motorThread(stateptr,servoptr);
-SwitchThread switchThread(stateptr,17);
+
 
 int main()
 {
+  State state;
+  State* stateptr= &state;
+  Servo servo(1,55,100,145);
+  Servo* servoptr = &servo;
+  Camera camera;
+  Camera* cameraptr = &camera;
+  Classifier classifier(stateptr,cameraptr,servoptr);
+  Classifier* classifierptr = &classifier;
+  ClassifierThread classifierThread(classifierptr);
+  MotorThread motorThread(stateptr,servoptr);
+  SwitchThread switchThread(stateptr,17);
+
 while(true){
-  wiringPiSetupGpio();
+  wiringPiSetup();
 switchThread.start();
 switchThread.join();
 //pinMode (4, OUTPUT) ;
 //digitalWrite (4, HIGH);
 //MotorTurning.start();
 printf("MotorTurning.start\n");
-classifierThread;
-motorThread.start();
-motorThread.join();
+classifierThread.start();
+//motorThread.start();
+//motorThread.join();
+classifierThread.join();
 }
 }

@@ -13,6 +13,7 @@
 #include <wiringPi.h>
 #include "state.h"
 #include "Camera.h"
+#include "libServo.h"
 
 using namespace cv;
 using namespace std;
@@ -22,10 +23,12 @@ class Classifier
 private: // Classification
   Camera* cameraptr;
   State* stateptr; // CONSTRUCTOR
+  Servo* m_servoptr;
 
   //Initialise Variables
   int loopNumber = 0;
-  int decisionVector[3];
+  int decisionVector[5];
+  bool bufferOn = 0;
 
   Mat baseFrame; //CONSTRUCTOR
   Mat baseGrey; //CONSTRUCTOR
@@ -40,7 +43,7 @@ private: // Classification
   Mat brownOut;
 
 public:
-  Classifier(State* _stateptr, Camera* _cameraptr);
+  Classifier(State* _stateptr, Camera* _cameraptr,Servo* _servoptr);
   int checkMatch(Mat& baseImage, Mat& rollingImage);
   void classify();
 };

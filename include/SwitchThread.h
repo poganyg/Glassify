@@ -16,7 +16,7 @@ public:
 	SwitchThread(State* _stateptr, int _gpio)
 		:rc(0),prerun(0),gpio(_gpio),m_stateptr(_stateptr)
 	{
-		wiringPiSetupGpio();
+		wiringPiSetup();
     rc=0;
 		prerun=0;
     gpio_export(gpio);

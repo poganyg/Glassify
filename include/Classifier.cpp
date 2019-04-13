@@ -1,8 +1,8 @@
 #include "Classifier.h"
 
 
-Classifier::Classifier(State* _stateptr, Camera* _cameraptr)
-  :stateptr(_stateptr),cameraptr(_cameraptr)
+Classifier::Classifier(State* _stateptr, Camera* _cameraptr, Servo* _servoptr)
+  :stateptr(_stateptr),cameraptr(_cameraptr),m_servoptr(_servoptr)
 {
   Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
   Mat baseGrey(cameraptr->m_height,cameraptr->m_width,CV_8UC1);
@@ -65,43 +65,56 @@ void Classifier::classify()
       inRange(rollingFrame, Scalar(0,50,0), Scalar(30,255,150), brownOut);
       bCounter = cv::sum(brownOut);
 
-      printf("Classifying\n");
       if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
-        decisionVector[2]=1;
+        decisionVector[2]=decisionVector[3];
+        decisionVector[3]=decisionVector[4];
+        decisionVector[4]=1;
       }
       else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
-        decisionVector[2]=2;
+        decisionVector[2]=decisionVector[3];
+        decisionVector[3]=decisionVector[4];
+        decisionVector[4]=2;
       }
-      else if(cCounter>=baseClear*2)
+      else if(cCounter>=50000 && bCounter[0]<=1000 && gCounter[0]<=1000)
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
-        decisionVector[2]=3;
+        decisionVector[2]=decisionVector[3];
+        decisionVector[3]=decisionVector[4];
+        decisionVector[4]=3;
       }
       else
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
-        decisionVector[2]=0;
+        decisionVector[2]=decisionVector[3];
+        decisionVector[3]=decisionVector[4];
+        decisionVector[4]=0;
       }
-      if (decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
+      cout<< "GREEN: " << gCounter << "BROWN: " << bCounter << "CLEAR: " << cCounter << endl;
+      if (decisionVector[4]==decisionVector[0] && decisionVector[3]==decisionVector[0] && decisionVector[2]==decisionVector[0] && decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
       {
         printf("WritingState %i\n", decisionVector[0]);
         stateptr->writeState(decisionVector[0]);
+        if (decisionVector[0]==1){m_servoptr->moveGreen();}
+        if (decisionVector[0]==2){m_servoptr->moveBrown();}
+        if (decisionVector[0]==3){m_servoptr->moveClear();}
         stateptr->bufferDown();
         if(stateptr->getBuffer()!=0)
         {
-          if (bool bufferOn == true){
-            auto end = chrono::steady_cloch::now();
+          if (bufferOn == true){
+            auto end = chrono::steady_clock::now();
           }
           auto start = chrono::steady_clock::now();
         }
+        break;
+        //std::this_thread::sleep_for(std::chrono::milliseconds(250));
       }
     }
   }

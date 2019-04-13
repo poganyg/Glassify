@@ -4,7 +4,7 @@
 class Servo
 {
   public:
-    Servo(int pin);
+    Servo(int pin,float brownAngle,float clearAngle,float greenAngle);
     void init(float degree);
     void move(float degree);
     void moveBrown();

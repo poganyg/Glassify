@@ -2,12 +2,12 @@
 #include <cmath>
 #include <wiringPi.h>
 #include "libServo.h"
+#include <thread>
 
-Servo::Servo(int pin)
-  :m_pin(pin),m_brownAngle(45),m_clearAngle(90),m_greenAngle(135)
+Servo::Servo(int pin,float brownAngle,float clearAngle,float greenAngle)
+  :m_pin(pin),m_brownAngle(brownAngle),m_clearAngle(clearAngle),m_greenAngle(greenAngle)
 {
-    //this->pin=pin;
-    wiringPiSetupGpio();
+    wiringPiSetup();
     pinMode(m_pin, PWM_OUTPUT);
     pwmSetMode(PWM_MODE_MS);
     pwmSetClock(384);
@@ -29,6 +29,7 @@ void Servo::move(float degree)
     float t2=abs(m_lastDegree-degree)*100/180;
     pwmWrite(this->m_pin, t);
     m_lastDegree=degree;
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     //delay(t2*5);
 }
 
