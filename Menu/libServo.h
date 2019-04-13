@@ -13,7 +13,7 @@ class Servo
     void moveClearCalib();
     void moveGreen();
     void setBrown(float brownAngle);
-    void setClear(float clearAngle);
+//    void setClear(float clearAngle);
     void setGreen(float greenAngle);
     void setHaltTime(int Htime);
     void setSepAngle(float SepAngle);
@@ -21,6 +21,7 @@ class Servo
     int getHaltTime();
     int getSepAngle();
     void saveCalibValues();
+    void setRestPosition(float clearAngle);
 
   private:
     int m_pin;

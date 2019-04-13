@@ -9,8 +9,10 @@
 #include <lcd.h>
 #include <tuple>
 #include "Display.h"
-//#include "libServo.h" include later
-//#include "state.h" include later
+#include <chrono>
+#include "libServo.h"
+#include "state.h"
+#include <string>
 
 using namespace std;
 
@@ -19,10 +21,9 @@ class Menu
   private:
 
   public:
-
     Display* m_displayptr;
-    //Servo* m_servoptr; //UNCHECK LATER
-    //State* m_stateptr; //UNCHECK LATER
+    Servo* m_servoptr; //UNCHECK LATER
+    State* m_stateptr; //UNCHECK LATER
     int M_BUTTON1;
     int M_BUTTON2;
     int M_EXIT_TIME;
@@ -39,21 +40,21 @@ class Menu
     int M_HALT_UP_LIMIT;
     int M_SEP_UP_LIMIT;
     int M_REST_UP_LIMIT;
+    int M_HALT_LOW_LIMIT;
     vector<string> m_menu_vector;
     int M_ARRAY_LENGTH;
     int m_i;
-    int m_exit_counter;
     int m_b1;
     int m_b2;
-    int m_prev_b1;
-    int m_prev_b2;
-    int m_b1_changed;
-    int m_b2_changed;
+    int retVal;
 
 
-    Menu(Display* _displayptr);
-
-    std::tuple<int, int, int, int, int, int> updateButtons(int b1_prev, int b2_prev);
+    Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr);
+    int buttonPress();
+    void haltTimeMenu();
+    void separationAngleMenu();
+    void restAngleMenu();
+    void mainMenu();
 };
 
 #endif

@@ -12,7 +12,7 @@ Servo::Servo(int pin)
   :m_pin(pin),m_brownAngle(45),m_clearAngle(90),m_greenAngle(135)
 //{   int RestPos;
     //this->pin=pin;
-{   wiringPiSetupGpio();
+{
     pinMode(m_pin, PWM_OUTPUT);
     pwmSetMode(PWM_MODE_MS);
     pwmSetClock(384);
@@ -86,10 +86,10 @@ void Servo::setBrown(float brownAngle)
   Servo::moveBrown();
 }
 
-void Servo::setClear(float clearAngle)
+void Servo::setRestPosition(float clearAngle)
 {
   this->m_clearAngle=clearAngle;
-  Servo::moveClearCalib();
+//  Servo::moveClearCalib();
 }
 
 void Servo::setGreen(float greenAngle)
