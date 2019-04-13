@@ -12,9 +12,6 @@ class Servo
     void moveClear();
     void moveClearCalib();
     void moveGreen();
-    void setBrown(float brownAngle);
-//    void setClear(float clearAngle);
-    void setGreen(float greenAngle);
     void setHaltTime(int Htime);
     void setSepAngle(float SepAngle);
     int getRestPosition();

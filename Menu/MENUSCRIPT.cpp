@@ -9,15 +9,10 @@ int main()
   int wiringPiSetupGpio (void);
   Display display;
   Display* displayptr = &display;
-  cout<<"pastDisplay";
   State state;
   State* stateptr = &state;
-  cout<<"paststate";
-  Servo servo(18);
-  cout<<"pastservoclass";
+  Servo servo(1);
   Servo* servoptr = &servo;
-  cout<<"past servo";
   Menu menu(displayptr, servoptr, stateptr);
-  cout<<"pastsetup";
   menu.mainMenu();
 }
