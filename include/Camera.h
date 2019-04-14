@@ -36,7 +36,7 @@ public:
  /**
  * @brief Function which captures the image and assigns it to the variable data
  */
-  void capture();
+  Mat capture();
   int m_width; //!< width of the image being captured in pixels
   int m_height;//!< height of image being captured in pixels
   Mat data; //!< Mat object to which tempData is cast

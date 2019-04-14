@@ -22,5 +22,6 @@ Mat Camera::capture()
 {
   CameraDevice.grab();
   CameraDevice.retrieve(tempData);
-  return Mat data(m_height,m_width,CV_8UC3,tempData);
+  Mat data(m_height,m_width,CV_8UC3,tempData);
+  return data;
 }

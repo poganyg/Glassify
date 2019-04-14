@@ -33,7 +33,7 @@ Servo::Servo(int pin)
 void Servo::init()
 {
     float t=m_clearAngle*100/180+25;
-    pwmWrite(this->pin, t);
+    pwmWrite(this->m_pin, t);
     m_lastDegree=m_clearAngle;
 }
 
