@@ -25,9 +25,9 @@ class Servo
  /**
  * @brief Initialises servo pin to center postition
  */
-    void init(float degree);
+    void init();
  /**
- * @brief Sets servo motor to inputted angle and leaves it there for a brief period to allow bottles to exit tube
+ * @brief Sets servo motor to an angle and leaves it there for a brief period to allow bottles to exit tube
  * @param degree Angle servo is being moved to
  */
     void move(float degree);
@@ -87,6 +87,8 @@ class Servo
     float m_lastDegree; //!< The angle which the motor was last sent to
     int m_HaltTime;     //!< Time after the motor is set where it stays stationary to allow the bottle to exit the tube
     float m_SepAngle;   //!< Angle away from the rest postion that the motor moves by in each direction to sort green and brown glass
+    int pwmClock;
+    int pwmRange;
 };
 
 #endif
