@@ -1,3 +1,8 @@
+/** @file Camera.h
+ * @brief  A class which intitialises the camera and enables it 
+ * to capture images
+ *
+*/
 #ifndef CAMERA
 #define CAMERA
 
@@ -17,16 +22,23 @@ class Camera
 {
 private:
   raspicam::RaspiCam CameraDevice; //instantiates the camera within the class
-  int m_fps; //CONSTRUCTOR
-  int m_shutter; //CONSTRUCTOR
-  int m_brightness; //CONSTRUCTOR
+  int m_fps; //!< frame rate to be used by the camera
+  int m_shutter; //!< shutter speed to capture images at
+  int m_brightness; //!< brightness of image captured
 
 public:
+ /**
+ * Contructor that sets up camera by defining necessary parameters
+ * @param data unsigned char set up in the size of the expected image to later store it
+*/
   Camera();
+ /**
+ * Function which captures the image and assigns it to the variable data
+ */
   void capture();
-  int m_width; //CONSTRUCTOR
-  int m_height; //CONSTRUCTOR
-  unsigned char *data; //CONSTRUCTOR - the array to which the camera will output
+  int m_width; //!< width of the image being captured in pixels
+  int m_height;//!< height of image being captured in pixels 
+  unsigned char *data; //!< The array to which the camera outputs
 };
 
 #endif
