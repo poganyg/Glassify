@@ -49,7 +49,7 @@ private: // Classification
   Mat brownOut;
 
 public:
-  //*
+  /**
    * Constructor which sets up Mat arrays for all frames required for classification
    * @param baseFrame intial frame for comparison to test for changes in order 
    * to identify clear glass
@@ -58,7 +58,7 @@ public:
    * @param rollingGrey Greyscale version of the rolingFrame
    */
   Classifier(State* _stateptr, Camera* _cameraptr,Servo* _servoptr);
-  //*
+  /**
   * Compares the initial image (base image) captured when the switch was pressed
   * with the last picture taken (rolling image) and shows the difference between them
   * in order to detect clear glass
@@ -67,7 +67,7 @@ public:
   * @return counter the magnitude of difference between the two frames
   */
   int checkMatch(Mat& baseImage, Mat& rollingImage);
-  //*
+  /**
    * Classifies images to detect green, brown and clear glass and
    * sets the state to the appropriate result so it can be read by 
    * other threads
