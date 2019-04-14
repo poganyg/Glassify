@@ -16,5 +16,13 @@ int main (int, char**)
   if ( !camera.CameraDevice.open()) {assert_print("Camera failed to open. This may be because you do not not have camera functionality enabled on your Raspberry Pi OR the ribbon connection between the Pi and the camera is not secure.")}
 
   camera.capture();
-  if camera.data //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
+  maxVal=0;
+  minVal=255;
+  for (i=0;i<camera.m_width*camera.m_height*3;i++)
+  {
+    if(maxVal<camera.data[i]){maxVal=camera.data[i]}
+    if(minVal>camera.data[i]){minVal=camera.data[i]}
+  }
+  if(minVal==255){assert_print("Minimum value of data object following capture is 255. Error in camera operation.")} //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
+  if(maxVal==255){assert_print("Maximum value of data object following capture is 0. Error in camera operation.")} //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
 }
