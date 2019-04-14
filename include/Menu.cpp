@@ -35,10 +35,15 @@ int Menu::buttonPress()
   int whichButton = 4;
   while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && whichButton==4)
   {
+	bool debounce = true;
     int b1 = digitalRead(M_BUTTON1);
     int b2 = digitalRead(M_BUTTON2);
     if(b1==1 || b2==1)
-    {
+    {std::this_thread::sleep_for(std::chrono::milliseconds(M_DEBOUNCE));
+	if(b1==1 || b2==2)
+{debounce=false;}
+	}
+	if (debounce == false){
       auto start = chrono::steady_clock::now();
       if(b1==1 && b2==1)
       {

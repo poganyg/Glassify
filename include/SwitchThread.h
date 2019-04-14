@@ -19,7 +19,7 @@ class SwitchThread : public CppThread {
 public:
 	#define POLL_TIMEOUT (5*1000)
 /*!
- *\ brief Constructor that takes in required pointers and
+ * @brief Constructor that takes in required pointers and
  * initialises pin for gpiosysfs polling.
  * @param _stateptr is a pointer to the state outputted by the classification
  * @param _gpio is the pin the switch being polled is located on
@@ -38,7 +38,7 @@ public:
 
 private:
 /*!
- *\ brief Polls Switch to deliver interupt
+ * @brief Polls Switch to deliver interupt
  */
    void run();
 private:
