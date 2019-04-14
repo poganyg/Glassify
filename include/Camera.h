@@ -1,7 +1,7 @@
 /** @file Camera.h
- * @brief  A class which intitialises the camera and enables it
- * to capture images
- *
+* @brief  A class which intitialises the camera and enables it
+* to capture images
+*
 */
 #ifndef CAMERA
 #define CAMERA
@@ -29,13 +29,13 @@ private:
   int m_shutter; //!< shutter speed to capture images at
   int m_brightness; //!< brightness of image captured
 public:
- /**
- * @brief Contructor that sets up camera by defining necessary parameters
-*/
+  /**
+  * @brief Contructor that sets up camera by defining necessary parameters
+  */
   Camera();
- /**
- * @brief Function which captures the image and assigns it to the variable data
- */
+  /**
+  * @brief Function which captures the image and assigns it to the variable data
+  */
   Mat capture();
   int m_width; //!< width of the image being captured in pixels
   int m_height;//!< height of image being captured in pixels

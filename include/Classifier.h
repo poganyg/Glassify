@@ -1,5 +1,5 @@
 /**
- * @file Classifier.h
+* @file Classifier.h
  * @brief Class which defines all functions required to classify
  * green, brown or clear bottles based on the camera output
 */

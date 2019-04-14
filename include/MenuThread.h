@@ -18,19 +18,18 @@ class MenuThread : public CppThread {
 
 public:
   /**
-  constructor that initialises the pointer to the Menu class
-  @param[in] _menuptr pointer to menu class
-  @param m_menptr instance of the menu pointer in this class
+  @brief constructor that initialises the pointer to the Menu class
+  @param _menuptr pointer to menu class
 */
   MenuThread(Menu* _menuptr);
 
 private:
-/** 
-* Runs the menu function resulting in menu opening and being interactable with 
+/**
+* @brief Runs the menu function resulting in menu opening and being interactable with
 */
   void run();
 
 private:
-Menu* m_menuptr;
+Menu* m_menuptr; //!< instance of the menu pointer in this class
 };
 #endif

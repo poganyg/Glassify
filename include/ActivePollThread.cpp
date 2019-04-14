@@ -11,7 +11,7 @@ void ActivePollThread::run()
     do
     {
       rc = gpio_poll(gpio_fd, POLL_TIMEOUT);
-	    printf("%d\n",rc);
+      printf("%d\n",rc);
     } while (rc==0 && m_stateptr->getBuffer()!=0);
 
     if(rc!=0)

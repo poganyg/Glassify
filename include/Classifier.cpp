@@ -2,7 +2,7 @@
 
 
 Classifier::Classifier(State* _stateptr, Camera* _cameraptr, Servo* _servoptr)
-  :stateptr(_stateptr),cameraptr(_cameraptr),m_servoptr(_servoptr)
+:stateptr(_stateptr),cameraptr(_cameraptr),m_servoptr(_servoptr)
 {
   Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->tempData);
   Mat baseGrey(cameraptr->m_height,cameraptr->m_width,CV_8UC1);

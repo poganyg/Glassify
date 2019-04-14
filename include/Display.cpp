@@ -50,5 +50,5 @@ void Display::concatenateThreePrint(std::string input, int val, std::string inpu
   lcdClear(M_LCD);
   lcdPuts(M_LCD, cstr);
   cout << cstr << endl;
-  
+
 }
