@@ -54,7 +54,7 @@ class Menu
     void haltTimeMenu();
     void separationAngleMenu();
     void restAngleMenu();
-    void mainMenu();
+    int mainMenu();
 };
 
 #endif

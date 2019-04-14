@@ -1,5 +1,5 @@
-#ifndef SWITCH_THREAD_H
-#define SWITCH_THREAD_H
+#ifndef ACTIVEPOLL_THREAD_H
+#define ACTIVEPOLL_THREAD_H
 
 #include <wiringPi.h>
 #include <stdio.h>

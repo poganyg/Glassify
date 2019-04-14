@@ -20,10 +20,9 @@ Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr) //still nee
   pullUpDnControl(M_BUTTON2, PUD_DOWN);
   M_REST_UP_LIMIT = 180-M_REST_LOW_LIMIT;
   m_menu_vector.push_back("Servo halt time");
-  m_menu_vector.  push_back("Separation angle");
+  m_menu_vector.push_back("Separation angle");
   m_menu_vector.push_back("Rest position");
   m_i = 0;
-  m_displayptr->simplePrint("hi Reuben");
   m_halt_time = m_servoptr->getHaltTime();
   m_sep_angle = m_servoptr->getSepAngle();
   m_rest_position = m_servoptr->getRestPosition();
@@ -108,7 +107,7 @@ void Menu::haltTimeMenu()
     if (retVal == 2) {
       if (m_halt_time < 2000) {
         m_halt_time += M_HALT_ADJUST;
-      } else
+      } else  m_displayptr->simplePrint("hi Reuben");
       {
         m_displayptr->simplePrint("Cannot further increase");
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
@@ -215,7 +214,7 @@ void Menu::restAngleMenu()
 }
 
 
-void Menu::mainMenu() {
+int Menu::mainMenu() {
   m_displayptr->simplePrint( m_menu_vector[m_i] );
   int m_i = 0;
   while(true) {
