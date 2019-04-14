@@ -1,4 +1,4 @@
-/** 
+/**
  * @file ActivePollThread.h
  * @brief Polls the switch while the classification is active to give a buffer value of the number of bottles in the tube. This prevents the classification from stopping to early
 */
@@ -19,10 +19,10 @@
 class ActivePollThread : public CppThread {
 
 public:
-	#define POLL_TIMEOUT (5*1000)
+	#define POLL_TIMEOUT (5*1000)//!< amount of time for a single loop of polling if there is no interupt
 	/**
- 	* Contructor that takes in state pointer and the pin the switch is located on
-	* @param[in] _stateptr Pointer to the state 
+ 	* @brief Contructor that takes in state pointer and the pin the switch is located on
+	* @param[in] _stateptr Pointer to the state
    	* @param[in] _gpio pin the switch is located on
 	*/
 	ActivePollThread(State* _stateptr, int _gpio)
@@ -38,23 +38,16 @@ public:
 
 private:
 	/**
-	* Function which carries out polling during classification
-	* @param rc Value outputted by polling (0 if no event, 1 if there is one)
-	* @param prerun variable to absorb intial interupt that appears when polling begins
-	* @param m_stateptr pointer to state to allow it to be set
-	* @param POLL_TIMEOUT amount of time for a single loop of polling if there is no interupt
-	* @param gpio_fd address for gpio pin outputted
+	* @brief Function which carries out polling during classification
 	*/
    void run();
 private:
-	State* m_stateptr;
-	int rc;
-	int prerun;
-  int gpio_fd;
-  char *buf[MAX_BUF];
-  unsigned int gpio;
-  int len;
-  int counter;
+	State* m_stateptr;		//!< Pointer to state to allow it to be set
+	int rc; 							//!< Value outputted by polling (0 if no event, 1 if there is one)
+	int prerun;						//!< Prerun variable to absorb intial interupt that appears when polling begins
+  int gpio_fd;					//!< gpio_fd address for gpio pin outputted
+  unsigned int gpio;		//!< GPIO pin switch is located on
+	char *buf[MAX_BUF] ;  
  };
 
 #endif
