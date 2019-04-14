@@ -21,11 +21,8 @@ class MotorThread : public CppThread {
 public:
   /**
   constructor that initialises all pointers and inputs
-  @param stateptr pointer that shows state classifier outputted
-  @param servoptr pointer to servo control class
-  @param pin pin on which the motor is located
-  @param m_delay time given for bottle to exit tube
-  @param m_state instantiation of output from classifier
+  @param _stateptr pointer that shows the state the classifier outputted
+  @param _servoptr pointer to servo control class
 */
   MotorThread(State* _stateptr,Servo* _servoptr)
     :stateptr(_stateptr),servoptr(_servoptr),pin(18),m_delay(500),m_state(0)
@@ -41,10 +38,10 @@ private:
   void run();
 
 private:
-State* stateptr;
-Servo* servoptr;
-int pin;
-int m_state;
-int m_delay;
+State* stateptr;  //!< decleration of state pointer
+Servo* servoptr;  //!<decleration of servo pointer
+int pin;   //!< pin on which the motor is located
+int m_state;   //!< instantiation of output from classifier
+int m_delay;   //!< time given for bottle to exit tube
 };
 #endif

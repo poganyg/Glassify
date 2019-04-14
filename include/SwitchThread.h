@@ -20,7 +20,7 @@
 class SwitchThread : public CppThread {
 
 public:
-	#define POLL_TIMEOUT (5*1000)
+	#define POLL_TIMEOUT (5*1000) //!< Amount of time before polling timeout each loop (in milliseconds)
 	/*!
 	* @brief Constructor that takes in required pointers and
 	* initialises pin for gpiosysfs polling.

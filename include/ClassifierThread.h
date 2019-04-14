@@ -15,7 +15,7 @@
 class ClassifierThread : public CppThread {
   /**
   * Constructor that take in classifier pointer
-  * @param m_classifierptr pointer to the classification class
+  * @param _classifierptr pointer to the classification class
   */
 public:
   ClassifierThread(Classifier* _classifierptr);
@@ -23,7 +23,6 @@ public:
 private:
   /**
   * Calls and runs classify function of classification class
-  * @param m_classifierptr pointer to the classification class
   */
   void run();
 
