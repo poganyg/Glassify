@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "../include/Camera.h"
 
 using namespace std;
 using namespace cv;
@@ -7,7 +7,7 @@ using namespace cv;
 
 int main (int, char**)
 {
-  Camera camera();
+  Camera camera;
   if ( camera.m_width > 64){assert_print("Image width too large. Consider lowering to reducing processing burden.")}
   if ( camera.m_height > 64){assert_print("Image height too large. Consider lowering to reducing processing burden.")}
   if ( camera.m_fps < 60){assert_print("Frames per second too low. Consider increasing for better classifier performance.")}
