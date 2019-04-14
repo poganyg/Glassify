@@ -1,5 +1,5 @@
 /** @file Camera.h
- * @brief  A class which intitialises the camera and enables it 
+ * @brief  A class which intitialises the camera and enables it
  * to capture images
  *
 */
@@ -24,6 +24,7 @@ private:
   int m_fps; //!< frame rate to be used by the camera
   int m_shutter; //!< shutter speed to capture images at
   int m_brightness; //!< brightness of image captured
+  Mat m_testImage;
 
 public:
  /**
@@ -36,8 +37,9 @@ public:
  */
   void capture();
   int m_width; //!< width of the image being captured in pixels
-  int m_height;//!< height of image being captured in pixels 
-  unsigned char *data; //!< The array to which the camera outputs
+  int m_height;//!< height of image being captured in pixels
+  Mat data; //!< Mat object to which tempData is cast
+  unsigned char *tempData; //!< The array to which the camera outputs
 };
 
 #endif
