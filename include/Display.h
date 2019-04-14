@@ -1,5 +1,5 @@
 /** @file 
- * @breif Defines class which enabels the LCD to print the any required input
+ * @brief Defines class which enabels the LCD to print the any required input
  * @author Gergerly Pogany
 */
 #ifndef DISPLAY
