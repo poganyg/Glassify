@@ -13,6 +13,9 @@
 * @date 3/04/2019
 */
 
+/**
+* @brief Threaded implementation of motor
+*/
 class MotorThread : public CppThread {
 
 public:

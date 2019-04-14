@@ -20,7 +20,9 @@
 #include <string>
 
 using namespace std;
-
+/**
+*@brief Full menu functionality
+*/
 class Menu
 {
   private:

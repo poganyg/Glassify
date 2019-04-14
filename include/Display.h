@@ -19,7 +19,9 @@
 #define LCD_D7 15
 
 using namespace std;
-
+/**
+* @brief Initialises and allows wriiting to LCD display
+*/
 class Display
 {
   private:

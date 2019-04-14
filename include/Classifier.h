@@ -23,7 +23,9 @@
 
 using namespace cv;
 using namespace std;
-
+/**
+* @brief Classifies glass as brown, green or clear and sets state accordingly
+*/
 class Classifier
 {
 private: // Classification

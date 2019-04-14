@@ -13,7 +13,9 @@
 #include "gpio-sysfs.h"
 #include "CppThread.h"
 #include "state.h"
-
+/**
+ *@brief Class for polling switch during classification
+ */
 class ActivePollThread : public CppThread {
 
 public:

@@ -6,7 +6,9 @@
 
 #include <thread>
 #include <mutex>
-
+/**
+* @brief Contains all interfacing for reading or setting system state
+*/
 class State {
 private:
   std::mutex m_stateMutex;

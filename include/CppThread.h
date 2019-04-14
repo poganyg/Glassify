@@ -23,8 +23,9 @@
 #include <windows.h>
 #endif
 
-
-// abstract thread which contains the inner workings of the thread model
+/**
+* @brief abstract thread which contains the inner workings of the thread model
+*/
 class CppThread {
 
 private:

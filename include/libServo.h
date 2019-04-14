@@ -13,6 +13,9 @@
  * @section DESCRIPTION
  * The Servo class provides all the functions used to control the motor
 */
+/**
+ * @brief Provides all functions required for motor control
+*/
 class Servo
 {
 

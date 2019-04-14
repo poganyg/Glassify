@@ -16,7 +16,9 @@
 #include <wiringPi.h>
 
 using namespace std;
-
+/**
+* @brief Setups camera and enables image capture and retrival
+*/
 class Camera
 {
 private:

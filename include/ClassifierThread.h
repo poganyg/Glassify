@@ -9,7 +9,9 @@
 #include "CppThread.h"
 #include "state.h"
 #include "Classifier.h"
-
+/**
+* @brief Threaded implementation of classification
+*/
 class ClassifierThread : public CppThread {
 /**
 * Constructor that take in classifier pointer

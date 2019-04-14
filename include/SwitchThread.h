@@ -14,6 +14,9 @@
 *for an interupt and terminates upon the activation of this switch
 *
 */
+/**
+* @brief Switch polling awaiting first input
+*/
 class SwitchThread : public CppThread {
 
 public:

@@ -11,7 +11,9 @@
 * @author Reuben Docea
 * @date 10/04/2019
 */
-
+/**
+* @brief Threadable implementation of menu
+*/
 class MenuThread : public CppThread {
 
 public:
