@@ -1,5 +1,5 @@
-#ifndef SWITCH_THREAD_H
-#define SWITCH_THREAD_H
+#ifndef ACTIVEPOLL_THREAD_H
+#define ACTIVEPOLL_THREAD_H
 
 #include <wiringPi.h>
 #include <stdio.h>
@@ -16,7 +16,6 @@ public:
 	ActivePollThread(State* _stateptr, int _gpio)
 		:rc(0),prerun(0),gpio(_gpio),m_stateptr(_stateptr)
 	{
-		wiringPiSetupGpio();
     rc=0;
 		prerun=0;
     gpio_export(gpio);

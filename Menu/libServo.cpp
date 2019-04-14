@@ -1,4 +1,11 @@
+#include <chrono>
+#include <thread>
+#include <math.h>
+#include <cmath>
+#include <wiringPi.h>
 #include "libServo.h"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
 Servo::Servo(int pin)
@@ -11,22 +18,13 @@ Servo::Servo(int pin)
     Servo::init(90);
 
     string line;
-    ifstream calibFile ("../include/calibration_values");
-/*
-    int data[3];
-    for(int i = 0; i << 3; i++)
-        calibFile >> data[i];
-    m_clearAngle = data[0];
-    m_HaltTime = data[1];
-    m_SepAngle = data[2];
-*/
+    ifstream calibFile ("calibration_values");
     getline (calibFile,line);
     m_clearAngle = std::stoi( line );
     getline (calibFile,line);
     m_HaltTime = std::stoi( line );
     getline (calibFile,line);
     m_SepAngle = std::stoi( line );
-
     calibFile.close();
     m_brownAngle=m_clearAngle - m_SepAngle;
     m_greenAngle=m_clearAngle + m_SepAngle;
@@ -118,8 +116,8 @@ void Servo::saveCalibValues()
 {
   ofstream calibFile;
   calibFile.open ("calibration_values");
-  calibFile << this->m_clearAngle <<endl;
-  calibFile << this->m_HaltTime<<endl;
+  calibFile << this->m_clearAngle << endl;
+  calibFile << this->m_HaltTime << endl;
   calibFile << this->m_SepAngle;
   calibFile.close();
 }

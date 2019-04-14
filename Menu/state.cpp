@@ -8,7 +8,7 @@
   int State::getState()
   {
     std::lock_guard<std::mutex> lock(m_stateMutex);
-    return m_state;
+    return this->m_state;
   }
 
   void State::writeState(int input)
@@ -20,13 +20,13 @@
   int State::getBuffer()
   {
     std::lock_guard<std::mutex> lock(m_bufferMutex);
-    return m_buffer;
+    return this->m_buffer;
   }
 
   void State::bufferUp()
   {
     std::lock_guard<std::mutex> lock(m_bufferMutex);
-    m_buffer = m_buffer + 1;
+    this->m_buffer = this->m_buffer + 1;
   }
 
   void State::bufferDown()
