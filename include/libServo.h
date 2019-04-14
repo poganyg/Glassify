@@ -22,7 +22,7 @@ class Servo
   public:
  /**
   * @brief Constructor that sets up Servo pin and reads calibration file to set correct values
-  * @param Takes in pin Servo motor is located on
+  * @param pin Takes in pin Servo motor is located on
   */
     Servo(int pin);
  /**
@@ -70,7 +70,13 @@ class Servo
      * @brief gets rest position
      */
     int getRestPosition();
+    /**
+    * @brief gets halt time of motor after classification
+    */
     int getHaltTime();
+    /**
+    * @brief gets seperation angle between rest and sorted motor positions
+    */
     int getSepAngle();
     /**
      * @brief Saves all set calibration values to a readable text file
@@ -90,8 +96,8 @@ class Servo
     float m_lastDegree; //!< The angle which the motor was last sent to
     int m_HaltTime;     //!< Time after the motor is set where it stays stationary to allow the bottle to exit the tube
     float m_SepAngle;   //!< Angle away from the rest postion that the motor moves by in each direction to sort green and brown glass
-    int pwmClock;
-    int pwmRange;
+    int pwmClock; //!< Divisor for PWM clock
+    int pwmRange;//!< Range registor for pwm clock
 };
 
 #endif

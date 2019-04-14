@@ -14,28 +14,27 @@
 #include <raspicam/raspicam.h>
 #include <stdint.h>
 #include <wiringPi.h>
-
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 using namespace std;
+using namespace cv;
 /**
 * @brief Setups camera and enables image capture and retrival
 */
 class Camera
 {
 private:
-  raspicam::RaspiCam CameraDevice; //instantiates the camera within the class
+  raspicam::RaspiCam CameraDevice; //!<instantiates the camera within the class
   int m_fps; //!< frame rate to be used by the camera
   int m_shutter; //!< shutter speed to capture images at
   int m_brightness; //!< brightness of image captured
-  Mat m_testImage;
-
 public:
  /**
- * Contructor that sets up camera by defining necessary parameters
- * @param data unsigned char set up in the size of the expected image to later store it
+ * @brief Contructor that sets up camera by defining necessary parameters
 */
   Camera();
  /**
- * Function which captures the image and assigns it to the variable data
+ * @brief Function which captures the image and assigns it to the variable data
  */
   void capture();
   int m_width; //!< width of the image being captured in pixels
