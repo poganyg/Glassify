@@ -4,9 +4,9 @@
 Classifier::Classifier(State* _stateptr, Camera* _cameraptr, Servo* _servoptr)
   :stateptr(_stateptr),cameraptr(_cameraptr),m_servoptr(_servoptr)
 {
-  Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
+  Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->tempData);
   Mat baseGrey(cameraptr->m_height,cameraptr->m_width,CV_8UC1);
-  Mat rollingFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
+  Mat rollingFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->tempData);
   Mat rollingGrey(cameraptr->m_height,cameraptr->m_width,CV_8UC1);
 }
 
@@ -28,24 +28,22 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
 
 void Classifier::classify()
 {
-  while(stateptr->getState()==0)
+  while(stateptr->getState()!=0 || stateptr->getBuffer()!=0 )
   {
     //StableBaseline
-    cameraptr->capture();
-    Mat baseFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
+    baseFrame = cameraptr->capture();
     cvtColor(baseFrame, baseGrey, COLOR_RGB2GRAY);
 
-    cameraptr->capture();
-    Mat rollingFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
+    rollingFrame = cameraptr->capture();
     cvtColor(rollingFrame,rollingGrey,COLOR_RGB2GRAY);
 
     baseClear = checkMatch(baseGrey, rollingGrey);
 
     //MainLoop
-    while(true)
+    while(stateptr->getState()==0 )
     {
-      cameraptr->capture();
-      Mat rollingFrame(cameraptr->m_height,cameraptr->m_width,CV_8UC3,cameraptr->data);
+
+      rollingFrame = cameraptr->capture();
       cvtColor(rollingFrame,rollingGrey,COLOR_RGB2GRAY);
 
       //Updating Clear Threshold
