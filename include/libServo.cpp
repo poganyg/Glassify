@@ -2,24 +2,16 @@
 using namespace std;
 
 Servo::Servo(int pin)
-  :m_pin(pin)
+  :m_pin(pin),pwmClock(384),pwmRange(1000)
 {
     pinMode(m_pin, PWM_OUTPUT);
     pwmSetMode(PWM_MODE_MS);
-    pwmSetClock(384);
-    pwmSetRange(1000);
-    Servo::init(90);
+    pwmSetClock(pwmClock);
+    pwmSetRange(pwmRange);
 
     string line;
     ifstream calibFile ("../include/calibration_values");
-/*
-    int data[3];
-    for(int i = 0; i << 3; i++)
-        calibFile >> data[i];
-    m_clearAngle = data[0];
-    m_HaltTime = data[1];
-    m_SepAngle = data[2];
-*/
+
     getline (calibFile,line);
     m_clearAngle = std::stoi( line );
     getline (calibFile,line);
@@ -34,14 +26,15 @@ Servo::Servo(int pin)
     cout << m_clearAngle << endl;
     cout << m_HaltTime << endl;
     cout << m_SepAngle << endl;
+
+    Servo::init();
 }
 
-void Servo::init(float degree)
+void Servo::init()
 {
-    float t=degree*100/180+25;
-//    pwmWrite(this->pin, t);
-    m_lastDegree=degree;
-    //delay(1000);
+    float t=m_clearAngle*100/180+25;
+    pwmWrite(this->pin, t);
+    m_lastDegree=m_clearAngle;
 }
 
 void Servo::move(float degree)
