@@ -18,7 +18,7 @@
 #include <opencv2/core.hpp>
 #include <wiringPi.h>
 #include "state.h"
-#include "Camera.h"
+#include "./Camera.h"
 #include "libServo.h"
 
 using namespace cv;
