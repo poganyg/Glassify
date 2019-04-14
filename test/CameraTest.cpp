@@ -24,5 +24,5 @@ int main (int, char**)
     if(minVal>camera.data[i]){minVal=camera.data[i]}
   }
   if(minVal==255){assert_print("Minimum value of data object following capture is 255. Error in camera operation.")} //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
-  if(maxVal==255){assert_print("Maximum value of data object following capture is 0. Error in camera operation.")} //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
+  if(maxVal==0){assert_print("Maximum value of data object following capture is 0. Error in camera operation.")} //CHECK THE SIZE OF THE DATA. IF THE MAX VALUE ==0 or MIN VALUE ==255 THERE IS A PROBLEM WITH CAPTURE.
 }
