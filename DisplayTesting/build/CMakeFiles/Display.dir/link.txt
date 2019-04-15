@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/Display.dir/Display.cpp.o  -o Display -Wl,-rpath,/usr/local/lib -rdynamic /usr/local/lib/libwiringPi.so -lwiringPiDev 

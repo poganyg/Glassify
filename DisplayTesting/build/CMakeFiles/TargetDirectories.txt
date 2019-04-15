@@ -1,3 +1,0 @@
-/home/pi/Glassify/DisplayTesting/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Glassify/DisplayTesting/build/CMakeFiles/edit_cache.dir
-/home/pi/Glassify/DisplayTesting/build/CMakeFiles/Display.dir
