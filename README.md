@@ -1,4 +1,7 @@
-![Glassify Logo](https://github.com/poganyg/Glassify/blob/master/CoverPhoto.png "Glassify Logo")
+
+<p align="center">
+  <img src="https://github.com/poganyg/Glassify/blob/master/CoverPhoto.png" alt="Glassify cover photo"> 
+</p>
 
 # Introduction
 
@@ -32,10 +35,22 @@ We are presenting here a device which can be installed to recycling points to as
 
 To see updates follow us on Facebook, YouTube and Instagram.
 
-If you would like to recreate this project, head over to our [Wiki](https://github.com/poganyg/Glassify/wiki) page where you will find a detailed building guide including a list of all the components you will need for building it. In terms of software requirements, you will need to install [openCV](https://opencv.org/releases.html), [Raspicam](http://www.uco.es/investiga/grupos/ava/node/40?fbclid=IwAR3oNeb0COuL_Odd_C1q-Dq5YQPJ6SrulXHsiW9hHNv8-BaiqOYJpjWOB74) and [WiringPi](http://wiringpi.com/download-and-install/). Do make sure to only have these installed once on your Raspberry Pi. 
+If you would like to recreate this project, head over to our [Wiki](https://github.com/poganyg/Glassify/wiki) page where you will find a detailed building guide including a list of all the components you will need for building it. In terms of software requirements, you will need to install:
 
-The code required to run the system is on this GitHub which you can clone to your own device. 
+* [openCV](https://opencv.org/releases.html)
+* [Raspicam](http://www.uco.es/investiga/grupos/ava/node/40?fbclid=IwAR3oNeb0COuL_Odd_C1q-Dq5YQPJ6SrulXHsiW9hHNv8-BaiqOYJpjWOB74)
+* [WiringPi](http://wiringpi.com/download-and-install/)
+* [CMake](https://cmake.org/install/)
+* [Git](https://git-scm.com/downloads) (Optional, makes cloning this repository easier.)
 
---DESCRIBE HOW TO CMAKE OUR CODE--
+Do make sure to only have these installed once on your Raspberry Pi.
+
+To build our software run the following code in your terminal:
+```
+git clone https://github.com/poganyg/Glassify.git
+cd ./src/build
+cmake ..
+make
+```
 
 The project is under the GNU General Public License v3.0.
