@@ -75,7 +75,7 @@ public:
    * Continuosly captures images and converts them to HSV and thresholds them to determine green and brown presence
    * Decides what colour the glass was and this the current state and sets the state value accordingly
    */
-  void classify();
+  int classify();
 };
 
 #endif

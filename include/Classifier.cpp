@@ -26,7 +26,7 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
 }
 
 
-void Classifier::classify()
+int Classifier::classify()
 {
   while(stateptr->getState()!=0 || stateptr->getBuffer()!=0 )
   {
@@ -113,7 +113,7 @@ void Classifier::classify()
         }
         else
         {
-          break;
+          return 0;
         }
       }
     }

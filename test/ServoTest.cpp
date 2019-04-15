@@ -17,6 +17,11 @@ if (servo.m_SepAngle<5 || servo.m_SepAngle>45){assert_print("Separation angle is
 if ((servo.m_clearAngle-servo.m_SepAngle)<45 || (servo.m_clearAngle+servo.m_SepAngle)>135){assert_print("Range of motion of servo is not within 45 degress and 135 degress (inclusive). Check 'calibration_values' file.");}
 if (servo.m_HaltTime<200 || servo.m_HaltTime>2000){assert_print("Halt time is not between 200ms and 2000ms (inclusive). Check 'calibration_values' file.");}
 if (servo.m_clearAngle==servo.m_greenAngle || servo.m_clearAngle==servo.m_brownAngle || servo.m_brownAngle==servo.m_greenAngle){assert_print("Output angles are calculated invalidly.");}
+
+float origClear = servo.m_clearAngle;
+float origSep = servo.m_SepAngle;
+int origHalt = servo.m_HaltTime;
+
 servo.setRestPosition(9999);
 if (servo.getRestPosition()!=9999){assert_print("Getting or Setting of Rest Position dysfunctional.");}
 servo.setHaltTime(9999);
@@ -36,8 +41,8 @@ getline (calibFile,line);
 servo.m_SepAngle = std::stoi( line );
 if (servo.m_SepAngle!=9999 || servo.m_clearAngle!=9999 || servo.m_HaltTime!=9999){assert_print("Setting of calibration values failed");}
 
-servo.m_clearAngle=90;
-servo.m_SepAngle=30;
-servo.m_HaltTime=500;
+servo.m_clearAngle=origClear;
+servo.m_SepAngle=origSep;
+servo.m_HaltTime=origHalt;
 servo.saveCalibValues();
 }

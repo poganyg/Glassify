@@ -110,7 +110,7 @@ int Servo::getSepAngle()
 void Servo::saveCalibValues()
 {
   ofstream calibFile;
-  calibFile.open ("calibration_values");
+  calibFile.open ("../include/calibration_values");
   calibFile << this->m_clearAngle <<endl;
   calibFile << this->m_HaltTime<<endl;
   calibFile << this->m_SepAngle;

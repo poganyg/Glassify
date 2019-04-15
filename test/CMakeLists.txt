@@ -16,11 +16,6 @@ target_link_libraries (classifier_test Common)
 add_test(NAME ClassifierTest COMMAND classifier_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 set_tests_properties(ClassifierTest PROPERTIES TIMEOUT 3)
 
-add_executable(mat_convert_test MatConvert.cpp)
-target_link_libraries (mat_convert_test Glass)
-add_test(NAME MatConvert COMMAND mat_convert_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-set_tests_properties(MatConvert PROPERTIES TIMEOUT 3)
-
 add_executable(display_test DisplayTest.cpp)
 target_link_libraries (display_test Glass)
 add_test(NAME DisplayTest COMMAND display_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../test)

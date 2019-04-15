@@ -23,7 +23,9 @@ int main (int, char**)
   if(checkMatchTestCounter!=(64*64*255)){assert_print("checkMatch not functioning as intented. Please review.");}
 
   Mat greenImg(64,64, CV_8UC3, Scalar(40,150,150));
+  cvtColor(greenImg,greenImg,COLOR_HSV2RGB);
   Mat brownImg(64,64, CV_8UC3, Scalar(15,150,100));
+  cvtColor(brownImg,brownImg,COLOR_HSV2RGB);
 
   camera.data=greenImg;
   stateptr->bufferUp();

@@ -6,7 +6,6 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 project(Glassify)
 
 # Define Test Directories
-# add_subdirectory (include)
 add_subdirectory (test)
 enable_testing()
 
