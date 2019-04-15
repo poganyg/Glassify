@@ -2,7 +2,7 @@
 #include "StateTestThread.h"
 #include "assert_print.h"
 
-int main()
+int main(int,char**)
 {
   State state;
   State* stateptr = &state;

@@ -3,7 +3,7 @@
 
 //inline void assert_print(int b, const char* t) { //ORIGINAL
 inline void assert_print(const char* t) {
-	//if (b) return; //original
+	//return;
 	fprintf(stderr,"%s\n",t); //modified from original
 	abort();
 }
