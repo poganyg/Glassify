@@ -26,7 +26,7 @@ void Display::simplePrint(std::string input)
   const char* cstr = input.c_str();
   lcdClear(M_LCD);
   lcdPuts(M_LCD,cstr);
-  cout << cstr << endl;
+  //cout << cstr << endl;
 
 }
 

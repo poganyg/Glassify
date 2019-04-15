@@ -31,7 +31,6 @@ public:
   *	@brief initialisation of LCD with correct pins and assigning it an integer to be
   *	later called by.
   */
-  int M_LCD = lcdInit (m_height, m_width, m_bits, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
   /**
   Constructor
   */
@@ -58,6 +57,7 @@ public:
   int m_height=2;//!< Height of LCD display in lines
   int m_width=16;//!< Width of screen in characters
   int m_bits=4;//!< The control resolution of the LCD
+  int M_LCD = lcdInit (this->m_height, this->m_width, this->m_bits, LCD_RS, LCD_E,LCD_D4,LCD_D5,LCD_D6,LCD_D7,0,0,0,0);
 
 };
 

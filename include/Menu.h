@@ -83,7 +83,7 @@ class Menu
    /**
      * Brings all of the menu portions together to allow selection of submenu to be enterred
      */
-    int mainMenu();
+    void mainMenu();
 };
 
 #endif

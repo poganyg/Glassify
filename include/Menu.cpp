@@ -12,7 +12,7 @@
 using namespace std;
 
 Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr) //still need to add servo pointer and state pointer
-:M_BUTTON1 (2), M_BUTTON2 (3), M_EXIT_TIME (500000), M_DEBOUNCE (50000), M_HALT_ADJUST (100), M_SEP_ADJUST (5), M_REST_ADJUST (5), M_HALT_LOW_LIMIT (100), M_SEP_LOW_LIMIT (5), M_REST_LOW_LIMIT (50), M_HALT_UP_LIMIT (2000), M_SEP_UP_LIMIT (25), M_ARRAY_LENGTH (3), m_displayptr(_displayptr), m_servoptr(_servoptr), m_stateptr(_stateptr)
+:M_BUTTON1 (2), M_BUTTON2 (3), M_EXIT_TIME (500000), M_DEBOUNCE (50), M_HALT_ADJUST (100), M_SEP_ADJUST (5), M_REST_ADJUST (5), M_HALT_LOW_LIMIT (100), M_SEP_LOW_LIMIT (5), M_REST_LOW_LIMIT (50), M_HALT_UP_LIMIT (2000), M_SEP_UP_LIMIT (25), M_ARRAY_LENGTH (3), m_displayptr(_displayptr), m_servoptr(_servoptr), m_stateptr(_stateptr)
 {
   pinMode(M_BUTTON1, INPUT);
   pinMode(M_BUTTON2, INPUT);
@@ -23,15 +23,19 @@ Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr) //still nee
   m_menu_vector.push_back("Separation angle");
   m_menu_vector.push_back("Rest position");
   m_i = 0;
+
   m_halt_time = m_servoptr->getHaltTime();
   m_sep_angle = m_servoptr->getSepAngle();
   m_rest_position = m_servoptr->getRestPosition();
+
+
 }
 
 
 
 int Menu::buttonPress()
 {
+
   int whichButton = 4;
   while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && whichButton==4)
   {
@@ -39,8 +43,9 @@ int Menu::buttonPress()
     int b1 = digitalRead(M_BUTTON1);
     int b2 = digitalRead(M_BUTTON2);
     if(b1==1 || b2==1)
-    {std::this_thread::sleep_for(std::chrono::milliseconds(M_DEBOUNCE));
-      if(b1==1 || b2==2)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(M_DEBOUNCE));
+      if(b1==1 || b2==1)
       {debounce=false;}
     }
     if (debounce == false){
@@ -84,6 +89,7 @@ int Menu::buttonPress()
   }
   cout << whichButton << endl;
   return whichButton;
+
 }
 
 
@@ -112,7 +118,7 @@ void Menu::haltTimeMenu()
     if (retVal == 2) {
       if (m_halt_time < 2000) {
         m_halt_time += M_HALT_ADJUST;
-      } else  m_displayptr->simplePrint("hi Reuben");
+      } else
       {
         m_displayptr->simplePrint("Cannot further increase");
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
@@ -219,13 +225,16 @@ void Menu::restAngleMenu()
 }
 
 
-int Menu::mainMenu() {
-  m_displayptr->simplePrint( m_menu_vector[m_i] );
+void Menu::mainMenu() {
+
+  m_displayptr->simplePrint( m_menu_vector[m_i ]);
+
   int m_i = 0;
   while(true) {
     // ------------- NEXT MENU OPTION -------------
     // stepping to the next menu option
     //cout<<"INLOOP"<<endl;
+
     retVal = Menu::buttonPress();
     //cout<<retVal<<endl;
     if (retVal == 1) {
