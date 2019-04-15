@@ -18,6 +18,7 @@
 #include <opencv2/core.hpp>
 using namespace std;
 using namespace cv;
+
 /**
 * @brief Setups camera and enables image capture and retrieval
 */

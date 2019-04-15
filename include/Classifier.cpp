@@ -28,7 +28,7 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
 
 int Classifier::classify()
 {
-  while(stateptr->getState()!=0 || stateptr->getBuffer()!=0 )
+  while(stateptr->getBuffer()!=0 )
   {
     //StableBaseline
     baseFrame = cameraptr->capture();
@@ -40,7 +40,7 @@ int Classifier::classify()
     baseClear = checkMatch(baseGrey, rollingGrey);
 
     //MainLoop
-    while(stateptr->getState()==0 )
+    while(stateptr->getBuffer()!=0 )
     {
 
       rollingFrame = cameraptr->capture();
@@ -104,6 +104,11 @@ int Classifier::classify()
         if (decisionVector[0]==2){m_servoptr->moveBrown();}
         if (decisionVector[0]==3){m_servoptr->moveClear();}
         stateptr->bufferDown();
+        decisionVector[0]=0;
+        decisionVector[1]=0;
+        decisionVector[2]=0;
+        decisionVector[3]=0;
+        decisionVector[4]=0;
         if(stateptr->getBuffer()!=0)
         {
           if (bufferOn == true){

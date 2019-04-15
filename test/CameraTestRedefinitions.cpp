@@ -12,9 +12,21 @@ Camera::Camera()
 
   //Allocate Memory
   tempData=new unsigned char[CameraDevice.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
+  Mat data(m_height,m_width,CV_8UC3,tempData);//IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
 }
 
 Mat Camera::capture()
 {
-  return data;
+  if (tempData[0]==1)
+  {
+    Mat greenImg(64,64, CV_8UC3, Scalar(40,150,150));
+    cvtColor(greenImg,greenImg,COLOR_HSV2RGB);
+    return greenImg;
+  }
+  else if (tempData[0]==2)
+  {
+    Mat brownImg(64,64, CV_8UC3, Scalar(15,150,100));
+    cvtColor(brownImg,brownImg,COLOR_HSV2RGB);
+    return brownImg;
+  }
 }
