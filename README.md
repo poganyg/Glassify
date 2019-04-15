@@ -1,8 +1,4 @@
 
-<p align="center">
-  <img src="https://github.com/poganyg/Glassify/blob/master/CoverPhoto.png" alt="Glassify cover photo"> 
-</p>
-
 # Introduction
 
 We are bringing you a colour-based glass recycling sorter which can separate, in real-time, green, amber and clear bottles!
