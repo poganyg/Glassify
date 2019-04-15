@@ -21,6 +21,11 @@ target_link_libraries (display_test Glass)
 add_test(NAME DisplayTest COMMAND display_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../test)
 set_tests_properties(DisplayTest PROPERTIES TIMEOUT 3)
 
+add_executable(menu_test MenuTest.cpp CameraTestRedefinitions.cpp ButtonsTestRedefinitions.cpp)
+target_link_libraries (menu_test Common)
+add_test(NAME MenuTest COMMAND menu_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../test)
+set_tests_properties(MenuTest PROPERTIES TIMEOUT 3)
+
 add_executable(servo_test ServoTest.cpp)
 target_link_libraries (servo_test Glass)
 add_test(NAME ServoTest COMMAND servo_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../test)

@@ -1,17 +1,18 @@
+#include <algorithm>
+#include <iostream>
 #include "Menu.h"
 #include "assert_print.h"
 
-int concatenate(int arr1, int arr2)
-{
-  int * result = new int[sizeof(arr1) + sizeof(arr2)];
-  std::copy(arr1, arr1 + sizeof(arr1), result);
-  std::copy(arr2, arr2 + sizeof(arr2), result + sizeof(arr1));
-  return result;
-}
+using namespace std;
+
 
 int main()
-wiringPiSetup()
 {
+int origHalt;
+int origSep;
+int origRest;
+
+wiringPiSetup()
 Display display;
 Display* displayptr = &display;
 State state;
@@ -23,32 +24,48 @@ Buttons* buttonptr = &button;
 Menu menu(displayptr,servoptr,stateptr,buttonptr);
 
 //TESTING THAT IT IS POSSIBLE TO EXIT SUBMENU -> IF NOT POSSIBLE, SCRIPT TIMES OUT
-menu.testVector=testExit;
+menu.testVector={0};
 menu.haltTimeMenu();
 menu.separationAngleMenu();
 menu.restAngleMenu();
 
-menu.testVector=concatenate
+//TEST RAISING VALUE TO LIMIT
+menu.testVector={3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,0};
+menu.haltTimeMenu();
+if(menu.m_halt_time!=menu.M_HALT_UP_LIMIT){assert_print("Failed to increase halt time to the maximum value");}
 
-int testExit=0;
-int testValueDown[3]={3,1,3};
-int testValueUp[3]={3,2,3};
-int testMinValue[32]={3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3};
-int testMaxValue[32]={3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3};
-int prefaceA=1;
-int prefaceB[2]={1,1};
-int prefaceC=2;
-int prefaceD[2]={2,2};
+//TEST LOWERING VALUE TO LIMIT
+menu.testVector={3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0};
+menu.haltTimeMenu();
+if(menu.m_halt_time!=menu.M_HALT_LOW_LIMIT){assert_print("Failed to reduce halt time to the minimum value");}
 
+//TEST LOWERING SEPARATION ANGLE TO LIMIT
+menu.testVector={3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0};
+menu.separationAngleMenu();
+if(menu.m_sep_angle!=menu.M_SEP_LOW_LIMIT){assert_print("Failed to reduce separation angle to lower limit");}
 
+//TEST RAISING SEPARATION ANGLE TO LIMIT
+menu.testVector={3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,0};
+menu.separationAngleMenu();
+if(menu.m_sep_angle!=min((135-menu.m_rest_position),abs(45-menu.m_rest_position))){assert_print("Failed to reduce separation angle to lower limit");}
 
+//TEST LOWERING REST ANGLE TO LIMIT
+menu.testVector={3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,0};
+menu.restAngleMenu();
+if(menu.m_rest_position!=45+menu.m_sep_angle){assert_print("Failed to reduce rest angle to lower limit");}
 
+//TEST RAISING REST ANGLE TO LIMIT
+menu.testVector={3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,0};
+menu.restAngleMenu();
+if(menu.m_rest_position!=135-menu.m_sep_angle){assert_print("Failed to raise rest angle to upper limit");}
 
+menu.testVector={1,4}
+menu.mainMenu();
+if(m_menu_vector[m_i]!="Separation angle"){assert_print("Main menu scrolling dysfunctional");}
 
-//Testing Exits of Each submenu
-
-//WAIT UNTIL BUTTONS ARE MADE A SEPARATE CLASS.
-
+menu.testVector={2,2,4}
+menu.mainMenu();
+if(m_menu_vector[m_i]!="Rest position"){assert_print("Main menu scrolling dysfunctional");}
 
 
 }

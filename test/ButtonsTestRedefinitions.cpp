@@ -15,12 +15,11 @@ Buttons::Buttons(State* _stateptr)
 
    int Buttons::buttonPress()
    {
-     int* vecptr = &testVector;
      int length = sizeof(testVector);
      if(length>1){
        for(int i=0 ;i<(length-2);i++)
        {
-         *vecptr[i]=*vecptr[i+1];
+         testVector[i]=testVector[i+1];
        }
      }
    }
