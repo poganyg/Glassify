@@ -48,7 +48,9 @@ Do make sure to only have these installed once on your Raspberry Pi.
 To build our software run the following code in your terminal:
 ```
 git clone https://github.com/poganyg/Glassify.git
-cd ./src/build
+cd Glassify
+mkdir build
+cd build
 cmake ..
 make
 ```
