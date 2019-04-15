@@ -88,7 +88,6 @@ class Servo
      */
     void setRestPosition(float clearAngle);
 
-  private:
     int m_pin; //!< Pin servo motor signal is sent to
     float m_greenAngle; //!< Angle which the servo motor goes to when green glass is detected
     float m_brownAngle; //!< Angle which the servo motor goes to when brown glass is detected
@@ -98,6 +97,7 @@ class Servo
     float m_SepAngle;   //!< Angle away from the rest postion that the motor moves by in each direction to sort green and brown glass
     int pwmClock; //!< Divisor for PWM clock
     int pwmRange;//!< Range registor for pwm clock
+  private:
 };
 
 #endif
