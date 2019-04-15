@@ -17,5 +17,5 @@ Camera::Camera()
 
 Mat Camera::capture()
 {
-  return Mat data(m_height,m_width,CV_8UC3,tempData);
+  return data;
 }

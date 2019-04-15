@@ -42,3 +42,22 @@ include_directories(include/)
 
 add_executable(Glassify Glassify.cpp)
 target_link_libraries(Glassify Glass)
+
+add_library(Common SHARED
+  include/ActivePollThread.cpp
+  include/Classifier.cpp
+  include/ClassifierThread.cpp
+  include/Display.cpp
+  include/gpio-sysfs.cpp
+  include/libServo.cpp
+  include/Menu.cpp
+  include/MenuThread.cpp
+  include/MotorThread.cpp
+  include/state.cpp
+  include/SwitchThread.cpp)
+
+  target_link_libraries (Common ${CMAKE_THREAD_LIBS_INIT})
+  target_link_libraries (Common wiringPi wiringPiDev)
+  target_link_libraries (Common ${WIRINGPI_LIBRARIES})
+  target_link_libraries (Common ${raspicam_LIBS})
+  target_link_libraries (Common ${OpenCV_LIBS})
