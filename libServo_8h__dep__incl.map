@@ -1,7 +1,8 @@
 <map id="/home/pi/Glassify/include/libServo.h" name="/home/pi/Glassify/include/libServo.h">
-<area shape="rect" id="node2" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="5,95,185,136"/>
-<area shape="rect" id="node4" href="$Menu_8h.html" title="Class including all of the functions required for the menu to operate. " alt="" coords="209,95,389,136"/>
-<area shape="rect" id="node6" href="$MotorThread_8h.html" title="This header file contains all definitions relating to the use of the motor as a thread. " alt="" coords="413,95,593,136"/>
+<area shape="rect" id="node2" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="56,95,236,136"/>
+<area shape="rect" id="node4" href="$Glassify_8cpp.html" title="Main file which uses all previously written functions. " alt="" coords="195,273,404,300"/>
+<area shape="rect" id="node5" href="$Menu_8h.html" title="Class including all of the functions required for the menu to operate. " alt="" coords="312,95,492,136"/>
+<area shape="rect" id="node7" href="$MotorThread_8h.html" title="This header file contains all definitions relating to the use of the motor as a thread. " alt="" coords="567,184,747,225"/>
 <area shape="rect" id="node3" href="$ClassifierThread_8h.html" title="Thread which uses the classification class to classify bottles. " alt="" coords="5,184,185,225"/>
-<area shape="rect" id="node5" href="$MenuThread_8h.html" title="This header file contains all definitions relating to the use of the menu as a thread. " alt="" coords="209,184,389,225"/>
+<area shape="rect" id="node6" href="$MenuThread_8h.html" title="This header file contains all definitions relating to the use of the menu as a thread. " alt="" coords="363,184,543,225"/>
 </map>

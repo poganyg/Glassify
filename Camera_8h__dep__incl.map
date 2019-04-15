@@ -1,4 +1,5 @@
 <map id="/home/pi/Glassify/include/Camera.h" name="/home/pi/Glassify/include/Camera.h">
-<area shape="rect" id="node2" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="5,95,185,136"/>
+<area shape="rect" id="node2" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="56,95,236,136"/>
+<area shape="rect" id="node4" href="$Glassify_8cpp.html" title="Main file which uses all previously written functions. " alt="" coords="119,273,328,300"/>
 <area shape="rect" id="node3" href="$ClassifierThread_8h.html" title="Thread which uses the classification class to classify bottles. " alt="" coords="5,184,185,225"/>
 </map>

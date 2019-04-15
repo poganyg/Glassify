@@ -1,5 +1,5 @@
 <map id="/home/pi/Glassify/include/MotorThread.h" name="/home/pi/Glassify/include/MotorThread.h">
 <area shape="rect" id="node2" href="$CppThread_8h.html" title="This is a thread wrapper which will be used to incorperate classes as threads. " alt="" coords="5,95,108,121"/>
 <area shape="rect" id="node3" href="$state_8h.html" title="Class containing state variable that declares if the classification is running and if a certain type ..." alt="" coords="133,95,199,121"/>
-<area shape="rect" id="node6" href="$libServo_8h.html" title="libServo.h" alt="" coords="350,95,435,121"/>
+<area shape="rect" id="node6" href="$libServo_8h.html" title="The Servo class provides all the functions used to control the motor. " alt="" coords="350,95,435,121"/>
 </map>

@@ -63,17 +63,28 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><div class="image">
-<img src="https://github.com/poganyg/Glassify/blob/master/CoverPhoto.png" alt="Glassify Logo" title="Glassify Logo"/>
+<img src="https://github.com/poganyg/Glassify/blob/master/CoverPhoto.png" alt="Glassify cover photo"/>
 </div>
-<h1>Introduction</h1>
-<p>We are bringing you a colour-based glass recycling sorter which can separate, in real-time, green, amber and clear bottles. This is a university project for the subject real-time embedded programming.</p>
-<p>embed glassify video</p>
+ <h1>Introduction</h1>
+<p>We are bringing you a colour-based glass recycling sorter which can separate, in real-time, green, amber and clear bottles! This is a university project for the subject real-time embedded programming. Watch our short introduction to why and how we are building this project:</p>
+<p><a href="https://www.youtube.com/watch?v=iapjhaJnOS8" target="_blank"></a> </p>
 <h2>Motive</h2>
 <p>Glass is 100% recyclable and by doing so we can substantially reduce raw materials needed, the waste produced as well as water and air pollution.<sup><a href="https://www.glassrecycle.co.uk/Why-Recycle/Facts--Figures/">1</a></sup> However, contamination is a major factor in the effectiveness of recycling.<sup><a href="https://wasterecycling.org/news/426888/NWRA-Celebrates-America-Recycles-Day.htm">2</a></sup> This can be due to non-glass materials disposed alongside with the bottles, such as bottle caps, but also by mixing differently coloured glasses. Colours are achieved by adding impurities, such as sulfur, copper or iron to the glasses. Their purpose is to protect the contents from environmental effects. Even one colour misplaced in the wrong bin can deteriorate the quality of the recycled glass. <sup><a href="https://recyclenation.com/2014/09/recycling-glass-does-color-matter/">3</a></sup> This project aims to achieve a more effective glass recycling to preserve our natural resources and protect our environment.</p>
 <h2>Our Solution</h2>
 <p>We are presenting here a device which can be installed to recycling points to assisst with the user-side recycling process. Once installed, a single input can be used for the glass recycling bin and the internal sorting would ensure that colour contamination doesn't occur. The device uses a Raspberry Pi microcontroller and is built using 3D printing which means that the overall production cost can be kept under £100.</p>
-<p>embed 3d model rendering</p>
-<h1>Building the Project</h1>
+<p><a href="https://www.youtube.com/watch?v=UAzmWVJm4zI" target="_blank"></a> </p>
+<h1>Have we got your fascination?</h1>
+<p>To see updates follow us on Facebook, YouTube and Instagram.</p>
+<p>If you would like to recreate this project, head over to our <a href="https://github.com/poganyg/Glassify/wiki">Wiki</a> page where you will find a detailed building guide including a list of all the components you will need for building it. In terms of software requirements, you will need to install:</p>
+<ul>
+<li><a href="https://opencv.org/releases.html">openCV</a></li>
+<li><a href="http://www.uco.es/investiga/grupos/ava/node/40?fbclid=IwAR3oNeb0COuL_Odd_C1q-Dq5YQPJ6SrulXHsiW9hHNv8-BaiqOYJpjWOB74">Raspicam</a></li>
+<li><a href="http://wiringpi.com/download-and-install/">WiringPi</a></li>
+<li><a href="https://cmake.org/install/">CMake</a></li>
+<li><a href="https://git-scm.com/downloads">Git</a> (Optional, makes cloning this repository easier.)</li>
+</ul>
+<p>Do make sure to only have these installed once on your Raspberry Pi.</p>
+<p>To build our software run the following code in your terminal: </p><div class="fragment"><div class="line">git clone https://github.com/poganyg/Glassify.git</div><div class="line">cd ./src/build</div><div class="line">cmake ..</div><div class="line">make</div></div><!-- fragment --><p>The project is under the GNU General Public License v3.0. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

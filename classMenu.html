@@ -76,18 +76,17 @@ Collaboration diagram for Menu:</div>
 <div class="dyncontent">
 <div class="center"><img src="classMenu__coll__graph.png" border="0" usemap="#Menu_coll__map" alt="Collaboration graph"/></div>
 <map name="Menu_coll__map" id="Menu_coll__map">
-<area shape="rect" id="node2" href="classServo.html" title="Provides all functions required for motor control. " alt="" coords="5,5,64,32"/>
-<area shape="rect" id="node3" href="classDisplay.html" title="Initialises and allows wriiting to LCD display. " alt="" coords="109,5,177,32"/>
-<area shape="rect" id="node4" href="classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="231,5,289,32"/>
+<area shape="rect" id="node2" href="classServo.html" title="Provides all functions required for motor control. " alt="" coords="5,95,64,121"/>
+<area shape="rect" id="node3" href="classButtons.html" title="Allows buttons to have their state read and interpretted in&#45;terms of the menu. " alt="" coords="243,95,315,121"/>
+<area shape="rect" id="node4" href="classDisplay.html" title="Initialises and allows writing to LCD display. " alt="" coords="121,5,189,32"/>
+<area shape="rect" id="node5" href="classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="313,5,370,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a290754027a85b32f40f2c49a503c1a4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a290754027a85b32f40f2c49a503c1a4d">Menu</a> (<a class="el" href="classDisplay.html">Display</a> *_displayptr, <a class="el" href="classServo.html">Servo</a> *_servoptr, <a class="el" href="classState.html">State</a> *_stateptr)</td></tr>
-<tr class="separator:a290754027a85b32f40f2c49a503c1a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ea1bb63dace188b7782c3287f5a8be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a32ea1bb63dace188b7782c3287f5a8be">buttonPress</a> ()</td></tr>
-<tr class="separator:a32ea1bb63dace188b7782c3287f5a8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a762e1080a184e55b6bd06e3f4162b2c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a762e1080a184e55b6bd06e3f4162b2c9">Menu</a> (<a class="el" href="classDisplay.html">Display</a> *_displayptr, <a class="el" href="classServo.html">Servo</a> *_servoptr, <a class="el" href="classState.html">State</a> *_stateptr, <a class="el" href="classButtons.html">Buttons</a> *_buttonptr)</td></tr>
+<tr class="separator:a762e1080a184e55b6bd06e3f4162b2c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a477e21c0bb1e786659d70ba663013907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a477e21c0bb1e786659d70ba663013907">haltTimeMenu</a> ()</td></tr>
 <tr class="separator:a477e21c0bb1e786659d70ba663013907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aac43cbc7afcb84b92df1823f6b822b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a8aac43cbc7afcb84b92df1823f6b822b">separationAngleMenu</a> ()</td></tr>
@@ -99,6 +98,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a5622855cb3ac0596c967bb070cfa9976"><td class="memItemLeft" align="right" valign="top"><a id="a5622855cb3ac0596c967bb070cfa9976"></a>
+<a class="el" href="classButtons.html">Buttons</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a5622855cb3ac0596c967bb070cfa9976">m_buttonptr</a></td></tr>
+<tr class="memdesc:a5622855cb3ac0596c967bb070cfa9976"><td class="mdescLeft">&#160;</td><td class="mdescRight">instance of display pointer in menu class <br /></td></tr>
+<tr class="separator:a5622855cb3ac0596c967bb070cfa9976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe16a67c183a290c74279e843f800102"><td class="memItemLeft" align="right" valign="top"><a id="abe16a67c183a290c74279e843f800102"></a>
 <a class="el" href="classDisplay.html">Display</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#abe16a67c183a290c74279e843f800102">m_displayptr</a></td></tr>
 <tr class="memdesc:abe16a67c183a290c74279e843f800102"><td class="mdescLeft">&#160;</td><td class="mdescRight">instance of display pointer in menu class <br /></td></tr>
@@ -111,22 +114,10 @@ Public Attributes</h2></td></tr>
 <a class="el" href="classState.html">State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#ae2d297c3d0eaed4ac3863ac0707b4ab9">m_stateptr</a></td></tr>
 <tr class="memdesc:ae2d297c3d0eaed4ac3863ac0707b4ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">instance of state pointer in menu class <br /></td></tr>
 <tr class="separator:ae2d297c3d0eaed4ac3863ac0707b4ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e4c8d6f7140184110b95c12d07017a"><td class="memItemLeft" align="right" valign="top"><a id="a91e4c8d6f7140184110b95c12d07017a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a91e4c8d6f7140184110b95c12d07017a">M_BUTTON1</a></td></tr>
-<tr class="memdesc:a91e4c8d6f7140184110b95c12d07017a"><td class="mdescLeft">&#160;</td><td class="mdescRight">pin button 1 is located on <br /></td></tr>
-<tr class="separator:a91e4c8d6f7140184110b95c12d07017a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0b7ea4021905e27ce8e4e04c7bcdb1"><td class="memItemLeft" align="right" valign="top"><a id="aee0b7ea4021905e27ce8e4e04c7bcdb1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#aee0b7ea4021905e27ce8e4e04c7bcdb1">M_BUTTON2</a></td></tr>
-<tr class="memdesc:aee0b7ea4021905e27ce8e4e04c7bcdb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">pin button 2 is located on <br /></td></tr>
-<tr class="separator:aee0b7ea4021905e27ce8e4e04c7bcdb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00cedf243cde6f1bef977ec1b9fdb5f2"><td class="memItemLeft" align="right" valign="top"><a id="a00cedf243cde6f1bef977ec1b9fdb5f2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#a00cedf243cde6f1bef977ec1b9fdb5f2">M_EXIT_TIME</a></td></tr>
-<tr class="memdesc:a00cedf243cde6f1bef977ec1b9fdb5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time taken for. <br /></td></tr>
-<tr class="separator:a00cedf243cde6f1bef977ec1b9fdb5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad136d78229ea2bc8761604c6cfcc66b8"><td class="memItemLeft" align="right" valign="top"><a id="ad136d78229ea2bc8761604c6cfcc66b8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#ad136d78229ea2bc8761604c6cfcc66b8">M_DEBOUNCE</a></td></tr>
-<tr class="memdesc:ad136d78229ea2bc8761604c6cfcc66b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time taken for debounce. <br /></td></tr>
-<tr class="separator:ad136d78229ea2bc8761604c6cfcc66b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7e5fb955d2293610e648c56c40c159e"><td class="memItemLeft" align="right" valign="top"><a id="ac7e5fb955d2293610e648c56c40c159e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#ac7e5fb955d2293610e648c56c40c159e">testVector</a></td></tr>
+<tr class="memdesc:ac7e5fb955d2293610e648c56c40c159e"><td class="mdescLeft">&#160;</td><td class="mdescRight">testVector for unit tests <br /></td></tr>
+<tr class="separator:ac7e5fb955d2293610e648c56c40c159e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af88e7af721167bab17783083bde65713"><td class="memItemLeft" align="right" valign="top"><a id="af88e7af721167bab17783083bde65713"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMenu.html#af88e7af721167bab17783083bde65713">m_halt_time</a></td></tr>
 <tr class="memdesc:af88e7af721167bab17783083bde65713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time that motor will rest after sorting glass. <br /></td></tr>
@@ -207,8 +198,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Full menu functionality. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a290754027a85b32f40f2c49a503c1a4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a290754027a85b32f40f2c49a503c1a4d">&#9670;&nbsp;</a></span>Menu()</h2>
+<a id="a762e1080a184e55b6bd06e3f4162b2c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a762e1080a184e55b6bd06e3f4162b2c9">&#9670;&nbsp;</a></span>Menu()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +220,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classState.html">State</a> *&#160;</td>
-          <td class="paramname"><em>_stateptr</em>&#160;</td>
+          <td class="paramname"><em>_stateptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classButtons.html">Buttons</a> *&#160;</td>
+          <td class="paramname"><em>_buttonptr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,6 +240,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
     <tr><td class="paramdir">[in]</td><td class="paramname">_displayptr</td><td>pointer to display class </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_servoptr</td><td>pointer to servo class </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_stateptr</td><td>pointer to state class </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_buttonptr</td><td>pointer to button class </td></tr>
   </table>
   </dd>
 </dl>
@@ -250,24 +248,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a32ea1bb63dace188b7782c3287f5a8be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32ea1bb63dace188b7782c3287f5a8be">&#9670;&nbsp;</a></span>buttonPress()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Menu::buttonPress </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Checks for and detects button presses on buttons one or two </p><dl class="section return"><dt>Returns</dt><dd>whichButton Variable showing whch button was pressed and how. 0 means no press, 1 means button one, 2 means button two and three means a long press </dd></dl>
-
-</div>
-</div>
 <a id="a477e21c0bb1e786659d70ba663013907"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a477e21c0bb1e786659d70ba663013907">&#9670;&nbsp;</a></span>haltTimeMenu()</h2>
 

@@ -1,5 +1,6 @@
 <map id="/home/pi/Glassify/include/Menu.h" name="/home/pi/Glassify/include/Menu.h">
-<area shape="rect" id="node9" href="$Display_8h.html" title="Defines class which enabels the LCD to print the any required input. " alt="" coords="311,95,390,121"/>
-<area shape="rect" id="node12" href="$libServo_8h.html" title="libServo.h" alt="" coords="645,95,730,121"/>
-<area shape="rect" id="node17" href="$state_8h.html" title="Class containing state variable that declares if the classification is running and if a certain type ..." alt="" coords="928,95,994,121"/>
+<area shape="rect" id="node8" href="$Display_8h.html" title="Defines class which enabels the LCD to print the any required input. " alt="" coords="375,169,453,196"/>
+<area shape="rect" id="node11" href="$libServo_8h.html" title="The Servo class provides all the functions used to control the motor. " alt="" coords="919,95,1005,121"/>
+<area shape="rect" id="node16" href="$state_8h.html" title="Class containing state variable that declares if the classification is running and if a certain type ..." alt="" coords="681,169,747,196"/>
+<area shape="rect" id="node18" href="$Buttons_8h.html" title="Class to detect and interpret button presses. " alt="" coords="332,95,416,121"/>
 </map>

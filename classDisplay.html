@@ -61,14 +61,13 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classDisplay-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Display Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Initialises and allows wriiting to LCD display.  
+<p>Initialises and allows writing to LCD display.  
  <a href="classDisplay.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Display_8h_source.html">Display.h</a>&gt;</code></p>
@@ -76,6 +75,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae972fffea6f7ca1d627ef48c3d841bb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ae972fffea6f7ca1d627ef48c3d841bb3">Display</a> ()</td></tr>
+<tr class="memdesc:ae972fffea6f7ca1d627ef48c3d841bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisation of LCD with correct pins and assigning it an integer to be later called by.  <a href="#ae972fffea6f7ca1d627ef48c3d841bb3">More...</a><br /></td></tr>
 <tr class="separator:ae972fffea6f7ca1d627ef48c3d841bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6cdb68a5ccb3a1d7ab3ba051f1ce3e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ac6cdb68a5ccb3a1d7ab3ba051f1ce3e8">simplePrint</a> (std::string input)</td></tr>
 <tr class="memdesc:ac6cdb68a5ccb3a1d7ab3ba051f1ce3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears then allows printing of a simple string to the LCD display.  <a href="#ac6cdb68a5ccb3a1d7ab3ba051f1ce3e8">More...</a><br /></td></tr>
@@ -89,13 +89,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="memItemLeft" align="right" valign="top"><a id="ae8ce3a57ec6485b84db0e48f6943c2ff"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ae8ce3a57ec6485b84db0e48f6943c2ff">M_LCD</a> = lcdInit (<a class="el" href="classDisplay.html#acb7db0011c7674b35e233187aace0bcb">m_height</a>, <a class="el" href="classDisplay.html#a0be4e80587fca673d0b276a30f71f8c3">m_width</a>, <a class="el" href="classDisplay.html#ab095cec923666cbd403c37767b77389c">m_bits</a>, <a class="el" href="Display_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</a>, <a class="el" href="Display_8h.html#a6ec15b1e813d1f56d2eb644a127e5d49">LCD_E</a>,<a class="el" href="Display_8h.html#ade7e247311032a474711416da480ed8b">LCD_D4</a>,<a class="el" href="Display_8h.html#a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</a>,<a class="el" href="Display_8h.html#a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</a>,<a class="el" href="Display_8h.html#abd65075e01c7413419581aedee5bcc24">LCD_D7</a>,0,0,0,0)</td></tr>
-<tr class="memdesc:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisation of LCD with correct pins and assigning it an integer to be later called by. <br /></td></tr>
-<tr class="separator:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
 <tr class="memitem:acb7db0011c7674b35e233187aace0bcb"><td class="memItemLeft" align="right" valign="top"><a id="acb7db0011c7674b35e233187aace0bcb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#acb7db0011c7674b35e233187aace0bcb">m_height</a> =2</td></tr>
 <tr class="memdesc:acb7db0011c7674b35e233187aace0bcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height of LCD display in lines. <br /></td></tr>
@@ -108,9 +101,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ab095cec923666cbd403c37767b77389c">m_bits</a> =4</td></tr>
 <tr class="memdesc:ab095cec923666cbd403c37767b77389c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The control resolution of the LCD. <br /></td></tr>
 <tr class="separator:ab095cec923666cbd403c37767b77389c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="memItemLeft" align="right" valign="top"><a id="ae8ce3a57ec6485b84db0e48f6943c2ff"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplay.html#ae8ce3a57ec6485b84db0e48f6943c2ff">M_LCD</a> = lcdInit (this-&gt;<a class="el" href="classDisplay.html#acb7db0011c7674b35e233187aace0bcb">m_height</a>, this-&gt;<a class="el" href="classDisplay.html#a0be4e80587fca673d0b276a30f71f8c3">m_width</a>, this-&gt;<a class="el" href="classDisplay.html#ab095cec923666cbd403c37767b77389c">m_bits</a>, <a class="el" href="Display_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</a>, <a class="el" href="Display_8h.html#a6ec15b1e813d1f56d2eb644a127e5d49">LCD_E</a>,<a class="el" href="Display_8h.html#ade7e247311032a474711416da480ed8b">LCD_D4</a>,<a class="el" href="Display_8h.html#a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</a>,<a class="el" href="Display_8h.html#a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</a>,<a class="el" href="Display_8h.html#abd65075e01c7413419581aedee5bcc24">LCD_D7</a>,0,0,0,0)</td></tr>
+<tr class="memdesc:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">variable for calling intialised LCD <br /></td></tr>
+<tr class="separator:ae8ce3a57ec6485b84db0e48f6943c2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initialises and allows wriiting to LCD display. </p>
+<div class="textblock"><p>Initialises and allows writing to LCD display. </p>
+<p>Contains classes needed to setup the LCD screen and print to it. These functions consist primarily of commands from the wiring Pi library lcd.h coupled with routines to combine several types of variable into one writable message. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae972fffea6f7ca1d627ef48c3d841bb3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae972fffea6f7ca1d627ef48c3d841bb3">&#9670;&nbsp;</a></span>Display()</h2>
@@ -126,6 +124,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>initialisation of LCD with correct pins and assigning it an integer to be later called by. </p>
 <p>Constructor </p>
 
 </div>

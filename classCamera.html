@@ -61,14 +61,13 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCamera-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Camera Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Setups camera and enables image capture and retrival.  
+<p>Class which intialises the camera and enables image capture.  
  <a href="classCamera.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Camera_8h_source.html">Camera.h</a>&gt;</code></p>
@@ -79,32 +78,12 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a01f94c3543f56ede7af49dc778f19331">Camera</a> ()</td></tr>
 <tr class="memdesc:a01f94c3543f56ede7af49dc778f19331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructor that sets up camera by defining necessary parameters. <br /></td></tr>
 <tr class="separator:a01f94c3543f56ede7af49dc778f19331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a0c61a84a5615e271cbd52ffe86d88f"><td class="memItemLeft" align="right" valign="top"><a id="a1a0c61a84a5615e271cbd52ffe86d88f"></a>
-Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a1a0c61a84a5615e271cbd52ffe86d88f">capture</a> ()</td></tr>
-<tr class="memdesc:a1a0c61a84a5615e271cbd52ffe86d88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which captures the image and assigns it to the variable data. <br /></td></tr>
+<tr class="memitem:a1a0c61a84a5615e271cbd52ffe86d88f"><td class="memItemLeft" align="right" valign="top">Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a1a0c61a84a5615e271cbd52ffe86d88f">capture</a> ()</td></tr>
+<tr class="memdesc:a1a0c61a84a5615e271cbd52ffe86d88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function which captures the image and assigns it to the variable data.  <a href="#a1a0c61a84a5615e271cbd52ffe86d88f">More...</a><br /></td></tr>
 <tr class="separator:a1a0c61a84a5615e271cbd52ffe86d88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4fc9e7139f9d34511631c1e6cded7e23"><td class="memItemLeft" align="right" valign="top"><a id="a4fc9e7139f9d34511631c1e6cded7e23"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a4fc9e7139f9d34511631c1e6cded7e23">m_width</a></td></tr>
-<tr class="memdesc:a4fc9e7139f9d34511631c1e6cded7e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">width of the image being captured in pixels <br /></td></tr>
-<tr class="separator:a4fc9e7139f9d34511631c1e6cded7e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61eece38eb9ffd6f903455f32a522a5"><td class="memItemLeft" align="right" valign="top"><a id="ad61eece38eb9ffd6f903455f32a522a5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ad61eece38eb9ffd6f903455f32a522a5">m_height</a></td></tr>
-<tr class="memdesc:ad61eece38eb9ffd6f903455f32a522a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">height of image being captured in pixels <br /></td></tr>
-<tr class="separator:ad61eece38eb9ffd6f903455f32a522a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="memItemLeft" align="right" valign="top"><a id="aadaa30a6266e0ce0c9dc326898ab9a7c"></a>
-Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#aadaa30a6266e0ce0c9dc326898ab9a7c">data</a></td></tr>
-<tr class="memdesc:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mat object to which tempData is cast. <br /></td></tr>
-<tr class="separator:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="memItemLeft" align="right" valign="top"><a id="ab7069f4976d2e73f987bb6d3df72e7dc"></a>
-unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ab7069f4976d2e73f987bb6d3df72e7dc">tempData</a></td></tr>
-<tr class="memdesc:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array to which the camera outputs. <br /></td></tr>
-<tr class="separator:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
 <tr class="memitem:ac7867b27fafa7c2dcd358c2d62ef5616"><td class="memItemLeft" align="right" valign="top"><a id="ac7867b27fafa7c2dcd358c2d62ef5616"></a>
 raspicam::RaspiCam&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ac7867b27fafa7c2dcd358c2d62ef5616">CameraDevice</a></td></tr>
 <tr class="memdesc:ac7867b27fafa7c2dcd358c2d62ef5616"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiates the camera within the class <br /></td></tr>
@@ -121,10 +100,48 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a9529961fb5d1f3fe240963cce50dd4d1">m_brightness</a></td></tr>
 <tr class="memdesc:a9529961fb5d1f3fe240963cce50dd4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">brightness of image captured <br /></td></tr>
 <tr class="separator:a9529961fb5d1f3fe240963cce50dd4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fc9e7139f9d34511631c1e6cded7e23"><td class="memItemLeft" align="right" valign="top"><a id="a4fc9e7139f9d34511631c1e6cded7e23"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#a4fc9e7139f9d34511631c1e6cded7e23">m_width</a></td></tr>
+<tr class="memdesc:a4fc9e7139f9d34511631c1e6cded7e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">width of the image being captured in pixels <br /></td></tr>
+<tr class="separator:a4fc9e7139f9d34511631c1e6cded7e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61eece38eb9ffd6f903455f32a522a5"><td class="memItemLeft" align="right" valign="top"><a id="ad61eece38eb9ffd6f903455f32a522a5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ad61eece38eb9ffd6f903455f32a522a5">m_height</a></td></tr>
+<tr class="memdesc:ad61eece38eb9ffd6f903455f32a522a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">height of image being captured in pixels <br /></td></tr>
+<tr class="separator:ad61eece38eb9ffd6f903455f32a522a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="memItemLeft" align="right" valign="top"><a id="aadaa30a6266e0ce0c9dc326898ab9a7c"></a>
+Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#aadaa30a6266e0ce0c9dc326898ab9a7c">data</a></td></tr>
+<tr class="memdesc:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mat object to which tempData is cast. <br /></td></tr>
+<tr class="separator:aadaa30a6266e0ce0c9dc326898ab9a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="memItemLeft" align="right" valign="top"><a id="ab7069f4976d2e73f987bb6d3df72e7dc"></a>
+unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCamera.html#ab7069f4976d2e73f987bb6d3df72e7dc">tempData</a></td></tr>
+<tr class="memdesc:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array to which the camera outputs. <br /></td></tr>
+<tr class="separator:ab7069f4976d2e73f987bb6d3df72e7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Setups camera and enables image capture and retrival. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Class which intialises the camera and enables image capture. </p>
+<p>Class which contains all setup required for the camera such as image hieght and width which also contains the function required to capture and store an image. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1a0c61a84a5615e271cbd52ffe86d88f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a0c61a84a5615e271cbd52ffe86d88f">&#9670;&nbsp;</a></span>capture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mat Camera::capture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function which captures the image and assigns it to the variable data. </p>
+<dl class="section return"><dt>Returns</dt><dd>data Mat variable which contains an image captured with the camera </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/pi/Glassify/include/<a class="el" href="Camera_8h_source.html">Camera.h</a></li>
 <li>/home/pi/Glassify/include/Camera.cpp</li>
 </ul>

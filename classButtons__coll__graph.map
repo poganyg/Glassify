@@ -1,0 +1,4 @@
+<map id="Buttons" name="Buttons">
+<area shape="rect" id="node2" href="$classDisplay.html" title="Initialises and allows writing to LCD display. " alt="" coords="5,5,73,32"/>
+<area shape="rect" id="node3" href="$classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="128,5,185,32"/>
+</map>

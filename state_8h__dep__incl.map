@@ -1,9 +1,11 @@
 <map id="/home/pi/Glassify/include/state.h" name="/home/pi/Glassify/include/state.h">
-<area shape="rect" id="node2" href="$ActivePollThread_8h.html" title="Polls the switch while the classification is active to give a buffer value of the number of bottles i..." alt="" coords="5,95,185,136"/>
-<area shape="rect" id="node3" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="209,95,389,136"/>
-<area shape="rect" id="node4" href="$ClassifierThread_8h.html" title="Thread which uses the classification class to classify bottles. " alt="" coords="235,184,415,225"/>
-<area shape="rect" id="node5" href="$Menu_8h.html" title="Class including all of the functions required for the menu to operate. " alt="" coords="465,95,645,136"/>
-<area shape="rect" id="node7" href="$MotorThread_8h.html" title="This header file contains all definitions relating to the use of the motor as a thread. " alt="" coords="669,95,849,136"/>
-<area shape="rect" id="node8" href="$SwitchThread_8h.html" title="/home/pi/Glassify/include\l/SwitchThread.h" alt="" coords="873,95,1053,136"/>
-<area shape="rect" id="node6" href="$MenuThread_8h.html" title="This header file contains all definitions relating to the use of the menu as a thread. " alt="" coords="465,184,645,225"/>
+<area shape="rect" id="node2" href="$ActivePollThread_8h.html" title="Polls the switch while the classification is active to give a buffer value of the number of bottles i..." alt="" coords="5,273,185,315"/>
+<area shape="rect" id="node3" href="$Glassify_8cpp.html" title="Main file which uses all previously written functions. " alt="" coords="348,363,557,389"/>
+<area shape="rect" id="node4" href="$Buttons_8h.html" title="Class to detect and interpret button presses. " alt="" coords="261,95,441,136"/>
+<area shape="rect" id="node5" href="$Menu_8h.html" title="Class including all of the functions required for the menu to operate. " alt="" coords="337,184,517,225"/>
+<area shape="rect" id="node7" href="$Classifier_8h.html" title="Class which defines all functions required to classify green, brown or clear bottles based on the cam..." alt="" coords="517,95,697,136"/>
+<area shape="rect" id="node8" href="$ClassifierThread_8h.html" title="Thread which uses the classification class to classify bottles. " alt="" coords="605,184,785,225"/>
+<area shape="rect" id="node9" href="$MotorThread_8h.html" title="This header file contains all definitions relating to the use of the motor as a thread. " alt="" coords="809,184,989,225"/>
+<area shape="rect" id="node10" href="$SwitchThread_8h.html" title="/home/pi/Glassify/include\l/SwitchThread.h" alt="" coords="891,273,1071,315"/>
+<area shape="rect" id="node6" href="$MenuThread_8h.html" title="This header file contains all definitions relating to the use of the menu as a thread. " alt="" coords="363,273,543,315"/>
 </map>

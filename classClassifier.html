@@ -77,7 +77,7 @@ Collaboration diagram for Classifier:</div>
 <div class="center"><img src="classClassifier__coll__graph.png" border="0" usemap="#Classifier_coll__map" alt="Collaboration graph"/></div>
 <map name="Classifier_coll__map" id="Classifier_coll__map">
 <area shape="rect" id="node2" href="classServo.html" title="Provides all functions required for motor control. " alt="" coords="5,5,64,32"/>
-<area shape="rect" id="node3" href="classCamera.html" title="Setups camera and enables image capture and retrival. " alt="" coords="106,5,179,32"/>
+<area shape="rect" id="node3" href="classCamera.html" title="Class which intialises the camera and enables image capture. " alt="" coords="106,5,179,32"/>
 <area shape="rect" id="node4" href="classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="217,5,274,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -90,8 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a54e011d65ca4ab621ed19dfd09b6e95e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#a54e011d65ca4ab621ed19dfd09b6e95e">checkMatch</a> (Mat &amp;baseImage, Mat &amp;rollingImage)</td></tr>
 <tr class="memdesc:a54e011d65ca4ab621ed19dfd09b6e95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares the initial image (base image) captured when the switch was pressed with the last picture taken (rolling image) and shows the difference between them in order to detect clear glass.  <a href="#a54e011d65ca4ab621ed19dfd09b6e95e">More...</a><br /></td></tr>
 <tr class="separator:a54e011d65ca4ab621ed19dfd09b6e95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9595af8c76b4f67f736d6bb74e4813d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#ac9595af8c76b4f67f736d6bb74e4813d">classify</a> ()</td></tr>
-<tr class="separator:ac9595af8c76b4f67f736d6bb74e4813d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afba936b80cd5d6f2c7a6eba7ec90c30a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClassifier.html#afba936b80cd5d6f2c7a6eba7ec90c30a">classify</a> ()</td></tr>
+<tr class="separator:afba936b80cd5d6f2c7a6eba7ec90c30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -162,6 +162,7 @@ Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classifies glass as brown, green or clear and sets state accordingly. </p>
+<p>The most critical class in the code. Contain all functions required for the glass classification. The camera class is utilised to obtain images and these are classified to green or brown glass through thresholding and then summing the reulting images. Clear glass is also detected if niether of these colours are sufficiently presesent but there is still substantial changes between frames. Classification requires several identifications of the same output before the result is given. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1ddf8171faa93f0a8ad4c230f1fa9554"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ddf8171faa93f0a8ad4c230f1fa9554">&#9670;&nbsp;</a></span>Classifier()</h2>
@@ -246,14 +247,14 @@ Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
-<a id="ac9595af8c76b4f67f736d6bb74e4813d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9595af8c76b4f67f736d6bb74e4813d">&#9670;&nbsp;</a></span>classify()</h2>
+<a id="afba936b80cd5d6f2c7a6eba7ec90c30a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba936b80cd5d6f2c7a6eba7ec90c30a">&#9670;&nbsp;</a></span>classify()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Classifier::classify </td>
+          <td class="memname">int Classifier::classify </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
