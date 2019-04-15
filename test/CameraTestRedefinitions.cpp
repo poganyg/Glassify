@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 Camera::Camera()
-:m_width(32),m_height(32),m_fps(120),m_shutter(100000),m_brightness(50)//default parameters for camera
+  :m_width(64),m_height(64),m_fps(120),m_shutter(10000),m_brightness(50)//default parameters for camera
 {
   //Setting up Camera
   CameraDevice.setWidth(m_width);
@@ -13,16 +13,20 @@ Camera::Camera()
   //Allocate Memory
   tempData=new unsigned char[CameraDevice.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]; //Allocates uchar data for __DEFAULT__ raspicam::format, i.e. RGB
   Mat data(m_height,m_width,CV_8UC3,tempData);//IDEALLY, FIND OUT HOW TO RECAST UCHAR TO MAT AND DEFINE MAT HERE
-
-  cout<<"Opening Camera..."<<endl;
-  if ( !CameraDevice.open()) {cerr<<"Error opening camera"<<endl;}
 }
 
 Mat Camera::capture()
 {
-  CameraDevice.grab();
-  CameraDevice.retrieve(tempData);
-  Mat data(m_height,m_width,CV_8UC3,tempData);
-  imwrite("data.jpg",data);
-  return data;
+  if (tempData[0]==1)
+  {
+    Mat greenImg(64,64, CV_8UC3, Scalar(40,150,150));
+    cvtColor(greenImg,greenImg,COLOR_HSV2RGB);
+    return greenImg;
+  }
+  else if (tempData[0]==2)
+  {
+    Mat brownImg(64,64, CV_8UC3, Scalar(15,150,100));
+    cvtColor(brownImg,brownImg,COLOR_HSV2RGB);
+    return brownImg;
+  }
 }

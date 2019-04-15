@@ -2,17 +2,11 @@
 #define __CPP_THREAD_H_
 
 /**
- * @file CppThread.h
- * @brief This is a thread wrapper which will be
- * used to incorperate classes as threads 
- *
- * @author Dr Bernd Porr
- * @date 29/06/2007
  * GNU GENERAL PUBLIC LICENSE
  * Version 3, 29 June 2007
  *
  * (C) 2018, Bernd Porr <mail@bernporr.me.uk>
- */
+ **/
 
 #ifdef __linux__
 #include <pthread.h>
@@ -23,9 +17,8 @@
 #include <windows.h>
 #endif
 
-/**
-* @brief abstract thread which contains the inner workings of the thread model
-*/
+
+// abstract thread which contains the inner workings of the thread model
 class CppThread {
 
 private:
