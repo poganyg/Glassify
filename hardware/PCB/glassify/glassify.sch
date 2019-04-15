@@ -168,8 +168,6 @@ Wire Wire Line
 	7100 3700 6400 3700
 Text Notes 4900 2250 1    56   ~ 0
 GND\nVCC\nSIGNAL
-Wire Wire Line
-	5450 3900 5900 3900
 Connection ~ 7650 5200
 Wire Wire Line
 	4900 4700 5350 4700
@@ -249,8 +247,6 @@ Wire Wire Line
 Wire Wire Line
 	8000 4000 6400 4000
 Wire Wire Line
-	8000 4100 6400 4100
-Wire Wire Line
 	8000 4700 7350 4700
 Wire Wire Line
 	7350 4700 7350 4300
@@ -294,19 +290,11 @@ F 3 "~" H 3550 2400 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	5450 3250 5450 3900
-Wire Wire Line
 	5300 1400 5300 2650
 Wire Wire Line
 	5300 2650 4800 2650
 Wire Wire Line
 	4800 2650 4800 2500
-Wire Wire Line
-	5900 3800 5750 3800
-Wire Wire Line
-	5750 2600 4900 2600
-Wire Wire Line
-	4900 2600 4900 2500
 Wire Wire Line
 	4700 2500 4700 2600
 Wire Wire Line
@@ -315,8 +303,6 @@ Wire Wire Line
 	4250 2600 4700 2600
 Wire Wire Line
 	3200 1400 3200 2600
-Wire Wire Line
-	3950 3250 5450 3250
 Wire Wire Line
 	6950 3800 6400 3800
 Wire Wire Line
@@ -327,10 +313,6 @@ Wire Wire Line
 Wire Wire Line
 	3650 2600 4250 2600
 Connection ~ 4250 2600
-Wire Wire Line
-	5750 2600 5750 3800
-Wire Wire Line
-	3950 2250 3950 3250
 $Comp
 L Connector:Conn_01x08_Male 1206A_01x08_Male1
 U 1 1 5CA4F01F
@@ -353,23 +335,10 @@ F 3 "~" H 8200 4800 50  0001 C CNN
 	1    8200 4800
 	-1   0    0    -1  
 $EndComp
-$Comp
-L Connector:Conn_01x02_Male BATTERY_Conn_01x02_Male2
-U 1 1 5C993FF7
-P 4050 1800
-F 0 "BATTERY_Conn_01x02_Male2" H 3750 1600 50  0000 L CNN
-F 1 "2mm_pitch" H 4050 1850 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 4050 1800 50  0001 C CNN
-F 3 "~" H 4050 1800 50  0001 C CNN
-	1    4050 1800
-	1    0    0    1   
-$EndComp
 Wire Wire Line
 	4250 1400 4250 1700
-Wire Wire Line
-	4250 1800 4250 2050
-Text Notes 4000 1850 2    54   ~ 0
-VCC\nGND
+Text Notes 4230 1920 2    54   ~ 0
+VCC\n\nGND
 $Comp
 L Connector_Generic:Conn_02x09_Odd_Even J1
 U 1 1 5C9A00D8
@@ -396,4 +365,44 @@ Wire Wire Line
 	5850 3700 5850 3250
 NoConn ~ 6400 3600
 NoConn ~ 5900 3600
+Wire Wire Line
+	5900 3900 5600 3900
+Wire Wire Line
+	5600 3900 5600 3100
+Wire Wire Line
+	5600 3100 7200 3100
+Wire Wire Line
+	7200 3100 7200 4100
+Wire Wire Line
+	7200 4100 8000 4100
+$Comp
+L Connector:Conn_01x03_Male J2
+U 1 1 5CAF9A75
+P 4450 1800
+F 0 "J2" H 4423 1730 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 4423 1821 50  0000 R CNN
+F 2 "GLFfootprints:power_adapter_conn" H 4450 1800 50  0001 C CNN
+F 3 "~" H 4450 1800 50  0001 C CNN
+	1    4450 1800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4250 1900 4250 2050
+NoConn ~ 4250 1800
+Wire Wire Line
+	6400 4100 6900 4100
+Wire Wire Line
+	6900 4100 6900 3050
+Wire Wire Line
+	6900 3050 4900 3050
+Wire Wire Line
+	4900 3050 4900 2500
+Wire Wire Line
+	5900 3800 5350 3800
+Wire Wire Line
+	5350 3800 5350 3200
+Wire Wire Line
+	5350 3200 3950 3200
+Wire Wire Line
+	3950 3200 3950 2250
 $EndSCHEMATC
