@@ -46,7 +46,7 @@ int Classifier::classify()
 
       //Updating Clear Threshold
       cCounter = checkMatch(baseGrey, rollingGrey);
-      if(loopNumber<=15)
+      if(loopNumber<=10)
       {
         loopNumber++;
         if (baseClear<cCounter)
