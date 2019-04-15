@@ -13,7 +13,7 @@ target_link_libraries (classifier_test Common)
 add_test(ClassifierTest classifier_test)
 
 add_executable(mat_convert_test MatConvert.cpp)
-target_link_libraries (mat_convert Glass)
+target_link_libraries (mat_convert_test Glass)
 add_test(MatConvert mat_convert_test)
 
 add_executable(display_test DisplayTest.cpp)

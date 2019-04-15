@@ -25,9 +25,7 @@ using namespace std;
 class Display
 {
 private:
-  int m_height=2;//!< Height of LCD display in lines
-  int m_width=16;//!< Width of screen in characters
-  int m_bits=4;//!< The control resolution of the LCD
+
 public:
   /**
   *	@brief initialisation of LCD with correct pins and assigning it an integer to be
@@ -56,6 +54,10 @@ public:
   * @param input2 The final string to be printed
   */
   void concatenateThreePrint(std::string input, int val, std::string input2);
+
+  int m_height=2;//!< Height of LCD display in lines
+  int m_width=16;//!< Width of screen in characters
+  int m_bits=4;//!< The control resolution of the LCD
 
 };
 

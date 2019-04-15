@@ -24,7 +24,7 @@ public:
   @param m_delay time given for bottle to exit tube
   @param m_state instantiation of output from classifier
 */
-  MotorThread(State* _stateptr)
+  StateTestThread(State* _stateptr)
     :m_stateptr(_stateptr)
     {
     }
