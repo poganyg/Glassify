@@ -43,7 +43,8 @@ Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr) //still nee
 int Menu::buttonPress()
 {
   length = sizeof(testVector);
-  if(length>1){
+  if(length>1)
+  {
     for(i=0,i<<(length-2),i++)
     {
       testVector[i]=testVector[i+1];

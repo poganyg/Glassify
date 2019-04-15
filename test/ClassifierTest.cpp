@@ -1,11 +1,8 @@
-#include <opencv2/opencv.hpp>
-#include <opencv2/core.hpp>
+#include "Classifier.h"
+#include "assert_print.h"
 
 using namespace std;
 using namespace cv;
-
-#include "Classifier.h"
-#include "assert_print.h"
 
 /** This test assesses the functionality of the Classifier class.*/
 

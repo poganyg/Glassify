@@ -17,6 +17,7 @@
 #include "./include/ClassifierThread.h"
 #include "./include/MenuThread.h"
 #include "./include/ActivePollThread.h"
+#include "Buttons.h"
 /**
 * @brief Activates all threads in sequence to classify glass and run menu
 */
@@ -30,9 +31,11 @@ int main()
   Servo* servoptr = &servo; 	 //sets up pointer to servo class
   Camera camera; 		 // Initialises Camera class
   Camera* cameraptr = &camera;   //sets up pointer to servo class
+  Buttons button(stateptr); // Creates instance of the Buttons class
+  Buttons* buttonptr = &button; // Initialises pointer to the button class`
   Display display; 		 //Initialises display class
   Display* displayptr = &display;// Sets up pointer to display class
-  Menu menu(displayptr,servoptr,stateptr);// Initialises menu class
+  Menu menu(displayptr,servoptr,stateptr,buttonptr);// Initialises menu class
   Menu* menuptr = &menu; 	 //sets pointer to menu class
   Classifier classifier(stateptr,cameraptr,servoptr);// Initialises classifier
   Classifier* classifierptr = &classifier; 	//Sets pointer to classifier

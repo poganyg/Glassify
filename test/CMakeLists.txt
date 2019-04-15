@@ -11,7 +11,7 @@ target_link_libraries (camera_test Glass)
 add_test(NAME CameraTest COMMAND camera_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 set_tests_properties(CameraTest PROPERTIES TIMEOUT 3)
 
-add_executable(classifier_test ClassifierTest.cpp CameraTestRedefinitions.cpp)
+add_executable(classifier_test ClassifierTest.cpp CameraTestRedefinitions.cpp ButtonsTestRedefinitions.cpp)
 target_link_libraries (classifier_test Common)
 add_test(NAME ClassifierTest COMMAND classifier_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 set_tests_properties(ClassifierTest PROPERTIES TIMEOUT 15)

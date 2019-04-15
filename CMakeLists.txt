@@ -20,6 +20,7 @@ find_package(raspicam REQUIRED)
 
 add_library(Glass SHARED
   include/ActivePollThread.cpp
+  include/Buttons.cpp
   include/Camera.cpp
   include/Classifier.cpp
   include/ClassifierThread.cpp

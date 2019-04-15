@@ -11,93 +11,24 @@
 
 using namespace std;
 
-Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr) //still need to add servo pointer and state pointer
-:M_BUTTON1 (2), M_BUTTON2 (3), M_EXIT_TIME (500000), M_DEBOUNCE (50), M_HALT_ADJUST (100), M_SEP_ADJUST (5), M_REST_ADJUST (5), M_HALT_LOW_LIMIT (100), M_SEP_LOW_LIMIT (5), M_REST_LOW_LIMIT (50), M_HALT_UP_LIMIT (2000), M_SEP_UP_LIMIT (25), M_ARRAY_LENGTH (3), m_displayptr(_displayptr), m_servoptr(_servoptr), m_stateptr(_stateptr)
+Menu::Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr, Buttons* _buttonptr) //still need to add servo pointer and state pointer
+:M_HALT_ADJUST (100), M_SEP_ADJUST (5), M_REST_ADJUST (5), M_HALT_LOW_LIMIT (100), M_SEP_LOW_LIMIT (5), M_REST_LOW_LIMIT (50), M_HALT_UP_LIMIT (2000), M_SEP_UP_LIMIT (25), M_ARRAY_LENGTH (3), m_displayptr(_displayptr), m_servoptr(_servoptr), m_stateptr(_stateptr), m_buttonptr(_buttonptr)
 {
-  pinMode(M_BUTTON1, INPUT);
-  pinMode(M_BUTTON2, INPUT);
-  pullUpDnControl(M_BUTTON1, PUD_DOWN);
-  pullUpDnControl(M_BUTTON2, PUD_DOWN);
   M_REST_UP_LIMIT = 180-M_REST_LOW_LIMIT;
   m_menu_vector.push_back("Servo halt time");
   m_menu_vector.push_back("Separation angle");
   m_menu_vector.push_back("Rest position");
   m_i = 0;
-
   m_halt_time = m_servoptr->getHaltTime();
   m_sep_angle = m_servoptr->getSepAngle();
   m_rest_position = m_servoptr->getRestPosition();
-
-
 }
-
-
-
-int Menu::buttonPress()
-{
-
-  int whichButton = 4;
-  while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && whichButton==4)
-  {
-    bool debounce = true;
-    int b1 = digitalRead(M_BUTTON1);
-    int b2 = digitalRead(M_BUTTON2);
-    if(b1==1 || b2==1)
-    {
-      std::this_thread::sleep_for(std::chrono::milliseconds(M_DEBOUNCE));
-      if(b1==1 || b2==1)
-      {debounce=false;}
-    }
-    if (debounce == false){
-      auto start = chrono::steady_clock::now();
-      if(b1==1 && b2==1)
-      {
-        whichButton = 1;
-      }
-      else if(b1==1 && b2==0)
-      {
-        whichButton = 1;
-      }
-      else if(b1==0 && b2==1)
-      {
-        whichButton = 2;
-      }
-      while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && (b1==1 || b2==1))
-      {
-        b1 = digitalRead(M_BUTTON1);
-        b2 = digitalRead(M_BUTTON2);
-        auto end = chrono::steady_clock::now();
-        if (((chrono::duration_cast<chrono::seconds>(end - start).count())>1) && ((chrono::duration_cast<chrono::seconds>(end - start).count())<10))
-        {
-          whichButton = 3;
-        }
-        if (chrono::duration_cast<chrono::seconds>(end - start).count()>10)
-        {
-          whichButton = 0;
-          break;
-        }
-      }
-    }
-  }
-  if (m_stateptr->getBuffer()!=0 && m_stateptr->getState()!=0)
-  {
-    whichButton = 0;
-    while (m_stateptr->getBuffer()!=0 && m_stateptr->getState()!=0)
-    {
-      std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    }
-  }
-  cout << whichButton << endl;
-  return whichButton;
-
-}
-
 
 void Menu::haltTimeMenu()
 {
   m_displayptr->concatenatePrint( m_halt_time, " ms" );
   while (true) {
-    retVal = Menu::buttonPress();
+    retVal = m_buttonptr->buttonPress();
     if (retVal == 1) {
       if (m_halt_time > 100) {
         m_halt_time -= M_HALT_ADJUST;
@@ -140,7 +71,7 @@ void Menu::separationAngleMenu()
   m_displayptr->concatenatePrint( m_sep_angle, "deg" );
 
   while (true) {
-    retVal = Menu::buttonPress();
+    retVal = m_buttonptr->buttonPress();
     digitalWrite(9,HIGH);
     if (retVal == 1) {
       if (m_sep_angle > 10 && (m_rest_position-m_sep_angle-M_REST_ADJUST)>=45 && (m_sep_angle+m_rest_position-M_REST_ADJUST)<=135){
@@ -186,7 +117,7 @@ void Menu::restAngleMenu()
   m_servoptr->moveCalib(m_rest_position);
   m_displayptr->concatenatePrint( m_rest_position, "deg" );
   while (true) {
-    retVal = Menu::buttonPress();
+    retVal = m_buttonptr->buttonPress();
     if (retVal == 1) {
       if (m_rest_position > 55 && (m_rest_position-m_sep_angle-M_REST_ADJUST)>=45 && (m_sep_angle+m_rest_position-M_REST_ADJUST)<=135) {
         m_rest_position -= M_REST_ADJUST;
@@ -225,7 +156,7 @@ void Menu::restAngleMenu()
 }
 
 
-void Menu::mainMenu() {
+int Menu::mainMenu() {
 
   m_displayptr->simplePrint( m_menu_vector[m_i ]);
 
@@ -235,7 +166,7 @@ void Menu::mainMenu() {
     // stepping to the next menu option
     //cout<<"INLOOP"<<endl;
 
-    retVal = Menu::buttonPress();
+    retVal = m_buttonptr->buttonPress();
     //cout<<retVal<<endl;
     if (retVal == 1) {
       m_i = m_i - 1;
@@ -270,5 +201,11 @@ void Menu::mainMenu() {
       }
       m_servoptr->saveCalibValues();
     }
+
+    if (retVal == 4) {
+      return 0;
+    }
   }
+
+
 }

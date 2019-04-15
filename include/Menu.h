@@ -12,12 +12,12 @@
 #include <vector>
 #include <unistd.h>
 #include <lcd.h>
-#include <tuple>
 #include "Display.h"
 #include <chrono>
 #include "libServo.h"
 #include "state.h"
 #include <string>
+#include "Buttons.h"
 
 using namespace std;
 /**
@@ -28,12 +28,12 @@ class Menu
   private:
 
   public:
-    Display* m_displayptr;   //!<instance of display pointer in menu class
+    Buttons* m_buttonptr;   //!< instance of display pointer in menu class
+    Display* m_displayptr;   //!<  instance of display pointer in menu class
     Servo* m_servoptr;       //!<  instance of servo pointer in menu class
     State* m_stateptr;       //!<  instance of state pointer in menu class
     int M_BUTTON1;          //!<  pin button 1 is located on
     int M_BUTTON2;          //!<  pin button 2 is located on
-    int M_EXIT_TIME;          //!< Time taken for
     int M_DEBOUNCE;          //!<  Time taken for debounce
     int m_halt_time;          //!< Time that motor will rest after sorting glass
     int m_sep_angle;          //!< Seperation between the rest angle and the position for glass being sorted. This is symmetric on each side.
@@ -62,12 +62,7 @@ class Menu
      * @param[in] _stateptr pointer to state class
      */
 
-    Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr);
-     /**
-      * Checks for and detects button presses on buttons one or two
-      * @return whichButton Variable showing whch button was pressed and how. 0 means no press, 1 means button one, 2 means button two and three means a long press
-      */
-    int buttonPress();
+    Menu(Display* _displayptr, Servo* _servoptr, State* _stateptr, Buttons* _buttonptr);
     /**
       * Section of the menu that allows callibration of the halt time of the motor after sorting
       */
@@ -83,7 +78,7 @@ class Menu
    /**
      * Brings all of the menu portions together to allow selection of submenu to be enterred
      */
-    void mainMenu();
+    int mainMenu();
 };
 
 #endif
