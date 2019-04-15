@@ -1,0 +1,5 @@
+<map id="Menu" name="Menu">
+<area shape="rect" id="node2" href="$classServo.html" title="Provides all functions required for motor control. " alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node3" href="$classDisplay.html" title="Initialises and allows wriiting to LCD display. " alt="" coords="109,5,177,32"/>
+<area shape="rect" id="node4" href="$classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="231,5,289,32"/>
+</map>

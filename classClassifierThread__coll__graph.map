@@ -1,0 +1,7 @@
+<map id="ClassifierThread" name="ClassifierThread">
+<area shape="rect" id="node2" href="$classCppThread.html" title="abstract thread which contains the inner workings of the thread model " alt="" coords="5,95,96,121"/>
+<area shape="rect" id="node3" href="$classClassifier.html" title="Classifies glass as brown, green or clear and sets state accordingly. " alt="" coords="121,95,199,121"/>
+<area shape="rect" id="node4" href="$classServo.html" title="Provides all functions required for motor control. " alt="" coords="23,5,81,32"/>
+<area shape="rect" id="node5" href="$classCamera.html" title="Setups camera and enables image capture and retrival. " alt="" coords="123,5,197,32"/>
+<area shape="rect" id="node6" href="$classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="234,5,291,32"/>
+</map>

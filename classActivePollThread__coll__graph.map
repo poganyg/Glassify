@@ -1,0 +1,4 @@
+<map id="ActivePollThread" name="ActivePollThread">
+<area shape="rect" id="node2" href="$classCppThread.html" title="abstract thread which contains the inner workings of the thread model " alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node3" href="$classState.html" title="Contains all interfacing for reading or setting system state. " alt="" coords="121,5,178,32"/>
+</map>
