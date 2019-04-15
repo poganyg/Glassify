@@ -25,6 +25,12 @@ using namespace cv;
 using namespace std;
 /**
 * @brief Classifies glass as brown, green or clear and sets state accordingly
+*
+* The most critical class in the code. Contain all functions required for the glass classification.
+* The camera class is utilised to obtain images and these are classified to green or brown glass through thresholding
+* and then summing the reulting images. Clear glass is also detected if niether of these colours are sufficiently presesent
+* but there is still substantial changes between frames. Classification requires several identifications of the same output
+* before the result is given.
 */
 class Classifier
 {

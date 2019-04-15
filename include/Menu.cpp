@@ -74,7 +74,7 @@ void Menu::separationAngleMenu()
     retVal = m_buttonptr->buttonPress();
     digitalWrite(9,HIGH);
     if (retVal == 1) {
-      if (m_sep_angle > 10 && (m_rest_position-m_sep_angle-M_REST_ADJUST)>=45 && (m_sep_angle+m_rest_position-M_REST_ADJUST)<=135){
+      if (m_sep_angle > M_SEP_LOW_LIMIT && (m_rest_position-m_sep_angle-M_REST_ADJUST)>=45 && (m_sep_angle+m_rest_position-M_REST_ADJUST)<=135){
         m_sep_angle -= M_SEP_ADJUST;
         m_displayptr->concatenatePrint( m_sep_angle, "deg" );
       }
@@ -164,10 +164,8 @@ int Menu::mainMenu() {
   while(true) {
     // ------------- NEXT MENU OPTION -------------
     // stepping to the next menu option
-    //cout<<"INLOOP"<<endl;
 
     retVal = m_buttonptr->buttonPress();
-    //cout<<retVal<<endl;
     if (retVal == 1) {
       m_i = m_i - 1;
       if (m_i == -1) {

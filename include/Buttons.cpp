@@ -14,7 +14,7 @@ Buttons::Buttons(State* _stateptr)
    int Buttons::buttonPress()
    {
      int whichButton = 5;
-     while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && whichButton==4)
+     while (m_stateptr->getBuffer()==0 && m_stateptr->getState()==0 && whichButton==5)
      {
        bool debounce = true;
        int b1 = digitalRead(M_BUTTON1);
@@ -64,6 +64,5 @@ Buttons::Buttons(State* _stateptr)
          std::this_thread::sleep_for(std::chrono::milliseconds(500));
        }
      }
-     cout << whichButton << endl;
      return whichButton;
    }

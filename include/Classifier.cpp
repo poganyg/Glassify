@@ -28,8 +28,6 @@ int Classifier::checkMatch(Mat& baseImage, Mat& rollingImage)
 
 int Classifier::classify()
 {
-  while(stateptr->getBuffer()!=0 )
-  {
     //StableBaseline
     baseFrame = cameraptr->capture();
     cvtColor(baseFrame, baseGrey, COLOR_RGB2GRAY);
@@ -48,7 +46,7 @@ int Classifier::classify()
 
       //Updating Clear Threshold
       cCounter = checkMatch(baseGrey, rollingGrey);
-      if(loopNumber<=25)
+      if(loopNumber<=15)
       {
         loopNumber++;
         if (baseClear<cCounter)
@@ -63,7 +61,7 @@ int Classifier::classify()
       inRange(rollingFrame, Scalar(0,50,0), Scalar(30,255,150), brownOut);
       bCounter = cv::sum(brownOut);
 
-      if((gCounter[0]>=100000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=10000 && gCounter[0]>=5*bCounter[0]))
+      if((gCounter[0]>=33000 && gCounter[0]>=bCounter[0]) ||(gCounter[0]>=2500 && gCounter[0]>=5*bCounter[0]))
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
@@ -71,7 +69,7 @@ int Classifier::classify()
         decisionVector[3]=decisionVector[4];
         decisionVector[4]=1;
       }
-      else if((bCounter[0]>=100000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=10000 && bCounter[0]>=5*gCounter[0]))
+      else if((bCounter[0]>=33000 && bCounter[0]>=gCounter[0])||(bCounter[0]>=2500 && bCounter[0]>=5*gCounter[0]))
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
@@ -79,7 +77,7 @@ int Classifier::classify()
         decisionVector[3]=decisionVector[4];
         decisionVector[4]=2;
       }
-      else if(cCounter>=50000 && bCounter[0]<=1000 && gCounter[0]<=1000)
+      else if(cCounter>=7.5*baseClear && bCounter[0]<=1000 && gCounter[0]<=1000)
       {
         decisionVector[0]=decisionVector[1];
         decisionVector[1]=decisionVector[2];
@@ -99,7 +97,6 @@ int Classifier::classify()
       if (decisionVector[4]==decisionVector[0] && decisionVector[3]==decisionVector[0] && decisionVector[2]==decisionVector[0] && decisionVector[1]==decisionVector[0] && decisionVector[2]==decisionVector[1] && decisionVector[0]!=0)
       {
         printf("WritingState %i\n", decisionVector[0]);
-        stateptr->writeState(decisionVector[0]);
         if (decisionVector[0]==1){m_servoptr->moveGreen();}
         if (decisionVector[0]==2){m_servoptr->moveBrown();}
         if (decisionVector[0]==3){m_servoptr->moveClear();}
@@ -109,18 +106,10 @@ int Classifier::classify()
         decisionVector[2]=0;
         decisionVector[3]=0;
         decisionVector[4]=0;
-        if(stateptr->getBuffer()!=0)
-        {
-          if (bufferOn == true){
-            auto end = chrono::steady_clock::now();
-          }
-          auto start = chrono::steady_clock::now();
-        }
-        else
+        if(stateptr->getBuffer()==0)
         {
           return 0;
         }
       }
     }
-  }
 }

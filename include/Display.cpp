@@ -26,7 +26,6 @@ void Display::simplePrint(std::string input)
   const char* cstr = input.c_str();
   lcdClear(M_LCD);
   lcdPuts(M_LCD,cstr);
-  //cout << cstr << endl;
 
 }
 
@@ -38,7 +37,6 @@ void Display::concatenatePrint(int val, std::string input)
   const char* cstr = str.c_str();
   lcdClear(M_LCD);
   lcdPuts(M_LCD, cstr);
-  cout << cstr << endl;
 
 }
 
@@ -49,6 +47,5 @@ void Display::concatenateThreePrint(std::string input, int val, std::string inpu
   const char* cstr = input.c_str();
   lcdClear(M_LCD);
   lcdPuts(M_LCD, cstr);
-  cout << cstr << endl;
 
 }

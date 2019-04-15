@@ -10,11 +10,16 @@
 /**
  * @file libServo.h
  * @author Gergerly Pogany
- * @section DESCRIPTION
- * The Servo class provides all the functions used to control the motor
+ *
+ * 
+ * @brief The Servo class provides all the functions used to control the motor
 */
 /**
  * @brief Provides all functions required for motor control
+ *
+ * Contains all functions to set up motor and those to calibrate it by reading and writing the required values.
+ * This class was derived from Omar Aflaks libServo class but has had many project specific functions and 
+ * alterations added. 
 */
 class Servo
 {

@@ -32,5 +32,5 @@
   void State::bufferDown()
   {
     std::lock_guard<std::mutex> lock(m_bufferMutex);
-    this->m_buffer = this->m_buffer - 1;
+    m_buffer = m_buffer - 1;
   }

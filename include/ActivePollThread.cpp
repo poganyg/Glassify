@@ -18,6 +18,7 @@ void ActivePollThread::run()
     {
       m_stateptr->bufferUp();
       std::this_thread::sleep_for(std::chrono::milliseconds(250));
+      break;
     }
   }
   gpio_fd_close(gpio_fd);

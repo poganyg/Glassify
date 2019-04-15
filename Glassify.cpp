@@ -41,7 +41,6 @@ int main()
   Classifier* classifierptr = &classifier; 	//Sets pointer to classifier
   ClassifierThread classifierThread(classifierptr); //Initialises classifier thread
   MotorThread motorThread(stateptr,servoptr);	 //Initialises motor thread
-  SwitchThread switchThread(stateptr,17); 	//Initialises switch thread
   MenuThread menuThread(menuptr); 		//Initialises menu thread
 
   ActivePollThread activePollThread(stateptr,17); //initialises active polling thread
@@ -50,15 +49,20 @@ int main()
   while(true){
     menuThread.start();
     while(true){
+      cout << "REENTERED" << endl;
+      SwitchThread switchThread(stateptr,17); 	//Initialises switch thread
       switchThread.start();
       switchThread.join();
       classifierThread.start();
+      switchThread.~SwitchThread();
+      while(stateptr->getBuffer()!=0)
+      {
+      ActivePollThread activePollThread(stateptr,17); //initialises active polling
       activePollThread.start();
-
-      classifierThread.join();
-
       activePollThread.join();
-
+      activePollThread.~ActivePollThread();
+      };
+      classifierThread.join();
     }
     menuThread.join();
   }

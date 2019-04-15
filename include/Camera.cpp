@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 Camera::Camera()
-:m_width(64),m_height(64),m_fps(120),m_shutter(10000),m_brightness(50)//default parameters for camera
+:m_width(32),m_height(32),m_fps(120),m_shutter(100000),m_brightness(50)//default parameters for camera
 {
   //Setting up Camera
   CameraDevice.setWidth(m_width);
@@ -23,5 +23,6 @@ Mat Camera::capture()
   CameraDevice.grab();
   CameraDevice.retrieve(tempData);
   Mat data(m_height,m_width,CV_8UC3,tempData);
+  imwrite("data.jpg",data);
   return data;
 }

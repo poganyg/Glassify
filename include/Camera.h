@@ -21,18 +21,22 @@ using namespace cv;
 
 /**
 * @brief Setups camera and enables image capture and retrieval
+*
+*  Class which contains all setup required for the camera such as image hieght 
+*  and width which also contains the function required to capture and store an image. 
 */
 class Camera
 {
-private:
+//private:
 
 public:
  /**
  * @brief Contructor that sets up camera by defining necessary parameters
-*/
+ */
   Camera();
  /**
  * @brief Function which captures the image and assigns it to the variable data
+ * @return data Mat variable which contains an image captured with the camera
  */
   Mat capture();
   raspicam::RaspiCam CameraDevice; //!<instantiates the camera within the class

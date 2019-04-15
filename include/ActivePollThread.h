@@ -14,7 +14,10 @@
 #include "CppThread.h"
 #include "state.h"
 /**
-*@brief Class for polling switch during classification
+*@brief Class for polling entrance switch throughout classification
+* 
+* Class which carries out polling of the switch at the entrance to the system during classification.
+* A buffer is created which represents the number of bu for polling switch during classification
 */
 class ActivePollThread : public CppThread {
 

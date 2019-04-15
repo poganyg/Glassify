@@ -20,7 +20,11 @@
 
 using namespace std;
 /**
-* @brief Initialises and allows wriiting to LCD display
+* @brief Initialises and allows writing to LCD display
+*
+* Contains classes needed to setup the LCD screen and print to it. These functions consist
+* primarily of commands from the wiring Pi library lcd.h coupled with routines to combine 
+* several types of variable into one writable message.
 */
 class Display
 {

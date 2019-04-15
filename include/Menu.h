@@ -32,9 +32,7 @@ class Menu
     Display* m_displayptr;   //!<  instance of display pointer in menu class
     Servo* m_servoptr;       //!<  instance of servo pointer in menu class
     State* m_stateptr;       //!<  instance of state pointer in menu class
-    int M_BUTTON1;          //!<  pin button 1 is located on
-    int M_BUTTON2;          //!<  pin button 2 is located on
-    int M_DEBOUNCE;          //!<  Time taken for debounce
+    int testVector;         //!< testVector for unit tests
     int m_halt_time;          //!< Time that motor will rest after sorting glass
     int m_sep_angle;          //!< Seperation between the rest angle and the position for glass being sorted. This is symmetric on each side.
     int m_rest_position;          //!< Position that the motor stays in by default, also position which clear glass is sorted to
@@ -54,6 +52,7 @@ class Menu
     int b1;                        //!< state of button one
     int b2;                        //!< state of button two
     int retVal;                        //!< return value from buttonPress function
+
 
    /**
      * Constructor which initialises buttons and menu names and collects the calibrated values
