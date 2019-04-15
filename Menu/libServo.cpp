@@ -9,10 +9,8 @@
 using namespace std;
 
 Servo::Servo(int pin)
-  :m_pin(pin),m_brownAngle(45),m_clearAngle(90),m_greenAngle(135)
-//{   int RestPos;
-    //this->pin=pin;
-{   wiringPiSetupGpio();
+  :m_pin(pin)
+{
     pinMode(m_pin, PWM_OUTPUT);
     pwmSetMode(PWM_MODE_MS);
     pwmSetClock(384);
@@ -28,6 +26,9 @@ Servo::Servo(int pin)
     getline (calibFile,line);
     m_SepAngle = std::stoi( line );
     calibFile.close();
+    m_brownAngle=m_clearAngle - m_SepAngle;
+    m_greenAngle=m_clearAngle + m_SepAngle;
+
     cout << m_clearAngle << endl;
     cout << m_HaltTime << endl;
     cout << m_SepAngle << endl;
@@ -60,7 +61,6 @@ m_lastDegree=degree;
 
 void Servo::moveBrown()
 {
-m_brownAngle=m_clearAngle+m_SepAngle;
   Servo::move(m_brownAngle);
 }
 
@@ -76,26 +76,13 @@ Servo::moveCalib(m_clearAngle);
 
 void Servo::moveGreen()
 {
-m_greenAngle=m_clearAngle+m_SepAngle;
   Servo::move(m_greenAngle);
 }
 
-void Servo::setBrown(float brownAngle)
-{
-  this->m_brownAngle=brownAngle;
-  Servo::moveBrown();
-}
-
-void Servo::setClear(float clearAngle)
+void Servo::setRestPosition(float clearAngle)
 {
   this->m_clearAngle=clearAngle;
   Servo::moveClearCalib();
-}
-
-void Servo::setGreen(float greenAngle)
-{
-  this->m_greenAngle=greenAngle;
-  Servo::moveGreen();
 }
 
 int Servo::getRestPosition()
@@ -116,7 +103,8 @@ return this->m_HaltTime;
 void Servo::setSepAngle(float SepAngle)
 {
 this->m_SepAngle=SepAngle;
-Servo::saveCalibValues();
+m_brownAngle=m_clearAngle - m_SepAngle;
+m_greenAngle=m_clearAngle + m_SepAngle;
 }
 
 int Servo::getSepAngle()

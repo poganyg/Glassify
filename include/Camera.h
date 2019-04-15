@@ -1,5 +1,10 @@
-#ifndef CLASSIFIER
-#define CLASSIFIER
+/** @file Camera.h
+ * @brief  A class which intitialises the camera and enables it
+ * to capture images
+ *
+*/
+#ifndef CAMERA
+#define CAMERA
 
 #include <ctime>
 #include <sstream>
@@ -7,44 +12,41 @@
 #include <iostream>
 #include <unistd.h>
 #include <raspicam/raspicam.h>
-#include <opencv2/opencv.hpp>
 #include <stdint.h>
-#include <opencv2/core.hpp>
 #include <wiringPi.h>
-#include "state.h"
-
-using namespace cv;
+#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 using namespace std;
+using namespace cv;
 
-class acquireImage
+/**
+* @brief Setups camera and enables image capture and retrieval
+*
+*  Class which contains all setup required for the camera such as image hieght 
+*  and width which also contains the function required to capture and store an image. 
+*/
+class Camera
 {
-private:
-  int loopNumber = 0;
-  int decisionVector[3];
-  State* stateptr;
-  int m_width; //width of image
-  int m_height;
-  int m_fps;
-  int m_shutter;
-  int m_brightness;
-  raspicam::RaspiCam Camera; //instantiates the camera within the class
-  unsigned char *data;
-  int avg;
-  int counter;
-
-  //Initialise Variables
-  cv::Scalar gCounter; //green counter
-  cv::Scalar bCounter; //brown counter
-  int cCounter; //clear counter
-  Mat greenOut;
-  Mat brownOut;
-
-  int baseClear;
+//private:
 
 public:
-  acquireImage(State* _stateptr);
-  int checkMatch(Mat templateImg, Mat currentImg);
-  int classify();
+ /**
+ * @brief Contructor that sets up camera by defining necessary parameters
+ */
+  Camera();
+ /**
+ * @brief Function which captures the image and assigns it to the variable data
+ * @return data Mat variable which contains an image captured with the camera
+ */
+  Mat capture();
+  raspicam::RaspiCam CameraDevice; //!<instantiates the camera within the class
+  int m_fps; //!< frame rate to be used by the camera
+  int m_shutter; //!< shutter speed to capture images at
+  int m_brightness; //!< brightness of image captured
+  int m_width; //!< width of the image being captured in pixels
+  int m_height;//!< height of image being captured in pixels
+  Mat data; //!< Mat object to which tempData is cast
+  unsigned char *tempData; //!< The array to which the camera outputs
 };
 
 #endif

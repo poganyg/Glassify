@@ -21,9 +21,34 @@ Display::Display()
 {
 }
 
-void Display::write(const char* input)
+void Display::simplePrint(std::string input)
 {
-  wiringPiSetup();
-  int wiringPiSetupGpio (void);
-  lcdPuts(M_LCD,input);
+  const char* cstr = input.c_str();
+  lcdClear(M_LCD);
+  lcdPuts(M_LCD,cstr);
+  cout << cstr << endl;
+
+}
+
+void Display::concatenatePrint(int val, std::string input)
+{
+  std::string str;
+  str += std::to_string(val);
+  str += input;
+  const char* cstr = str.c_str();
+  lcdClear(M_LCD);
+  lcdPuts(M_LCD, cstr);
+  cout << cstr << endl;
+
+}
+
+void Display::concatenateThreePrint(std::string input, int val, std::string input2)
+{
+  input += std::to_string(val);
+  input += input2;
+  const char* cstr = input.c_str();
+  lcdClear(M_LCD);
+  lcdPuts(M_LCD, cstr);
+  cout << cstr << endl;
+  
 }
